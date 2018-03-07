@@ -1,0 +1,104 @@
+type Narrative {
+  roundCount: Number,
+  rounds: Round,
+  characters: Character,
+  uid: String
+}
+
+type Character {
+  uid: String,
+  text: String,
+  attire: String,
+  prompts: Prompt
+}
+
+type Prompt {
+  text: String | Null,
+  answer: String | Null,
+}
+
+type Clue {
+  forCharacter: String
+}
+
+type ClueHint {
+  text: String
+}
+
+type Round {
+  name: String,
+  instructions: Instruction
+  roundId: String
+}
+
+type RoundCharacter {
+  characterId: String,
+  instructions: Instruction,
+  text: String
+}
+
+type Instruction {
+  isOptional: Boolean,
+  text: String,
+  didComplete: Boolean | Null,
+  isClue: Boolean
+}
+
+path /narratives {
+  write() { false }
+}
+
+path /narratives/{narrativeId} is Narrative {}
+
+path /narratives/{narrativeId}/characters/{characterId} is Character {
+  read() { isUserCharacterViaNarrative(narrativeId, characterId) }
+}
+
+path /narratives/{narrativeId}/characters/{characterId}/prompts/{promptId} is Prompt {}
+
+path /narratives/{narrativeId}/rounds/{roundId} is Round {
+  read() { isRoundActiveByNarrative(narrativeId, roundId) }
+}
+
+path /narratives/{narrativeId}/rounds/{roundId}/{characterId} is RoundCharacter {}
+
+path /narratives/{narrativeId}/rounds/{roundId}/{characterId}/instructions/{instructionId} is Instruction {}
+
+path /narratives/{narrativeId}/rounds/{roundId}/clues/{clueId} is Clue {
+  validate() { root.narratives[narrativeId].clues[clueId] !== null }
+}
+
+path /narratives/{narrativeId}/clues/{clueId} is ClueHint {
+  read() { isPartyMasterViaNarrative(narrativeId) }
+}
+
+
+isUserCharacterViaNarrative(narrativeId, characterId) {
+  root.narratives[
+    root.parties[
+      root.users[auth.uid].currentParty
+    ].narrativeId
+  ] !== null
+  &&
+  root.parties[
+    root.users[auth.uid].currentParty
+  ].members[ auth.uid ] === characterId
+}
+
+isCurrentPartyNarrative(narrativeId) {
+  root.parties[
+    root.users[auth.uid].currentParty
+  ].narrativeId === narrativeId
+}
+
+isPartyMasterViaNarrative(narrativeId) {
+  isPartyMaster( root.users[auth.uid].currentParty )
+  &&
+  isCurrentPartyNarrative( narrativeId )
+}
+
+isRoundActiveByNarrative(narrativeId, roundId) {
+  isCurrentPartyByNarrative( narrativeId )
+  &&
+  doesPartyRoundExist( root.users[auth.uid].currentParty, roundId )
+}

@@ -1,0 +1,96 @@
+type Party {
+  name: String,
+  text: String,
+  location: String,
+  time: String,
+  otherNotes: String,
+  narrativeId: String,
+  partyMaster: String,
+  uid: String,
+  members: Object,
+  createdAt: String,
+  createdBy: String,
+  startedAt: String,
+  completedAt: String
+}
+
+path /parties/{partyId} {
+  // TODO - security flaw; narrativeId can be changed
+  write() { isPartyMaster(partyId) }
+  read() { isPartyMaster(partyId) || isPartyMember(partyId) }
+}
+
+path /parties/{partyId}/narrativeId/{narrativeId} {
+  validate() { root.narratives[narrativeId] !== null }
+}
+
+path /parties/{partyId}/members/{userId} {
+  validate() { root.users[userId] !== null }
+}
+
+path /parties/{partyId}/members/{userId}/{characterId} {
+  validate() { root.narratives[ root.parties[partyId].narrativeId ].characters[characterId] !== null }
+}
+
+type PartyCharacter {
+  notes: String
+}
+
+path /partyCharacters/{partyId}/{characterId} is PartyCharacter {
+  validate() { doesPartyExist(partyId) && doesPartyHaveCharacter(partyId, characterId) }
+  write() { isUserCharacter(partyId, characterId) }
+  read() { isUserCharacter(partyId, characterId) }
+}
+
+type PartyRound {
+  createdAt: String
+}
+
+path /partyRounds/{partyId}/{partyRoundId} is PartyRound {
+  validate() { doesPartyExist(partyId) && doesNarrativeRoundExistForParty(partyId, partyRoundId) }
+  write() { isUserPartyMaster(partyId) }
+}
+
+type PartyRoundNotes {
+  text: String,
+  createdAt: String,
+  updatedAt: String
+}
+
+path /partyRoundNotes/{partyId}/{partyRoundId}/{characterId} is PartyRoundNotes {
+  validate() { doesPartyExist(partyId) && doesPartyRoundExist(partyId, partyRoundId) && doesPartyHaveCharacter(partyId, characterId) }
+  write() { isUserCharacter(partyId, characterId) }
+  read() { isUserCharacter(partyId, characterId) }
+}
+
+
+
+doesPartyExist(partyId) {
+  root.parties[partyId] !== null
+}
+
+doesPartyRoundExist(partyId, partyRoundId) {
+  root.partyRounds[partyId][partyRoundId] !== null
+}
+
+doesPartyHaveCharacter(partyId, characterId) {
+  root.narratives[ root.parties[partyId].narrativeId ].characters[characterId] !== null
+}
+
+isPartyMember(partyId) {
+  root.parties[partyId].members[auth.uid] !== null
+}
+
+isUserCharacter(partyId, characterId) {
+  root.parties[partyId].members[auth.uid] === characterId
+}
+
+isUserPartyMaster(partyId) {
+  root.parties[partyId].partyMaster === auth.uid
+}
+
+doesNarrativeRoundExistForParty(partyId, partyRoundId) {
+  root.narratives[
+    root.parties[ partyId ].narrativeId
+  ].rounds[partyRoundId] !== null
+}
