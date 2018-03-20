@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Transition from 'react-motion-ui-pack';
-import { spring } from 'react-motion';
-
 import Icon from '../../Icon';
 
 function onContentClick(e) {
@@ -48,31 +45,16 @@ export default class extends React.Component {
     const { onClose, showClose, children } = this.props;
 
     return (
-      <Transition component={false}
-        enter={{ opacity: 1 }}
-        leave={{ opacity: 0 }}>
-
-        <section key="modal" className={`modal -pop ${this.props.className ? this.props.className : ''}`} onClick={onClose}>
-
-          <Transition
-            component={false}
-            enter={{ scale: spring(1, {stiffness: 300, damping: 20})}}
-            leave={{scale: 0.5}}>
-
-            <div key="modal_content" className="modal-content" onClick={onContentClick}>
-              {children}
-              {showClose &&
-                <div className="modal-close" onClick={onClose}>
-                  <Icon name="close" label="Exit" />
-                </div>
-              }
+      <section key="modal" className={`modal -pop ${this.props.className ? this.props.className : ''}`} onClick={onClose}>
+        <div key="modal_content" className="modal-content" onClick={onContentClick}>
+          {children}
+          {showClose &&
+            <div className="modal-close" onClick={onClose}>
+              <Icon name="close" label="Exit" />
             </div>
-
-          </Transition>
-
-        </section>
-
-      </Transition>
+          }
+        </div>
+      </section>
     );
   }
 }

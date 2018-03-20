@@ -4,7 +4,7 @@ import { IndexRoute, Route, BrowserRouter, Link, Redirect, Switch } from 'react-
 import { ResetPassword, VerifyEmail, Login, Register, Invited } from 'components/Auth'
 
 import NoMatch from './NoMatch'
-import Sandbox from 'components/Sandbox'
+import Sandbox from 'components/Modules/Sandbox'
 
 import MyAccount from 'components/MyAccount'
 
