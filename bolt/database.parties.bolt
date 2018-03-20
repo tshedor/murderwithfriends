@@ -63,6 +63,12 @@ path /partyRoundNotes/{partyId}/{partyRoundId}/{characterId} is PartyRoundNotes 
   read() { isUserCharacter(partyId, characterId) }
 }
 
+path /partyMurderVotes/{partyId}/{characterId}/{voteCount} {
+  validate() { doesPartyExist(partyId) && doesPartyHaveCharacter(partyId, characterId) && voteCount === Number }
+  write() { isPartyMaster(partyId) }
+  read() { isPartyMaster(partyId) }
+}
+
 
 
 doesPartyExist(partyId) {

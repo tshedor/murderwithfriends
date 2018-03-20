@@ -6,9 +6,10 @@ type Narrative {
 }
 
 type Character {
-  uid: String,
+  displayName: String,
   text: String,
   attire: String,
+  relationships: String | Null,
   prompts: Prompt
 }
 
@@ -22,17 +23,18 @@ type Clue {
 }
 
 type ClueHint {
-  text: String
+  text: String,
+  roundId: Number
 }
 
 type Round {
   name: String,
-  instructions: Instruction
-  roundId: String
+  instructions: Instruction,
+  clues: Clue,
+  text: String
 }
 
 type RoundCharacter {
-  characterId: String,
   instructions: Instruction,
   text: String
 }
@@ -40,7 +42,6 @@ type RoundCharacter {
 type Instruction {
   isOptional: Boolean,
   text: String,
-  didComplete: Boolean | Null,
   isClue: Boolean
 }
 
@@ -60,13 +61,11 @@ path /narratives/{narrativeId}/rounds/{roundId} is Round {
   read() { isRoundActiveByNarrative(narrativeId, roundId) }
 }
 
-path /narratives/{narrativeId}/rounds/{roundId}/{characterId} is RoundCharacter {}
+path /narratives/{narrativeId}/rounds/{roundId}/characters/{characterId} is RoundCharacter {}
 
-path /narratives/{narrativeId}/rounds/{roundId}/{characterId}/instructions/{instructionId} is Instruction {}
+path /narratives/{narrativeId}/rounds/{roundId}/characters/{characterId}/instructions/{instructionId} is Instruction {}
 
-path /narratives/{narrativeId}/rounds/{roundId}/clues/{clueId} is Clue {
-  validate() { root.narratives[narrativeId].clues[clueId] !== null }
-}
+path /narratives/{narrativeId}/rounds/{roundId}/characters/{characterId}/clues/{clueId} is Clue {}
 
 path /narratives/{narrativeId}/clues/{clueId} is ClueHint {
   read() { isPartyMasterViaNarrative(narrativeId) }

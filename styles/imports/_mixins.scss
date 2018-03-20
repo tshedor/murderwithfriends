@@ -1,0 +1,139 @@
+// scss-lint:disable VendorPrefixes
+
+// Clearfix
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Throw it your list of css classes without periods and it'll return a z-index or nothing at all if the parent selector is not in the list
+// @example
+//   $list: (
+//     '.modal-bg',
+//     '.modal-content'
+//   );
+//
+//   .modal-bg {
+//     @include stack($list);
+//   }
+@mixin stack($list, $element:false) {
+  $z: false;
+
+  @if $element {
+    $z: z($list, $element);
+  } @else {
+    $parents: &;
+    $target: length($parents);
+    $element: nth($parents, $target);
+    $z: z($list, inspect($element));
+  }
+
+  @if $z {
+    z-index: $z;
+  }
+}
+
+// Media Query Fun
+// Inspired by http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+@mixin bp($name, $breakpoint_list: $breakpoints, $additional_breakpoints...) {
+  $base-query: retrievebp($name, $breakpoint_list);
+
+  // Ensure name exists in breakpoint_list (warning thrown in retrievebp)
+  @if $base-query {
+
+    // Concat extra breakpoints if provided
+    @if($additional_breakpoints) {
+      @each $raw_name in $additional_breakpoints {
+        // Fetch new breakpoint definition
+        $breakpoint: retrievebp($raw_name, $breakpoint_list);
+        // Continue appending to query string
+        $base-query: unquote("#{$base-query} and #{$breakpoint}");
+      }
+    }
+
+    // Finally print
+    @media #{$base-query} {
+      @content;
+    }
+  }
+}
+
+// Style placeholder text at the root level or on an element
+@mixin placeholder {
+
+  @if & {
+
+    &::-webkit-input-placeholder {
+      @content;
+    }
+
+    &::-moz-placeholder {
+      @content;
+    }
+
+    &:-ms-input-placeholder {
+      @content;
+    }
+
+  } @else {
+
+    // scss-lint:disable QualifyingElement
+    ::-moz-placeholder {
+      @content;
+    }
+
+    :-moz-placeholder {
+      @content;
+    }
+
+    ::-webkit-input-placeholder {
+      @content;
+    }
+
+    :-ms-input-placeholder {
+      @content;
+    }
+
+  }
+}
+
+// IE
+@mixin ie($version: '') {
+  @if & {
+    .ie#{unquote($version)} & {
+      @content;
+    }
+  } @else {
+    .ie#{unquote($version)} {
+      @content;
+    }
+  }
+}
+
+// Touch and mobile
+@mixin touch {
+  @if & {
+    .touch & {
+      @content;
+    }
+  } @else {
+    .touch {
+      @content;
+    }
+  }
+}
+
+// Vertically center element
+// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
