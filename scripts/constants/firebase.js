@@ -18,10 +18,46 @@ export const database = firebase.database;
 export const firebaseAuth = firebase.auth;
 
 export const refCurrentUser = (...args) => {
-  const current_user_id = firebaseAuth().currentUser.uid;
-  args.unshift(table.USERS.BASE, current_user_id);
+  const currentUserId = firebaseAuth().currentUser.uid;
+  args.unshift(table.USERS.BASE, currentUserId);
   return refRoot(...args);
 };
+
+export const refMyParties = (...args) => {
+  const currentUserId = firebaseAuth().currentUser.uid;
+  args.unshift(table.USERS.BASE, currentUserId, table.PARTIES.BASE);
+  return refRoot(...args);
+}
+
+export const refPartyMembers = (partyId, ...args) => {
+  args.unshift(table.PARTIES.BASE, partyId, table.PARTIES.MEMBERS);
+  return refRoot(...args);
+};
+
+export const refPartyCharacters = (partyId, ...args) => {
+  args.unshift(table.PARTY_CHARACTERS, partyId);
+  return refRoot(...args);
+};
+
+export const refPartyRounds = (partyId, ...args) => {
+  args.unshift(table.PARTY_ROUNDS, partyId);
+  return refRoot(...args);
+}
+
+export const refPartyRoundNotes = (partyId, ...args) => {
+  args.unshift(table.PARTY_ROUND_NOTES, partyId);
+  return refRoot(...args);
+}
+
+export const refParties = (...args) => {
+  args.unshift(table.PARTIES.BASE);
+  return refRoot(...args);
+}
+
+export const refNarratives = (...args) => {
+  args.unshift(table.NARRATIVES);
+  return refRoot(...args);
+}
 
 export const refRoot = (...args) => {
   return ref.child( args.join('/') );
@@ -31,7 +67,15 @@ export const table = {
   USERS: {
     BASE: 'users',
     INFO: 'info'
-  }
+  },
+  NARRATIVES: 'narratives',
+  NARRATIVE_PREVIEWS: 'narrativePreviews',
+  PARTIES: {
+    BASE: 'parties',
+    MEMBERS: 'members'
+  },
+  PARTY_CHARACTERS: 'partyCharacters',
+  PARTY_ROUNDS: 'partyRounds'
 };
 
 // Firebase doesn't accept certain characters as keys

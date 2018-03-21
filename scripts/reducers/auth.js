@@ -1,6 +1,6 @@
-import * as types from '../constants/action_types';
+import * as types from '../constants/actionTypes';
 
-const initial_state = {
+const initialState = {
   currentUser: {
     displayName: '',
     email: '',
@@ -11,7 +11,7 @@ const initial_state = {
   }
 };
 
-export default function data(state = initial_state, action) {
+export default function data(state = initialState, action) {
   switch(action.type) {
     case types.SET_CURRENT_USER:
       return {
@@ -19,8 +19,8 @@ export default function data(state = initial_state, action) {
         currentUser: action.user
       }
 
-    case types.RESET_NARRATIVE:
-      return initial_state;
+    case types.RESET:
+      return initialState;
 
     default:
       return state;

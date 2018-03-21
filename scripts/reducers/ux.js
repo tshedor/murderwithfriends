@@ -1,6 +1,6 @@
-import * as types from 'constants/action_types'
+import * as types from 'constants/actionTypes'
 
-const initial_state = {
+const initialState = {
   notice: {
     msg: null,
     severity: null, // inactive success error attention delete
@@ -8,7 +8,7 @@ const initial_state = {
   }
 };
 
-export default function data(state = initial_state, action) {
+export default function data(state = initialState, action) {
   switch(action.type) {
     case types.SET_NOTICE:
       return {
@@ -19,17 +19,17 @@ export default function data(state = initial_state, action) {
     case types.CLEAR_NOTICE:
       return {
         ...state,
-        notice: initial_state.notice
+        notice: initialState.notice
       };
 
-    case types.RESET_NARRATIVE:
+    case types.RESET_PARTY:
       return {
         ...state,
         notice: state.notice
       };
 
     case types.RESET:
-      return initial_state;
+      return initialState;
 
     default:
       return state;

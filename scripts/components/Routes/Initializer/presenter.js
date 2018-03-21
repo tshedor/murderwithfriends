@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Loading from 'components/Modules/Routes/Loading';
+import Loading from 'components/Modules/Routes/Loading'
 
 export default class extends React.Component {
   static propTypes = {
-    onInitializeListeners: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    onInitializeListeners: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -14,9 +13,9 @@ export default class extends React.Component {
   }
 
   render() {
-    if (this.props.isLoading) {
-      return <Loading />;
-    }
+    // if (this.props.isLoading) {
+    //   return <Loading />;
+    // }
 
     return null;
   }

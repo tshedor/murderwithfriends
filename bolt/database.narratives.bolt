@@ -1,8 +1,9 @@
 type Narrative {
   roundCount: Number,
-  rounds: Round,
-  characters: Character,
-  uid: String
+  rounds: Round[],
+  characters: Character[],
+  text: String,
+  postscript: String
 }
 
 type Character {
@@ -28,7 +29,7 @@ type ClueHint {
 }
 
 type Round {
-  name: String,
+  displayName: String,
   instructions: Instruction,
   clues: Clue,
   text: String
@@ -70,6 +71,22 @@ path /narratives/{narrativeId}/rounds/{roundId}/characters/{characterId}/clues/{
 path /narratives/{narrativeId}/clues/{clueId} is ClueHint {
   read() { isPartyMasterViaNarrative(narrativeId) }
 }
+
+type NarrativePreview {
+  text: String,
+  characters: NarrativePreviewCharacter[]
+}
+
+type NarrativePreviewCharacter {
+  displayName: String,
+  text: String
+}
+
+path /narrativePreviews {
+  read() { true }
+}
+
+path /narrativePreviews/{narrativeId} is NarrativePreview {}
 
 
 isUserCharacterViaNarrative(narrativeId, characterId) {

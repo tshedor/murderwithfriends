@@ -1,17 +1,19 @@
 type Party {
-  name: String,
-  text: String,
-  location: String,
-  time: String,
-  otherNotes: String,
-  narrativeId: String,
-  partyMaster: String,
-  uid: String,
-  members: Object,
-  createdAt: String,
-  createdBy: String,
-  startedAt: String,
-  completedAt: String
+  displayName: String | Null,
+  text: String | Null,
+  location: String | Null,
+  time: String | Null,
+  otherNotes: String | Null,
+  narrativeId: String | Null,
+  partyMaster: String | Null,
+  characters: Object | Null,
+  members: Object | Null,
+  createdAt: String | Null,
+  createdBy: String | Null,
+  updatedAt: String | Null,
+  updatedBy: String | Null,
+  startedAt: String | Null,
+  completedAt: String | Null
 }
 
 path /parties/{partyId} {
@@ -24,21 +26,24 @@ path /parties/{partyId}/narrativeId/{narrativeId} {
   validate() { root.narratives[narrativeId] !== null }
 }
 
-path /parties/{partyId}/members/{userId} {
-  validate() { root.users[userId] !== null }
+path /parties/{partyId}/members/{partyMemberId}/{characterId} {
+  validate() { root.narratives[ root.parties[partyId].narrativeId ].characters[characterId] !== null }
 }
 
-path /parties/{partyId}/members/{userId}/{characterId} {
+path /parties/{partyId}/characters/{characterId}/{partyMemberId} {
   validate() { root.narratives[ root.parties[partyId].narrativeId ].characters[characterId] !== null }
 }
 
 type PartyCharacter {
+  partyMemberId: String,
+  partyMemberName: String,
+  promptAnswers: String[],
   notes: String
 }
 
 path /partyCharacters/{partyId}/{characterId} is PartyCharacter {
   validate() { doesPartyExist(partyId) && doesPartyHaveCharacter(partyId, characterId) }
-  write() { isUserCharacter(partyId, characterId) }
+  write() { isUserPartyMaster(partyId) || isUserCharacter(partyId, characterId) }
   read() { isUserCharacter(partyId, characterId) }
 }
 
@@ -57,8 +62,8 @@ type PartyRoundNotes {
   updatedAt: String
 }
 
-path /partyRoundNotes/{partyId}/{partyRoundId}/{characterId} is PartyRoundNotes {
-  validate() { doesPartyExist(partyId) && doesPartyRoundExist(partyId, partyRoundId) && doesPartyHaveCharacter(partyId, characterId) }
+path /partyRoundNotes/{partyId}/{partyRoundId}/{partyMemberId} is PartyRoundNotes {
+  validate() { doesPartyExist(partyId) && doesPartyRoundExist(partyId, partyRoundId) && doesPartyHaveMember(partyId, partyMemberId) }
   write() { isUserCharacter(partyId, characterId) }
   read() { isUserCharacter(partyId, characterId) }
 }
@@ -79,11 +84,15 @@ doesPartyRoundExist(partyId, partyRoundId) {
   root.partyRounds[partyId][partyRoundId] !== null
 }
 
-doesPartyHaveCharacter(partyId, characterId) {
-  root.narratives[ root.parties[partyId].narrativeId ].characters[characterId] !== null
+doesPartyHaveMember(partyId, partyMemberId) {
+  root.parties[partyId].members[partyMemberId] !== null
 }
 
-isPartyMember(partyId) {
+doesPartyHaveCharacter(partyId, characterId) {
+  root.narratives[ root.parties[partyId].narrativeId ].characters[partyMemberId] !== null
+}
+
+isPartyMember(partyId)
   root.parties[partyId].members[auth.uid] !== null
 }
 

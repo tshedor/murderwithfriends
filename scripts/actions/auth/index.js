@@ -1,9 +1,9 @@
-import * as types from 'constants/action_types';
-import { firebaseAuth, refRoot, table, refCurrentUser } from 'constants/firebase';
+import * as types from 'constants/actionTypes'
+import { firebaseAuth, refRoot, table, refCurrentUser } from 'constants/firebase'
 
-import { updatePassword, onAuthStateChanged } from 'utils/auth';
+import { updatePassword, onAuthStateChanged } from 'utils/auth'
 
-import { loadCurrentNarrative, getNarratives } from './narratives';
+import initializeAfterUserAuth from './initializer'
 
 /**
  * MARK: Firebase + Redux
@@ -12,11 +12,12 @@ import { loadCurrentNarrative, getNarratives } from './narratives';
 export const initializeListeners = () => (dispatch, getState) => {
   // Clear redux when you login/logout
   // TODO - maybe only necessary when you logout
-  onAuthStateChanged(user => dispatch( resetAll() ));
-
-  dispatch( loadCurrentNarrative() );
-  dispatch( getNarratives() );
-  dispatch( getSuperAdmins() );
+  onAuthStateChanged(user => {
+    dispatch( resetAll() )
+    if (user) {
+      dispatch( initializeAfterUserAuth() );
+    }
+  });
 };
 
 /**

@@ -101,7 +101,9 @@ module.exports = {
     }),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
+  // context: __dirname, // https://stackoverflow.com/a/40439897
   node: {
+    __dirname: true,
     dgram: 'empty',
     fs: 'empty',
     net: 'empty',

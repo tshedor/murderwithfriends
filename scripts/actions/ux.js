@@ -1,4 +1,4 @@
-import * as types from '../constants/action_types';
+import * as types from '../constants/actionTypes';
 
 import { refNarrative, table } from '../constants/firebase';
 

@@ -17,3 +17,11 @@ export function cleanCurrency(value) {
 
   return parseFloat( value.replace(/\$/g, '').trim(), 10 );
 }
+
+export const makeReduxUpdaterFromRef = (ref, action, dispatch) => {
+  ref.off();
+  return ref.on('value', snapshot => {
+    const val = snapshot.val() || {};
+    dispatch( action(val) );
+  });
+};

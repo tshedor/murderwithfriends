@@ -12,6 +12,13 @@ import Initializer from './Initializer'
 import PrivateRoute from 'components/Modules/Routes/PrivateRoute'
 import NarrativeRoute from './NarrativeRoute'
 
+import PartyIndex from 'components/Parties/Index'
+import PartyShow from 'components/Parties/Show'
+import PartyNew from 'components/Parties/New'
+
+import CharacterIndex from 'components/Characters/Index'
+import CharacterShow from 'components/Characters/Show'
+
 import { onAuthStateChanged } from 'utils/auth'
 
 export default class extends React.Component {
@@ -51,9 +58,9 @@ export default class extends React.Component {
             <Initializer />
           }
           <Switch>
-            <Route path="/" exact render={() => authed ? <Redirect to="/my-narrative" /> : <Redirect to="/login" />} />
+            <Route path="/" exact render={() => authed ? <Redirect to="/parties" /> : <Redirect to="/login" />} />
 
-            <Route path="/login" exact render={() => authed ? <Redirect to="/my-narrative" /> : <Login /> } />
+            <Route path="/login" exact render={() => authed ? <Redirect to="/parties" /> : <Login /> } />
             <Route path="/invited" exact component={Invited} />
             <Route path="/verify-email" component={VerifyEmail} />
             <Route path="/email-actions" exact render={EmailActionHandler} />
@@ -62,11 +69,15 @@ export default class extends React.Component {
 
             {/* <PrivateRoute {...private_props} path="/sandbox" component={Sandbox} /> */}
 
-            <NarrativeRoute {...private_props} title="Settings" path="/my-narrative/settings" component={NarrativeSettings} />
+            <PrivateRoute {...private_props} title="Parties" path="/parties" component={PartyIndex} />
 
-            <PrivateRoute {...private_props} title="My Narratives" path="/my-narratives" component={AllNarratives} />
+            <PartyRoute title="My Party" path="/parties/:partyId" component={PartyShow} />
+            <PartyPlayerRoute title="My Character" path="/parties/:partyId/:playerId" component={CharacterShow} />
+            <PartyRoute title="All Characters" path="/parties/:partyId/characters" component={CharacterIndex} />
+
+            <PrivateRoute {...private_props} title="New Party" path="/parties/new" component={PartyNew} />
+
             <PrivateRoute {...private_props} title="My Account" path="/my-account" component={MyAccount} />
-            <PrivateRoute {...private_props} title="New Narrative" path="/create-narrative" component={CreateNarrative} />
             <Route component={NoMatch} status={404} />
           </Switch>
         </React.Fragment>
