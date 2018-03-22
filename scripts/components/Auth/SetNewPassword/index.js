@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { login, confirmPasswordReset, verifyPasswordResetCode } from 'utils/auth';
-import {password as passwordMessaging, authErrors } as messaging from 'constants/messaging';
+import {password as passwordMessaging, authErrors } from 'constants/messaging';
 
 import { PageTitle } from 'components/Headers';
 import { PasswordInput } from 'components/Modules/Inputs';

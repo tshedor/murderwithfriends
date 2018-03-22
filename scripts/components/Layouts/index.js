@@ -1,5 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export const FullWithTitle = title => (
-  <h1>{title}</h1>
+import { PageTitle } from 'components/Headers'
+
+export const FullWithTitle = ({children}) => (
+  <div>
+    {children}
+  </div>
 );
+
+FullWithTitle.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element)
+  ]).isRequired
+};

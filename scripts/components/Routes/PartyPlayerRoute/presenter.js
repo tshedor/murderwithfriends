@@ -5,7 +5,9 @@ import PrivateRoute from 'components/Modules/Routes/PrivateRoute'
 
 export default ({isPlayerInParty, title, dispatch, ...props}) => {
   if (isPlayerInParty === true) {
-    return <Route title={`${title} | The Party`} {...props} />
+    document.title = `${title} | Murder with Friends`;
+
+    return <component {...props} />
   } else {
     return <Redirect to='/parties' />
   }

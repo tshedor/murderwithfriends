@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { handleNewProfileData } from 'actions/auth';
 import { deleteUser } from 'utils/auth';
-import { password as passwordMessaging } from 'constants/messaging';
+import { password as passwordMessaging, authErrors } from 'constants/messaging';
 
 import { TextInput, PasswordInput, EmailInput } from 'components/Modules/Inputs';
 import { SuccessErrorNotice } from 'components/Modules/Notices';

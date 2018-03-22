@@ -21,7 +21,6 @@ export default class extends React.Component {
 
   componentDidMount() {
     document.title = 'Email Verification | Murder with Friends';
-    analytics.page();
 
     if (this.props.oobCode) {
       applyActionCode(this.props.oobCode)

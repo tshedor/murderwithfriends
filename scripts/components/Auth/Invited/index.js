@@ -29,7 +29,6 @@ export default class extends React.Component {
     }
 
     document.title = 'Welcome | Murder with Friends'
-    analytics.page('Invited');
 
     login(decodeURIComponent(e), p)
       .then(() => this.setState({authed: true}))

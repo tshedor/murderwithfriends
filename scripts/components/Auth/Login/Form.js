@@ -5,22 +5,17 @@ import PropTypes from 'prop-types';
 import { login } from 'utils/auth';
 import { login as loginMessaging } from 'constants/messaging';
 
-import { EmailInput, PasswordInput } from '../../Inputs';
+import { EmailInput, PasswordInput } from 'components/Modules/Inputs';
 
 export default class extends React.Component {
   state = {
     errorMsg: null
   }
 
-  static propTypes = {
-    onSuccess: PropTypes.func.isRequired
-  }
-
   handleSubmit = e => {
     e.preventDefault();
 
     login(this.email.value, this.password.value)
-      .then(this.props.onSuccess)
       .catch(error => this.setState({errorMsg: loginMessaging(error)}) );
   }
 

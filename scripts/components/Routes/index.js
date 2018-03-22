@@ -3,14 +3,16 @@ import { IndexRoute, Route, BrowserRouter, Link, Redirect, Switch } from 'react-
 
 import { ResetPassword, VerifyEmail, Login, Register, Invited } from 'components/Auth'
 
-import NoMatch from './NoMatch'
+import { EmailActionHandler, NoMatch, PrivateRoute, PublicRoute } from 'components/Modules/Routes'
+
+import PartyRoute from './PartyRoute'
+import PartyPlayerRoute from './PartyPlayerRoute'
+
 import Sandbox from 'components/Modules/Sandbox'
 
 import MyAccount from 'components/MyAccount'
 
 import Initializer from './Initializer'
-import PrivateRoute from 'components/Modules/Routes/PrivateRoute'
-import NarrativeRoute from './NarrativeRoute'
 
 import PartyIndex from 'components/Parties/Index'
 import PartyShow from 'components/Parties/Show'
@@ -52,8 +54,7 @@ export default class extends React.Component {
 
     return (
       <BrowserRouter>
-        <React.Fragment>
-          <GlobalNav authed={authed} />
+        <div>
           { authed &&
             <Initializer />
           }
@@ -80,7 +81,7 @@ export default class extends React.Component {
             <PrivateRoute {...private_props} title="My Account" path="/my-account" component={MyAccount} />
             <Route component={NoMatch} status={404} />
           </Switch>
-        </React.Fragment>
+        </div>
       </BrowserRouter>
     );
   }

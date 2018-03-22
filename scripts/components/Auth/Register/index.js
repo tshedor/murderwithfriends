@@ -23,14 +23,6 @@ export default class extends React.Component {
       .then(user => {
         updateCurrentUserAccount({ displayName: this.displayName.value });
 
-        analytics.identify(user.uid, {
-          createdAt: moment.utc().format(),
-          name: this.displayName.value,
-          email: user.email,
-          phone: user.phoneNumber,
-          avatar: user.photoURL
-        });
-
         return sendEmailVerification();
       })
 
@@ -58,7 +50,7 @@ export default class extends React.Component {
             inputRef={val => this.displayName = val} />
           <EmailInput
             label="Email"
-            placeholder="goingtothechapel@andimgoingtowedfuly.com"
+            placeholder="whatever@whatever.com"
             required={true}
             inputRef={val => this.email = val} />
           <PasswordInput
@@ -66,9 +58,6 @@ export default class extends React.Component {
             required={true}
             inputRef={val => this.password = val} />
 
-          <small>By signing up, you agree to the Murder with Friends (operated by Feiern LLC)<br /><a href="https://wedfuly.com/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a href="https://wedfuly.com/privacy-policy">Privacy Policy</a>.</small>
-          <br />
-          <br />
           <input type="submit" value="Sign Up" className="button -right" />
         </form>
       </FullWithTitle>

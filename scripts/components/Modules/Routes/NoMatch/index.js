@@ -5,7 +5,6 @@ import { FullWithTitle } from 'components/Layouts';
 
 export default () => {
   document.title = 'Page Not Found | Murder with Friends';
-  analytics.page('404');
 
   return (
     <FullWithTitle>

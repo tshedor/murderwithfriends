@@ -1,15 +1,25 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import { loadCurrentNarrative } from '../../../actions/narratives';
+import { PageTitle } from 'components/Headers';
+import { FullWithTitle } from 'components/Layouts';
+import Form from './Form';
 
-import Presenter from './presenter';
+export default class extends React.Component {
+  componentDidMount() {
+    document.title = 'Login | Murder with Friends';
+  }
 
-function mapDispatchToProps(dispatch, ownProps) {
-  return {
-    loadCurrentNarrative: bindActionCreators(loadCurrentNarrative, dispatch)
-  };
-}
+  render() {
+    return (
+      <FullWithTitle>
+        <PageTitle title="Login">
+          Always good to see a familiar email.<br />Not familiar? <Link to="/sign-up">Sign up here</Link>.
+        </PageTitle>
 
-const Main = connect(null, mapDispatchToProps)(Presenter);
-export default Main;
+        <Form />
+      </FullWithTitle>
+    );
+  }
+};

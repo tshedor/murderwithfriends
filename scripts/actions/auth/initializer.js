@@ -1,5 +1,5 @@
-import { firebaseAuth, refRoot, refParties, refMyParties, table } from '../constants/firebase'
-import * as types from '../constants/actionTypes'
+import { firebaseAuth, refRoot, refParties, refMyParties, table } from 'constants/firebase'
+import * as types from 'constants/actionTypes'
 
 // Store listeners here so that they can be retrieved and iterated over when unbound
 let on_listeners = [];
