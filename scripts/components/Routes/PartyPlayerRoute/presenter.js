@@ -1,13 +1,20 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
 
 export default class extends React.Component {
-  componentDidMount() {
-    if (this.props.isPlayerInParty === true) {
+  state = {
+    didFire: false
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.state.didFire) return;
+
+    if (nextProps.isPlayerInParty === true) {
       this.props.onSetCurrentParty();
       this.props.onSetCurrentPartyPlayer();
 
       document.title = `${this.props.title} | Murder with Friends`;
+
+      this.setState({ didFire: true });
     }
   }
 
@@ -17,7 +24,7 @@ export default class extends React.Component {
     if (isPlayerInParty === true) {
       return <Component />
     } else {
-      return <Redirect to="/parties" />
+      return "You're not supposed to be here"
     }
   }
 }

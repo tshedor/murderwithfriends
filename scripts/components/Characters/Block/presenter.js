@@ -4,23 +4,32 @@ import PropTypes from 'prop-types'
 import Icon from 'components/Modules/Icon'
 import Prompts from 'components/Characters/Prompts'
 
-const Presenter = ({ character, characterId, children }) => (
-  <div className="character">
-    {character.text}
+const Presenter = ({ character, characterId, children }) => {
+  if (!character) {
+    return null;
+  }
 
-    <ul>
-      <li><Icon name="attire" /> {character.attire}</li>
-      <li><Icon name="user" /> {character.relationships}</li>
-      <li><Prompts characterId={characterId} /></li>
-    </ul>
+  return (
+    <div className="character">
+      <h3>{character.displayName}</h3>
+      {character.text}
 
-    { children || null }
-  </div>
-);
+      <ul>
+        <li><Icon name="attire" /> {character.attire}</li>
+        { character.relationships &&
+          <li><Icon name="user" /> {character.relationships}</li>
+        }
+        <li><Prompts characterId={characterId} /></li>
+      </ul>
+
+      { children || null }
+    </div>
+  )
+};
 
 Presenter.propTypes = {
   characterId: PropTypes.string.isRequired,
-  character: PropTypes.object.isRequired,
+  character: PropTypes.object,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.element,

@@ -7,7 +7,13 @@ import Presenter from './presenter'
 
 function mapStateToProps(state) {
   return {
-    party: state.parties.currentParty
+    party: state.parties.currentParty,
+    isPartyMaster: true,
+    currentRound: state.parties.currentRound,
+    clues: state.narratives.currentNarrative.clues,
+    characters: state.narratives.currentNarrative.characters,
+    partyCharacters: state.parties.characters,
+    currentPartyUid: state.parties.currentPartyUid
   };
 }
 

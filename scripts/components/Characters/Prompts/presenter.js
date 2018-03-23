@@ -6,14 +6,18 @@ import Icon from 'components/Modules/Icon'
 
 export default class extends React.Component {
   static propTypes = {
-    prompts: PropTypes.object,
-    answers: PropTypes.object,
+    prompts: PropTypes.array,
+    answers: PropTypes.array,
     isCharacter: PropTypes.bool.isRequired
   }
 
   static displayName = __dirname.replace('scripts/components/', '')
 
   promptAnswers = {}
+
+  static defaultProps = {
+    answers: []
+  }
 
   handlePromptAnswer = e => {
     Object.keys(this.promptAnswers).forEach(key => {
@@ -27,9 +31,9 @@ export default class extends React.Component {
     return (
       <ul>
         {Object.keys(prompts).map(key =>
-          <li>
+          <li key={key}>
             <Icon name="help" />
-            {prompts[key].text}:
+            {prompts[key]}:
 
             {isCharacter ? (
               <TextInput

@@ -50,7 +50,7 @@ export const refPartyRoundNotes = (partyId, ...args) => {
 };
 
 export const refParty = (partyId, ...args) => {
-  args.unshift(table.PARTIES.BASE);
+  args.unshift(table.PARTIES.BASE, partyId);
   return refRoot(...args);
 };
 

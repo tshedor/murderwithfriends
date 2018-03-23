@@ -2,11 +2,19 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 
 export default class extends React.Component {
-  componentDidMount() {
-    if (this.props.hasParty === true) {
+  state = {
+    didFireParty: false
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.state.didFireParty) return;
+
+    if (nextProps.hasParty === true) {
       this.props.onSetCurrentParty();
 
       document.title = `${this.props.title} | Murder with Friends`;
+
+      this.setState({ didFireParty: true });
     }
   }
 
@@ -16,7 +24,7 @@ export default class extends React.Component {
     if (hasParty === true) {
       return <Component />
     } else {
-      return <Redirect to="/parties" />
+      return 'No Party here'
     }
   }
 }

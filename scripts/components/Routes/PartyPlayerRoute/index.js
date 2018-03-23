@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 
 import { makeHasPlayerId } from 'selectors/parties'
-import { load, setCurrentPartyPlayer } from 'actions/parties'
+import { load } from 'actions/parties'
+import { setCurrentPartyPlayer } from 'actions/characters'
 
 import Presenter from './presenter'
 

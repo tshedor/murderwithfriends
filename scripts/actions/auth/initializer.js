@@ -21,7 +21,7 @@ function generateListeners(dispatch) {
 
             dispatch( receiveParty( party ) );
 
-            refNarratives(party.narrativeId).once('value').then(narrativeSnap => {
+            refNarratives(party[partyId].narrativeId).once('value').then(narrativeSnap => {
               const narrative = { [narrativeSnap.key]: narrativeSnap.val() || {} };
 
               dispatch( receiveNarrative(narrative) );
