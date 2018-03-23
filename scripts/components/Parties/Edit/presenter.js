@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import PartyForm from '../Form'
 
-const Presenter = ({ onCreate, narrativeId }) => <PartyForm narrativeId={narrativeId} onSubmit={onCreate} />;
+const Presenter = ({ onEdit, narrativeId }) => <PartyForm narrativeId={narrativeId} onSubmit={onEdit} />;
 
 Presenter.propTypes = {
-  onCreate: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
   narrativeId: PropTypes.string.isRequired
 };
 

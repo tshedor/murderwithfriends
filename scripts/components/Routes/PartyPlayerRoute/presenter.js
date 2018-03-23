@@ -1,14 +1,23 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
-import PrivateRoute from 'components/Modules/Routes/PrivateRoute'
+export default class extends React.Component {
+  componentDidMount() {
+    if (this.props.isPlayerInParty === true) {
+      this.props.onSetCurrentParty();
+      this.props.onSetCurrentPartyPlayer();
 
-export default ({isPlayerInParty, title, dispatch, ...props}) => {
-  if (isPlayerInParty === true) {
-    document.title = `${title} | Murder with Friends`;
+      document.title = `${this.props.title} | Murder with Friends`;
+    }
+  }
 
-    return <component {...props} />
-  } else {
-    return <Redirect to='/parties' />
+  render() {
+    const { component: Component, isPlayerInParty } = this.props;
+
+    if (isPlayerInParty === true) {
+      return <Component />
+    } else {
+      return <Redirect to="/parties" />
+    }
   }
 }

@@ -41,21 +41,6 @@ EmailInput.propTypes = default_input_types;
 export const PasswordInput = props => <BasicInput type="password" {...props} />
 PasswordInput.propTypes = default_input_types;
 
-export const CurrencyInput = ({label, error, inputRef, children, ...res}) => (
-  <fieldset>
-    { label &&
-      <label>{label}</label>
-    }
-    <div className="currency-input">
-      <Icon name="budget" />
-      <input type="number" ref={inputRef} {...res} />
-    </div>
-    {!!children && children}
-    <div className="input-error">{error}</div>
-  </fieldset>
-);
-CurrencyInput.propTypes = default_input_types;
-
 export const CheckboxInput = ({label, inputRef, onClick, options, ...res}) => (
   <fieldset className="toggle">
     <label onClick={onClick}>

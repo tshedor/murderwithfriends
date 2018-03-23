@@ -1,10 +1,10 @@
-import { firebaseAuth, refRoot, refParties, refMyParties, table } from 'constants/firebase'
+import { firebaseAuth, refRoot, refParties, refMyParties, table, refNarratives } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
 // Store listeners here so that they can be retrieved and iterated over when unbound
 let on_listeners = [];
 
-function generateListeners(partyId, dispatch) {
+function generateListeners(dispatch) {
   return [
     {
       ref: refRoot(table.NARRATIVE_PREVIEWS),
@@ -21,7 +21,7 @@ function generateListeners(partyId, dispatch) {
 
             dispatch( receiveParty( party ) );
 
-            refNarratives(data.narrativeId).then(narrativeSnap => {
+            refNarratives(party.narrativeId).once('value').then(narrativeSnap => {
               const narrative = { [narrativeSnap.key]: narrativeSnap.val() || {} };
 
               dispatch( receiveNarrative(narrative) );
@@ -49,7 +49,7 @@ function receiveNarrative(narrative) {
 
 function receiveParty(party) {
   return {
-    types: type.RECEIVE_PARTY,
+    type: types.RECEIVE_PARTY,
     party
   };
 }

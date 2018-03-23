@@ -18,6 +18,8 @@ import PartyIndex from 'components/Parties/Index'
 import PartyShow from 'components/Parties/Show'
 import PartyNew from 'components/Parties/New'
 
+import NarrativeIndex from 'components/Narratives/Index'
+
 import CharacterIndex from 'components/Characters/Index'
 import CharacterShow from 'components/Characters/Show'
 
@@ -54,7 +56,7 @@ export default class extends React.Component {
 
     return (
       <BrowserRouter>
-        <div>
+        <React.Fragment>
           { authed &&
             <Initializer />
           }
@@ -70,18 +72,16 @@ export default class extends React.Component {
 
             {/* <PrivateRoute {...private_props} path="/sandbox" component={Sandbox} /> */}
 
-            <PrivateRoute {...private_props} title="Parties" path="/parties" component={PartyIndex} />
-
-            <PartyRoute title="My Party" path="/parties/:partyId" component={PartyShow} />
-            <PartyPlayerRoute title="My Character" path="/parties/:partyId/:playerId" component={CharacterShow} />
             <PartyRoute title="All Characters" path="/parties/:partyId/characters" component={CharacterIndex} />
-
-            <PrivateRoute {...private_props} title="New Party" path="/parties/new" component={PartyNew} />
+            <PrivateRoute {...private_props} title="New Party" path="/parties/new" component={NarrativeIndex} />
+            <PartyPlayerRoute title="My Character" path="/parties/:partyId/:playerId" component={CharacterShow} />
+            <PartyRoute title="My Party" path="/parties/:partyId" component={PartyShow} />
+            <PrivateRoute {...private_props} title="Parties" path="/parties" component={PartyIndex} />
 
             <PrivateRoute {...private_props} title="My Account" path="/my-account" component={MyAccount} />
             <Route component={NoMatch} status={404} />
           </Switch>
-        </div>
+        </React.Fragment>
       </BrowserRouter>
     );
   }

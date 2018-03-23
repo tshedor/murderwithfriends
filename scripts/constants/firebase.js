@@ -27,10 +27,10 @@ export const refMyParties = (...args) => {
   const currentUserId = firebaseAuth().currentUser.uid;
   args.unshift(table.USERS.BASE, currentUserId, table.PARTIES.BASE);
   return refRoot(...args);
-}
+};
 
-export const refPartyMembers = (partyId, ...args) => {
-  args.unshift(table.PARTIES.BASE, partyId, table.PARTIES.MEMBERS);
+export const refPartyPlayers = (partyId, ...args) => {
+  args.unshift(table.PARTIES.BASE, partyId, table.PARTIES.PLAYERS);
   return refRoot(...args);
 };
 
@@ -42,12 +42,17 @@ export const refPartyCharacters = (partyId, ...args) => {
 export const refPartyRounds = (partyId, ...args) => {
   args.unshift(table.PARTY_ROUNDS, partyId);
   return refRoot(...args);
-}
+};
 
 export const refPartyRoundNotes = (partyId, ...args) => {
   args.unshift(table.PARTY_ROUND_NOTES, partyId);
   return refRoot(...args);
-}
+};
+
+export const refParty = (partyId, ...args) => {
+  args.unshift(table.PARTIES.BASE);
+  return refRoot(...args);
+};
 
 export const refParties = (...args) => {
   args.unshift(table.PARTIES.BASE);
@@ -72,7 +77,7 @@ export const table = {
   NARRATIVE_PREVIEWS: 'narrativePreviews',
   PARTIES: {
     BASE: 'parties',
-    MEMBERS: 'members'
+    PLAYERS: 'players'
   },
   PARTY_CHARACTERS: 'partyCharacters',
   PARTY_ROUNDS: 'partyRounds'

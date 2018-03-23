@@ -45,7 +45,7 @@ export default class extends React.Component {
 
           <TextInput
             label="Name"
-            placeholder="The Better Half"
+            placeholder="Schmitty Werber Wegermanjensen"
             required={true}
             inputRef={val => this.displayName = val} />
           <EmailInput

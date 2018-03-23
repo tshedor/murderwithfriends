@@ -4,7 +4,9 @@ const initialState = {
   all: {},
   currentParty: {},
   currentPartyUid: null,
-  members: {},
+  currentCharacterUid: null,
+  currentPlayerUid: null,
+  players: {},
   characters: {},
   rounds: {},
   currentRound: -1
@@ -25,13 +27,20 @@ export default function data(state = initialState, action) {
       return {
         ...state,
         currentParty: action.party,
-        currentPartyUid: action.partyId
+        currentPartyUid: action.partyId,
       };
 
-    case types.RECEIVE_PARTY_MEMBERS:
+    case types.SET_CURRENT_PARTY_PLAYER:
       return {
         ...state,
-        members: action.members
+        currentPlayerUid: action.playerId,
+        currentCharacterUid: state.all[ action.partyId ]?.players[ action.playerId ]
+      };
+
+    case types.RECEIVE_PARTY_PLAYERS:
+      return {
+        ...state,
+        players: action.players
       };
 
     case types.RECEIVE_PARTY_CHARACTERS:

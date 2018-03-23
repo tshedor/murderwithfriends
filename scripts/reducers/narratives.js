@@ -27,6 +27,7 @@ export default function data(state = initialState, action) {
       return {
         ...state,
         currentNarrative: {
+          uid: action.party.narrativeId,
           ...state.all[action.party.narrativeId]
         }
       };

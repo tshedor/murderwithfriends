@@ -9,6 +9,6 @@ export default ({component, authed, title, ...res}) => {
   if (authed) {
     return <Redirect to="/parties" />
   } else {
-    return <Route component={component} {...props} />
+    return <Route component={component} {...res} />
   }
 }

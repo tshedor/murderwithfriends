@@ -7,7 +7,7 @@ type Party {
   narrativeId: String | Null,
   partyMaster: String | Null,
   characters: Object | Null,
-  members: Object | Null,
+  players: Object | Null,
   createdAt: String | Null,
   createdBy: String | Null,
   updatedAt: String | Null,
@@ -19,29 +19,28 @@ type Party {
 path /parties/{partyId} {
   // TODO - security flaw; narrativeId can be changed
   write() { isPartyMaster(partyId) }
-  read() { isPartyMaster(partyId) || isPartyMember(partyId) }
+  read() { isPartyMaster(partyId) || isPartyPlayer(partyId) }
 }
 
 path /parties/{partyId}/narrativeId/{narrativeId} {
   validate() { root.narratives[narrativeId] !== null }
 }
 
-path /parties/{partyId}/members/{partyMemberId}/{characterId} {
+path /parties/{partyId}/players/{partyPlayerId}/{characterId} {
   validate() { root.narratives[ root.parties[partyId].narrativeId ].characters[characterId] !== null }
 }
 
-path /parties/{partyId}/characters/{characterId}/{partyMemberId} {
+path /parties/{partyId}/characters/{characterId}/{partyPlayerId} {
   validate() { root.narratives[ root.parties[partyId].narrativeId ].characters[characterId] !== null }
 }
 
 type PartyCharacter {
-  partyMemberId: String,
-  partyMemberName: String,
+  partyPlayerId: String,
+  partyPlayerName: String,
   promptAnswers: String[],
-  notes: String
 }
 
-path /partyCharacters/{partyId}/{characterId} is PartyCharacter {
+path /partyCharacters/{partyId}/{playerId} is PartyCharacter {
   validate() { doesPartyExist(partyId) && doesPartyHaveCharacter(partyId, characterId) }
   write() { isUserPartyMaster(partyId) || isUserCharacter(partyId, characterId) }
   read() { isUserCharacter(partyId, characterId) }
@@ -62,8 +61,8 @@ type PartyRoundNotes {
   updatedAt: String
 }
 
-path /partyRoundNotes/{partyId}/{partyRoundId}/{partyMemberId} is PartyRoundNotes {
-  validate() { doesPartyExist(partyId) && doesPartyRoundExist(partyId, partyRoundId) && doesPartyHaveMember(partyId, partyMemberId) }
+path /partyRoundNotes/{partyId}/{partyPlayerId}/{partyRoundId} is PartyRoundNotes {
+  validate() { doesPartyExist(partyId) && doesPartyRoundExist(partyId, partyRoundId) && doesPartyHavePlayer(partyId, partyPlayerId) }
   write() { isUserCharacter(partyId, characterId) }
   read() { isUserCharacter(partyId, characterId) }
 }
@@ -84,20 +83,20 @@ doesPartyRoundExist(partyId, partyRoundId) {
   root.partyRounds[partyId][partyRoundId] !== null
 }
 
-doesPartyHaveMember(partyId, partyMemberId) {
-  root.parties[partyId].members[partyMemberId] !== null
+doesPartyHavePlayer(partyId, partyPlayerId) {
+  root.parties[partyId].players[partyPlayerId] !== null
 }
 
 doesPartyHaveCharacter(partyId, characterId) {
-  root.narratives[ root.parties[partyId].narrativeId ].characters[partyMemberId] !== null
+  root.narratives[ root.parties[partyId].narrativeId ].characters[partyPlayerId] !== null
 }
 
-isPartyMember(partyId)
-  root.parties[partyId].members[auth.uid] !== null
+isPartyPlayer(partyId)
+  root.parties[partyId].players[auth.uid] !== null
 }
 
 isUserCharacter(partyId, characterId) {
-  root.parties[partyId].members[auth.uid] === characterId
+  root.parties[partyId].players[auth.uid] === characterId
 }
 
 isUserPartyMaster(partyId) {

@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 
 import Presenter from './presenter';
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    characters: state.narratives.currentNarrative.characters
+    narratives: state.narratives.previews
   };
 }
 

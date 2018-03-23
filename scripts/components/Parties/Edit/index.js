@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { createParty } from 'actions/parties'
+import { editParty } from 'actions/parties'
 
 import Presenter from './presenter'
 
 function mapDispatchToProps(dispatch) {
   return {
-    onCreate: bindActionCreators(createParty, dispatch)
+    onEdit: bindActionCreators(editParty, dispatch)
   }
 }
 

@@ -6,7 +6,6 @@ import { PlacesInput } from 'components/Modules/Inputs';
 export default class extends React.Component {
   componentDidMount() {
     document.title = 'Sandbox | Murder with Friends';
-    analytics.page();
   }
 
   render = () => (

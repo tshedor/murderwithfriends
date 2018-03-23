@@ -1,9 +1,11 @@
-import { firebaseAuth, refPartyMembers, refParties, refPartyCharacters, refPartyRounds } from 'constants/firebase'
+import { firebaseAuth, refPartyPlayers, refParties, refPartyCharacters, refPartyRounds, refNarratives, refMyParties } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
 import { created, updated, removeUndefinedValues } from '../shared'
 
-export const createParty ({ displayName, text, location, time, otherNotes, narrativeId }) => (dispatch, getState) => {
+export { default as load } from './load'
+
+export const createParty = ({ displayName, text, location, time, otherNotes, narrativeId }) => (dispatch, getState) => {
   const party = refParties().push()
   party.set({
     narrativeId,
@@ -23,11 +25,11 @@ export const createParty ({ displayName, text, location, time, otherNotes, narra
     const data = snap.val();
 
     Object.keys(data.characters).forEach(characterKey => {
-      const newMember = refPartyMembers(party.key).push();
-      newMember.set(characterKey);
+      const newPlayer = refPartyPlayers(party.key).push();
+      newPlayer.set(characterKey);
 
       refPartyCharacters(party.key, characterKey).update({
-        partyMemberId: newMember.key
+        partyPlayerId: newPlayer.key
       });
     });
   });
@@ -37,10 +39,34 @@ export const createParty ({ displayName, text, location, time, otherNotes, narra
   });
 };
 
-export const advanceRound = () => (dispatch, getState) => {
-  const currentRound = getState().parties.currentRound;
+export const editParty = ({ displayName, text, location, time, otherNotes }) => (dispatch, getState) => {
   const currentPartyUid = getState().parties.currentPartyUid;
-  const nextRound = currentRound + 1;
 
-  return refPartyRounds(currentPartyUid, nextRound).update({ ...updated() });
+  return refParties(currentPartyUid).update({
+    ...removeUndefinedValues({
+      displayName,
+      text,
+      location,
+      time,
+      otherNotes
+    }),
+    ...updated()
+  });
+};
+
+export const advanceRound = () => (dispatch, getState) => {
+  const currentPartyUid = getState().parties.currentPartyUid;
+
+  return refPartyRounds(currentPartyUid).transaction(currentData => {
+    const newRound = { ...created(), ...updated() };
+
+    if (currentData) {
+      const lastRound = Object.keys(currentData).sort((a, b) => a -b).pop();
+      currentData[lastRound + 1] = newRound;
+    } else {
+      currentData = [ newRound ];
+    }
+
+    return currentData;
+  });
 };

@@ -15,8 +15,7 @@ type Character {
 }
 
 type Prompt {
-  text: String | Null,
-  answer: String | Null,
+  text: String | Null
 }
 
 type Clue {
@@ -98,7 +97,7 @@ isUserCharacterViaNarrative(narrativeId, characterId) {
   &&
   root.parties[
     root.users[auth.uid].currentParty
-  ].members[ auth.uid ] === characterId
+  ].players[ auth.uid ] === characterId
 }
 
 isCurrentPartyNarrative(narrativeId) {

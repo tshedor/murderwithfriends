@@ -24,8 +24,8 @@ path /users/{userId}/currentParty {
 }
 
 path /users/{userId}/currentParty/{partyId} {
-  validate() { doesPartyExist(partyId) && isPartyMember(partyId) && root.users[userId].parties[partyId] !== null }
-  write() { isPartyMember(partyId) || isPartyMaster(partyId) }
+  validate() { doesPartyExist(partyId) && isPartyPlayer(partyId) && root.users[userId].parties[partyId] !== null }
+  write() { isPartyPlayer(partyId) || isPartyMaster(partyId) }
 }
 
 path /users/{userId}/parties/{partyId} {

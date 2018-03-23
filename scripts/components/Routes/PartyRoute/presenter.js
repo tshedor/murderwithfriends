@@ -1,15 +1,22 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
-import PrivateRoute from 'components/Modules/Routes/PrivateRoute'
-import Loading from 'components/Modules/Routes/Loading'
+export default class extends React.Component {
+  componentDidMount() {
+    if (this.props.hasParty === true) {
+      this.props.onSetCurrentParty();
 
-export default ({hasParty, title, component, dispatch, ...props}) => {
-  if (hasParty === true) {
-    document.title = `${title} | Murder with Friends`;
+      document.title = `${this.props.title} | Murder with Friends`;
+    }
+  }
 
-    return <component {...props} />
-  } else {
-    return <Redirect to='/parties' />
+  render() {
+    const { component: Component, hasParty } = this.props;
+
+    if (hasParty === true) {
+      return <Component />
+    } else {
+      return <Redirect to="/parties" />
+    }
   }
 }

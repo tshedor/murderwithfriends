@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 
 import { makeHasParty } from 'selectors/parties'
+import { load } from 'actions/parties'
 
 import Presenter from './presenter'
 
@@ -16,5 +17,11 @@ const makeMapStateToProps = () => {
   return mapStateToProps;
 };
 
-const Main = connect(makeMapStateToProps)(Presenter);
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    onSetCurrentParty: () => dispatch( load( ownProps?.computedMatch?.params?.partyId ) ),
+  };
+}
+
+const Main = connect(makeMapStateToProps, mapDispatchToProps)(Presenter);
 export default Main;

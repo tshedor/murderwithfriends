@@ -1,4 +1,4 @@
-import { firebaseAuth, refPartyPlayers, refPartyCharacters, refPartyRounds, refParty } from 'constants/firebase'
+import { firebaseAuth, refPartyMembers, refParties, refPartyCharacters, refPartyRounds } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
 // Store listeners here so that they can be retrieved and iterated over when unbound
@@ -7,8 +7,8 @@ let on_listeners = [];
 function generateListeners(partyId, dispatch) {
   return [
     {
-      ref: refPartyPlayers(partyId),
-      callback: snapshot => dispatch( receivePartyPlayers(snapshot.val() || {}))
+      ref: refPartyMembers(partyId),
+      callback: snapshot => dispatch( receivePartyMembers(snapshot.val() || {}))
     },
     {
       ref: refPartyCharacters(partyId),
@@ -32,42 +32,6 @@ function generateListeners(partyId, dispatch) {
   ]
 }
 
-function receivePartyPlayers(players) {
-  return {
-    type: types.RECEIVE_PARTY_PLAYERS,
-    players
-  };
-}
-
-function receivePartyCharacters(characters) {
-  return {
-    type: types.RECEIVE_PARTY_CHARACTERS,
-    characters
-  };
-}
-
-function advanceToRound(roundId) {
-  return {
-    type: types.ADVANCE_TO_ROUND,
-    roundId
-  };
-}
-
-function receivePartyRounds(rounds) {
-  return {
-    type: types.RECEIVE_PARTY_ROUNDS,
-    rounds
-  };
-}
-
-function setCurrentParty(party, partyId) {
-  return {
-    type: types.SET_CURRENT_PARTY,
-    party,
-    partyId
-  };
-}
-
 export default partyId => (dispatch, getState) => {
   const { currentPartyUid } = getState().parties;
 
@@ -81,3 +45,4 @@ export default partyId => (dispatch, getState) => {
     item.ref.on(item.eventType || 'value', item.callback)
   );
 }
+

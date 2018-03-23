@@ -1,12 +1,21 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-import Presenter from './presenter';
+import { advanceRound } from 'actions/parties'
+
+import Presenter from './presenter'
 
 function mapStateToProps(state) {
   return {
-    parties: state.parties.all
+    party: state.parties.currentParty
   };
 }
 
-const Main = connect(mapStateToProps)(Presenter);
+function mapDispatchToProps(dispatch) {
+  return {
+    onAdvanceRound: bindActionCreators(advanceRound, dispatch)
+  };
+}
+
+const Main = connect(mapStateToProps, mapDispatchToProps)(Presenter);
 export default Main;
