@@ -18,14 +18,14 @@ const Instructions = ({ instructions }) => (
     </header>
 
     <aside>
-      <ul>
+      <ol>
         {Object.values(instructions).map(instruction =>
           <li key={instruction.text}>
             { instruction.isOptional ? 'OPTIONAL: ' : '' }
             {instruction.text}
           </li>
         )}
-      </ul>
+      </ol>
     </aside>
   </div>
 );
@@ -51,13 +51,13 @@ const Clues = ({ clues }) => (
     </header>
 
     <aside>
-      <ul>
+      <ol>
         {Object.values(clues).map(clue =>
           <li key={clue.text}>
             {clue.text}
           </li>
         )}
-      </ul>
+      </ol>
     </aside>
   </div>
 );

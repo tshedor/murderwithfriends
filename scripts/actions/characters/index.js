@@ -9,6 +9,12 @@ export const saveCharacterPrompt = (promptId, answer) => (dispatch, getState) =>
   return refPartyCharacters(currentPartyUid, currentCharacterUid, 'promptAnswers', promptId).set(answer)
 };
 
+export const updateActorName = (name, characterId) => (dispatch, getState) => {
+  const { currentPartyUid } = getState().parties;
+
+  return refPartyCharacters(currentPartyUid, characterId, 'partyPlayerName').set(name)
+};
+
 export function setCurrentPartyPlayer(partyId, playerId) {
   return {
     type: types.SET_CURRENT_PARTY_PLAYER,

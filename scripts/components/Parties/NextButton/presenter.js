@@ -35,12 +35,18 @@ function currentRoundText(currentRound, totalRounds) {
   return `Currently Round ${currentRound}`;
 }
 
-const Presenter = ({ currentRound=-1, totalRounds=4, onAdvanceCurrentRound }) => (
-  <div className="button -large" onClick={onAdvanceCurrentRound}>
-    {nextRoundText(currentRound, totalRounds)} <Icon name="right" />
-    <em>{currentRoundText(currentRound, totalRounds)}</em>
-  </div>
-);
+const Presenter = ({ postscript, currentRound=-1, totalRounds=4, onAdvanceCurrentRound }) => {
+  if (parseInt(currentRound, 10) > totalRounds) {
+    return <p className="helper">{postscript}</p>;
+  }
+
+  return (
+    <div className="button -large" onClick={onAdvanceCurrentRound}>
+      {nextRoundText(currentRound, totalRounds)} <Icon name="right" />
+      <em>{currentRoundText(currentRound, totalRounds)}</em>
+    </div>
+  )
+};
 
 Presenter.propTypes = {
   totalRounds: PropTypes.number,
@@ -48,7 +54,8 @@ Presenter.propTypes = {
   currentRound: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
-  ])
+  ]),
+  postscript: PropTypes.string
 };
 
 Presenter.displayName = __dirname.replace('scripts/components/', '');

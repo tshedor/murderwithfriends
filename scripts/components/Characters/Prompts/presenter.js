@@ -33,19 +33,19 @@ export default class extends React.Component {
         {Object.keys(prompts).map(key =>
           <li key={key}>
             <span>
-              {prompts[key]}{answers[key] ? ': ' : '?'}
+              {prompts[key]}? &nbsp;
             </span>
 
             {isCharacter ? (
               <TextInput
-                value={answers[key]}
+                defaultValue={answers[key]}
                 onKeyDown={this.handlePromptAnswer}
                 inputRef={val => this.promptAnswers[key] = val}
                 />
             ) : (
-              <React.Fragment>
+              <strong>
                 {answers[key]}
-              </React.Fragment>
+              </strong>
             )}
           </li>
         )}

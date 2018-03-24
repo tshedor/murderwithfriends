@@ -8,7 +8,8 @@ import Presenter from './presenter'
 function mapStateToProps(state) {
   return {
     currentRound: state.parties.currentRound,
-    totalRounds: state.narratives.currentNarrative.totalRounds
+    totalRounds: state.narratives.currentNarrative.totalRounds,
+    postscript: state.narratives.currentNarrative.postscript
   };
 }
 

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import { firebaseAuth } from 'constants/firebase'
+
 import { advanceRound } from 'actions/parties'
 
 import Presenter from './presenter'
@@ -8,8 +10,7 @@ import Presenter from './presenter'
 function mapStateToProps(state) {
   return {
     party: state.parties.currentParty,
-    isPartyMaster: true,
-    currentRound: state.parties.currentRound,
+    isPartyMaster: state.parties.currentParty.createdBy === firebaseAuth().currentUser.uid,
     clues: state.narratives.currentNarrative.clues,
     characters: state.narratives.currentNarrative.characters,
     partyCharacters: state.parties.characters,

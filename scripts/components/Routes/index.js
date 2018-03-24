@@ -23,6 +23,8 @@ import NarrativeIndex from 'components/Narratives/Index'
 import CharacterIndex from 'components/Characters/Index'
 import CharacterShow from 'components/Characters/Show'
 
+import GlobalNav from 'components/GlobalNav'
+
 import { onAuthStateChanged } from 'utils/auth'
 
 export default class extends React.Component {
@@ -60,6 +62,7 @@ export default class extends React.Component {
           { authed &&
             <Initializer />
           }
+          <GlobalNav />
           <Switch>
             <Route path="/" exact render={() => authed ? <Redirect to="/parties" /> : <Redirect to="/login" />} />
 

@@ -43,7 +43,7 @@ export default class extends React.Component {
   }
 
   render() {
-    const { isPartyMaster, onAdvanceCurrentRound, currentRound, clues, partyCharacters, party, currentPartyUid } = this.props;
+    const { isPartyMaster, onAdvanceCurrentRound, clues, partyCharacters, party, currentPartyUid } = this.props;
 
     return (
       <React.Fragment>
@@ -59,10 +59,9 @@ export default class extends React.Component {
             <React.Fragment>
               <div className="content">
                 <ul>
-                  <li><em>Name</em>: {party.name}</li>
-                  <li><em>Location</em>: {party.location}</li>
-                  <li><em>Time</em>: {party.time}</li>
+                  <li><em>Name</em>: {party.displayName}</li>
                   <li><em>About</em>: {party.text}</li>
+                  <li><em>Time & Place</em>: {party.location}<br />{party.time}</li>
                   <li><em>Also</em>: {party.otherNotes}</li>
                 </ul>
               </div>
@@ -70,14 +69,16 @@ export default class extends React.Component {
           )}
         </Drawer>
 
-        <Drawer open={this.state.showClues} toggleOpen={open => this.setState({ showClues: open })} title="Clues">
-          <p className="helper">Prepare these before the party and set them out on a designated table at the start of each noted round</p>
-          <ul className="clues">
-            {Object.keys(clues).map(key =>
-              <Clue clue={clues[key]} key={key} />
-            )}
-          </ul>
-        </Drawer>
+        {isPartyMaster &&
+          <Drawer open={this.state.showClues} toggleOpen={open => this.setState({ showClues: open })} title="Clues">
+            <p className="helper">Prepare these before the party and set them out on a designated table at the start of each noted round</p>
+            <ul className="clues">
+              {Object.keys(clues).map(key =>
+                <Clue clue={clues[key]} key={key} />
+              )}
+            </ul>
+          </Drawer>
+        }
 
         <Drawer open={this.state.showCharacters} toggleOpen={open => this.setState({ showCharacters: open })} title="Characters">
           {isPartyMaster ? (

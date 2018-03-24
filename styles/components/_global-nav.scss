@@ -1,0 +1,25 @@
+.global-nav {
+  position: sticky;
+  background: $c-white;
+  padding: 8px 15px;
+  box-shadow: 0 emCalc(4px) emCalc(6px) rgba($c-black, .11),
+              0 emCalc(1px) emCalc(3px) rgba($c-black, .08);
+  text-align: center;
+  top: 0;
+  width: 100%;
+
+  li {
+    font-size: remCalc(32px);
+    display: inline-block;
+    margin: 0;
+  }
+
+  a {
+    padding: 0 20px;
+  }
+
+  a,
+  .icon {
+    display: block;
+  }
+}
