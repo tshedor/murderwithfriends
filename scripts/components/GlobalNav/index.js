@@ -5,7 +5,7 @@ import Presenter from './presenter'
 
 function mapStateToProps(state) {
   return {
-    authed: !!firebaseAuth().currentUser.uid,
+    authed: !!firebaseAuth().currentUser?.uid,
     currentPartyUid: state.parties.currentPartyUid,
     currentPlayerUid: state.parties.currentPlayerUid
   };

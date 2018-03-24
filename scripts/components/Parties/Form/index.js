@@ -12,7 +12,8 @@ function buildNarrativeOptions(narratives) {
 export default class extends React.Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    narrativeId: PropTypes.string.isRequired
+    narrativeId: PropTypes.string.isRequired,
+    history: PropTypes.object
   }
 
   static displayName = __dirname.replace('scripts/components/', '')
@@ -27,7 +28,11 @@ export default class extends React.Component {
       time: this.time.value,
       otherNotes: this.otherNotes.value,
       narrativeId: this.props.narrativeId
-    });
+    })
+
+    if (this.props.history) {
+      this.props.history.push('/parties');
+    }
   }
 
   render() {

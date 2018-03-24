@@ -71,7 +71,7 @@ export default class extends React.Component {
 
         {isPartyMaster &&
           <Drawer open={this.state.showClues} toggleOpen={open => this.setState({ showClues: open })} title="Clues">
-            <p className="helper">Prepare these before the party and set them out on a designated table at the start of each noted round</p>
+            <p className="helper">Prepare these before the party and set them out on a designated table at the start of each noted round. An actor should retrieve the clue if it's listed in their round notes.</p>
             <ul className="clues">
               {Object.keys(clues).map(key =>
                 <Clue clue={clues[key]} key={key} />
@@ -96,9 +96,11 @@ export default class extends React.Component {
           )}
         </Drawer>
 
-        <Drawer open={this.state.showRounds} toggleOpen={open => this.setState({ showRounds: open })} title="Rounds">
-          <Rounds />
-        </Drawer>
+        { isPartyMaster &&
+          <Drawer open={this.state.showRounds} toggleOpen={open => this.setState({ showRounds: open })} title="Rounds">
+            <Rounds />
+          </Drawer>
+        }
 
       </React.Fragment>
     );

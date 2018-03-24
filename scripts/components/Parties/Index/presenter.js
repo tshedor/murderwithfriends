@@ -10,7 +10,9 @@ const Presenter = ({parties}) => (
     <h1>Parties</h1>
     <ul>
       {Object.keys(parties).map(key =>
-        <li><Link to={`/parties/${key}`} key={key}>{parties[key].displayName} <Icon name="right" /></Link></li>
+        <li key={key}>
+          <Link to={`/parties/${key}`}>{parties[key].displayName} <Icon name="right" /></Link>
+        </li>
       )}
     </ul>
 

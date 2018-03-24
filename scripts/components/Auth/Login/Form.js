@@ -30,7 +30,7 @@ export default class extends React.Component {
 
         <EmailInput
           label="Email"
-          placeholder="goingtothechapel@andimgoingtowedfuly.com"
+          placeholder="goingtomurder@withmyfriends.com"
           inputRef={val => this.email = val} />
         <PasswordInput
           label="Password"

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { withRouter } from 'react-router-dom'
 
 import { createParty } from 'actions/parties'
 
@@ -12,4 +13,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 const Main = connect(null, mapDispatchToProps)(Presenter);
-export default Main;
+export default withRouter(Main);
