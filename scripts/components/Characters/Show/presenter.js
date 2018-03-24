@@ -3,11 +3,18 @@ import PropTypes from 'prop-types'
 
 import Character from '../Block'
 
+import Rounds from 'components/Rounds/Index'
+
 const Presenter = ({ characterId }) => {
   if (!characterId) {
     return null;
   } else {
-    return <Character characterId={characterId} />;
+    return (
+      <React.Fragment>
+        <Character characterId={characterId} />
+        <Rounds />
+      </React.Fragment>
+    );
   }
 };
 

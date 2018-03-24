@@ -19,7 +19,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAdvanceRound: bindActionCreators(advanceRound, dispatch)
+    onAdvanceCurrentRound: bindActionCreators(advanceRound, dispatch)
   };
 }
 

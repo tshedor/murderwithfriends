@@ -44,7 +44,7 @@ export default class extends React.Component {
           inputRef={val => this.location = val} />
 
         <TextareaInput
-          label="Text"
+          label="About"
           defaultValue={this.props.text}
           inputRef={val => this.text = val} />
 
@@ -54,11 +54,11 @@ export default class extends React.Component {
           inputRef={val => this.time = val} />
 
         <TextareaInput
-          label="otherNotes"
+          label="Other Notes"
           defaultValue={this.props.otherNotes}
           inputRef={val => this.otherNotes = val} />
 
-        <input type="submit" value="Save" />
+        <input type="submit" value="Save" className="button" />
       </form>
     );
   }

@@ -9,35 +9,54 @@ import Rounds from 'components/Rounds/Index'
 
 import Character from 'components/Characters/Block'
 
+import EditParty from 'components/Parties/Edit'
+
 import Icon from 'components/Modules/Icon'
 
 function nextRoundText(currentRound) {
-  if (currentRound === 0) {
+  if (!currentRound || currentRound === -1) {
     return 'Start the Party';
   }
 
-  if (currentRound === 3) {
+  if (currentRound === '3') {
     return 'Vote for the Killer';
   }
 
-  if (currentRound === 4) {
+  if (currentRound === '4') {
     return 'End the Party';
   }
 
   return 'Next Round';
 }
 
+function currentRoundText(currentRound) {
+  if (!currentRound || currentRound === -1) {
+    return `Party hasn't started`;
+  }
+
+  if (currentRound === '0') {
+    return 'Currently Pre-Party';
+  }
+
+  if (currentRound === '4') {
+    return 'End of Party';
+  }
+
+  return `Currently Round ${currentRound}`;
+}
+
 const Clue = ({ clue }) => (
-  <div className="clue">
+  <li>
+    {clue.roundId ? `Round ${clue.roundId}` : 'Pre Party'}:&nbsp;
     {clue.text}
-    Set out for character in Round {clue.roundId || 'Pre Party'}
-  </div>
+  </li>
 );
 
 export default class extends React.Component {
   state = {
     showEditForm: false,
-    showCharacters: true
+    showCharacters: true,
+    showParty: false
   }
 
   static defaultProps = {
@@ -60,29 +79,43 @@ export default class extends React.Component {
       <React.Fragment>
 
         {isPartyMaster &&
-          <React.Fragment>
-            <a href="#" onClick={this.toggleEditForm}>{this.state.showEditForm ? 'Cancel' : 'Edit'}</a>
-            {this.state.showEditForm &&
-              <EditParty narrativeId={currentParty.narrativeId} />
-            }
-
-            <div className="button" onClick={onAdvanceCurrentRound}>{nextRoundText(currentRound)}</div>
-
-            <Drawer open={this.state.showClues} toggleOpen={open => this.setState({ showClues: open })} title="Clues">
-              {Object.keys(clues).map(key =>
-                <Clue clue={clues[key]} key={key} />
-              )}
-            </Drawer>
-
-          </React.Fragment>
+          <div className="button -large" onClick={onAdvanceCurrentRound}>{nextRoundText(currentRound)} <Icon name="right" /><em>{currentRoundText(currentRound)}</em></div>
         }
+
+        <Drawer open={this.state.showParty} toggleOpen={open => this.setState({ showParty: open })} title="Party">
+          {isPartyMaster ? (
+            <EditParty narrativeId={party.narrativeId} />
+          ) : (
+            <React.Fragment>
+              <div className="content">
+                <ul>
+                  <li><em>Name</em>: {party.name}</li>
+                  <li><em>Location</em>: {party.location}</li>
+                  <li><em>Time</em>: {party.time}</li>
+                  <li><em>About</em>: {party.text}</li>
+                  <li><em>Also</em>: {party.otherNotes}</li>
+                </ul>
+              </div>
+            </React.Fragment>
+          )}
+        </Drawer>
+
+        <Drawer open={this.state.showClues} toggleOpen={open => this.setState({ showClues: open })} title="Clues">
+          <ul className="clues">
+            {Object.keys(clues).map(key =>
+              <Clue clue={clues[key]} key={key} />
+            )}
+          </ul>
+        </Drawer>
 
         <Drawer open={this.state.showCharacters} toggleOpen={open => this.setState({ showCharacters: open })} title="Characters">
           {isPartyMaster ? (
             <React.Fragment>
               {Object.keys(partyCharacters).map(key =>
                 <Character key={partyCharacters[key]?.partyPlayerId} characterId={key}>
-                  <p>Copy & send this link to your player: <Link to={`/parties/${currentPartyUid}/${partyCharacters[key]?.partyPlayerId}`}><Icon name="link" /></Link></p>
+                  <br />
+                  <br />
+                  <Link to={`/parties/${currentPartyUid}/${partyCharacters[key]?.partyPlayerId}`} className="button"><Icon name="link" /> Player Link<em>Copy & send this link to your actor</em></Link>
                 </Character>
               )}
             </React.Fragment>
@@ -90,6 +123,14 @@ export default class extends React.Component {
             <Characters />
           )}
         </Drawer>
+
+        {isPartyMaster &&
+          <React.Fragment>
+            <br />
+            <br />
+            <br />
+          </React.Fragment>
+        }
 
         <Rounds />
 

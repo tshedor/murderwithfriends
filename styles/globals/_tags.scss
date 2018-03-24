@@ -26,8 +26,8 @@ body {
   overflow-x:hidden;
   font-size: remCalc($em-base);
   font-family: $f-body;
-  background: $c-white;
-  color: $c-black;
+  color: $c-white;
+  background: $c-primary;
 }
 
 img,
@@ -49,9 +49,23 @@ svg {
 a {
   text-decoration: none;
   transition: color 0.2s;
-  color: $c-primary;
+  color: $c-white;
 
   &:hover {
     color: $c-black;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

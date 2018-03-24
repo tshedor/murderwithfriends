@@ -1,0 +1,17 @@
+.prompts {
+  li {
+    margin-bottom: 15px;
+
+    @include bp(medium) {
+      display: flex;
+    }
+  }
+
+  span {
+    flex: 1 0 50%;
+  }
+
+  input {
+    flex: 1 0 50%;
+  }
+}

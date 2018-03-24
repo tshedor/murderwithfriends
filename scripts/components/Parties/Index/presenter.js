@@ -3,11 +3,18 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 
+import Icon from 'components/Modules/Icon'
+
 const Presenter = ({parties}) => (
   <div className="parties">
-    {Object.keys(parties).map(key =>
-      <Link to={`/parties/${key}`} key={key}>{parties[key].displayName}</Link>
-    )}
+    <h1>Parties</h1>
+    <ul>
+      {Object.keys(parties).map(key =>
+        <li><Link to={`/parties/${key}`} key={key}>{parties[key].displayName} <Icon name="right" /></Link></li>
+      )}
+    </ul>
+
+    <Link to="/parties/new" className="button">New Party</Link>
   </div>
 );
 

@@ -14,7 +14,7 @@ const determineAvailableRounds = createSelector(
   }
 );
 
-function keyedRounds(availableRounds, rounds) {
+function keyedRounds(availableRounds=[], rounds={}) {
   let val = {};
 
   availableRounds.forEach(roundId => {
@@ -34,8 +34,8 @@ export const availableNarrativeRounds = createSelector(
 
       availableRounds.forEach(roundId => {
         val[roundId] = {
-          roundText: narrativeRounds[roundId].text,
-          ...narrativeRounds[roundId].characters[currentCharacterUid]
+          roundText: narrativeRounds?.[roundId]?.text,
+          ...narrativeRounds?.[roundId]?.characters[currentCharacterUid]
         };
       });
 

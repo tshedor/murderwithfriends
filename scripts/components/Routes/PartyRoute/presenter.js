@@ -3,18 +3,28 @@ import { Redirect } from 'react-router-dom'
 
 export default class extends React.Component {
   state = {
-    didFireParty: false
+    didFire: false
+  }
+
+  populateRedux = () => {
+    this.props.onSetCurrentParty();
+
+    document.title = `${this.props.title} | Murder with Friends`;
+
+    this.setState({ didFire: true });
+  }
+
+  componentDidMount() {
+    if (this.props.hasParty) {
+      this.populateRedux();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.didFireParty) return;
+    if (this.state.didFire) return;
 
     if (nextProps.hasParty === true) {
-      this.props.onSetCurrentParty();
-
-      document.title = `${this.props.title} | Murder with Friends`;
-
-      this.setState({ didFireParty: true });
+      this.populateRedux();
     }
   }
 

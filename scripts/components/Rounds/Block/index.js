@@ -4,7 +4,7 @@ import Presenter from './presenter';
 
 function mapStateToProps(state) {
   return {
-    parties: state.parties.all
+    currentRoundId: state.parties.currentRound
   };
 }
 

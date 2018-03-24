@@ -25,10 +25,10 @@ $f-headline: $f-sans;
 $c-black: #000;
 $c-white: #fff;
 
-$c-red: #F36967;
+$c-red: #AC0A0A;
 $c-green: #61dc94;
 
-$c-primary: $c-black;
+$c-primary: $c-red;
 
 $c-success: $c-green;
 $c-error: $c-red;
@@ -59,3 +59,8 @@ $social: (
   google: #C24B36,
   twitter: #1DA1F2
 );
+
+$side-padding: 20px;
+$universal-padding: 20px $side-padding;
+$universal-margin: 15px auto;
+$bottom-margin: 60px;

@@ -1,9 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Icon from 'components/Modules/Icon'
+
 const Presenter = ({ open, title, toggleOpen, children }) => (
   <div className="drawer">
-    <h3 onClick={() => toggleOpen(!open)}>{title}</h3>
+    <header>
+      <h1 onClick={() => toggleOpen(!open)}>
+        <Icon name={open ? 'down' : 'right'} />{title}
+      </h1>
+    </header>
 
     {open &&
       children

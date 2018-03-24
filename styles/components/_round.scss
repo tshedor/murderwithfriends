@@ -1,0 +1,29 @@
+.round {
+  header {
+    .icon {
+      margin-right: 5px;
+      font-size: remCalc(18px);
+      vertical-align: middle;
+    }
+  }
+}
+
+.round-header {
+  padding: 15px $side-padding;
+  background: $c-white;
+  color: $c-primary;
+  margin-bottom: $bottom-margin;
+  cursor: pointer;
+}
+
+.round-text {
+  font-size: remCalc(16px);
+  font-style: italic;
+  padding-top: 8px;
+}
+
+.round-content {
+  margin: 30px auto;
+  padding: $universal-padding;
+  color: $c-white;
+}

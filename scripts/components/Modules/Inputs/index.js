@@ -10,14 +10,12 @@ export { default as SelectInput } from './Select';
 export { default as FileInput } from './File';
 
 const BasicInput = ({label, error, type, inputRef, children, ...res}) => (
-  <fieldset>
-    { label &&
+  <React.Fragment>
+    {label &&
       <label>{label}</label>
     }
     <input type={type} ref={inputRef} {...res} />
-    {!!children && children}
-    <div className="input-error">{error}</div>
-  </fieldset>
+  </React.Fragment>
 );
 BasicInput.propTypes = {
   label: PropTypes.string,
@@ -57,12 +55,12 @@ CheckboxInput.propTypes = {
 };
 
 export const TextareaInput = ({label, inputRef, ...res}) => (
-  <fieldset>
-    { label &&
+  <React.Fragment>
+    {label &&
       <label>{label}</label>
     }
     <textarea ref={inputRef} {...res}></textarea>
-  </fieldset>
+  </React.Fragment>
 );
 TextareaInput.propTypes = default_input_types;
 

@@ -19,10 +19,17 @@
 
 @import
   'modules/form',
+  'modules/section',
   'modules/buttons',
   'modules/notice'
 ;
 
 @import
-  'components/global-nav'
+  'components/global-nav',
+  'components/round',
+  'components/prompts',
+  'components/character',
+  'components/drawer',
+  'components/clues',
+  'components/parties'
 ;

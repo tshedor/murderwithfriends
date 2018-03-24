@@ -29,11 +29,12 @@ export default class extends React.Component {
     const { prompts, answers, isCharacter } = this.props;
 
     return (
-      <ul>
+      <ul className="prompts">
         {Object.keys(prompts).map(key =>
           <li key={key}>
-            <Icon name="help" />
-            {prompts[key]}:
+            <span>
+              {prompts[key]}{answers[key] ? ': ' : '?'}
+            </span>
 
             {isCharacter ? (
               <TextInput
@@ -43,7 +44,7 @@ export default class extends React.Component {
                 />
             ) : (
               <React.Fragment>
-                {answers[key] || '?'}
+                {answers[key]}
               </React.Fragment>
             )}
           </li>

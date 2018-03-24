@@ -16,14 +16,8 @@ textarea {
   background: none;
   transition: border-color 0.2s ease;
   padding: 4px;
-  width: 100%;
-  border-bottom: 1px solid rgba($c-primary, 0.25);
-  color: gray(90);
-
-  &:focus {
-    outline: none;
-    border-color: interaction-state($c-primary, focus);
-  }
+  border-bottom: 1px solid $c-white;
+  color: $c-white;
 
   &[disabled] {
     opacity: 0.3;
@@ -42,12 +36,21 @@ input[type="radio"] {
   width: auto;
 }
 
+form {
+  padding: $universal-padding;
+
+  input,
+  textarea {
+    width: 100%;
+  }
+}
+
 label {
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-size: 12px;
+  font-size: remCalc(12px);
   padding: 0 4px;
-  color: gray(50);
+  display: block;
+  margin-top: 20px;
 }
 
 select {

@@ -1,6 +1,6 @@
 .button {
-  background: $c-primary;
-  color: $c-white;
+  background: $c-white;
+  color: $c-primary;
   padding: emCalc(10px) emCalc(15px);
   display: block;
   text-align: center;
@@ -12,7 +12,7 @@
   font-size: emCalc(18px);
 
   &:hover {
-    background: interaction-state($c-primary, hover);
+    background: darken($c-white, 15%);
     transform: translateY(-1px);
     box-shadow: 0 emCalc(7px) emCalc(14px) rgba($c-black, .1),
                 0 emCalc(3px) emCalc(6px) rgba($c-black, .08);
@@ -27,6 +27,12 @@
     box-shadow: none;
   }
 
+  &.-large {
+    margin-bottom: 40px;
+    font-size: remCalc(20px);
+    font-weight: bold;
+  }
+
   &.-right {
     margin: 0 0 0 auto;
     width: auto;
@@ -38,17 +44,9 @@
     box-shadow: none;
   }
 
-  &.-white {
-    background: $c-white;
-    color: $c-primary;
-
-    &:hover {
-      background: interaction-state($c-white, hover);
-    }
-
-    &:active {
-      background: interaction-state($c-white, active);
-    }
+  &.-red {
+    background: $c-primary;
+    color: $c-white;
   }
 
   &.-empty {
@@ -64,7 +62,9 @@
     }
   }
 
-  &.-destructive {
-    color: $c-delete;
+  em {
+    display: block;
+    font-size: emCalc(12px);
+    font-weight: normal;
   }
 }

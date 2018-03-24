@@ -1,0 +1,18 @@
+.drawer {
+  header {
+    padding: 15px $side-padding;
+    background: $c-white;
+    color: $c-primary;
+    border-bottom: 1px solid $c-primary;
+    cursor: pointer;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    .icon {
+      font-size: remCalc(18px);
+      margin-right: 8px;
+    }
+  }
+}

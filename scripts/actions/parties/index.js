@@ -40,7 +40,7 @@ export const createParty = ({ displayName, text, location, time, otherNotes, nar
 };
 
 export const editParty = ({ displayName, text, location, time, otherNotes }) => (dispatch, getState) => {
-  const currentPartyUid = getState().parties.currentPartyUid;
+  const { currentPartyUid } = getState().parties;
 
   return refParties(currentPartyUid).update({
     ...removeUndefinedValues({
@@ -55,7 +55,9 @@ export const editParty = ({ displayName, text, location, time, otherNotes }) => 
 };
 
 export const advanceRound = () => (dispatch, getState) => {
-  const currentPartyUid = getState().parties.currentPartyUid;
+  const { currentPartyUid } = getState().parties;
+
+  console.log('fired')
 
   return refPartyRounds(currentPartyUid).transaction(currentData => {
     const newRound = { ...created(), ...updated() };
@@ -66,6 +68,8 @@ export const advanceRound = () => (dispatch, getState) => {
     } else {
       currentData = [ newRound ];
     }
+
+    console.log(currentData)
 
     return currentData;
   });

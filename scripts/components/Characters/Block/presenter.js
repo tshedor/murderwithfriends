@@ -11,15 +11,15 @@ const Presenter = ({ character, characterId, children }) => {
 
   return (
     <div className="character">
-      <h3>{character.displayName}</h3>
+      <h2>{character.displayName}</h2>
       {character.text}
 
       <ul>
-        <li><Icon name="attire" /> {character.attire}</li>
+        <li><em>Attire</em>:<br />{character.attire}</li>
         { character.relationships &&
-          <li><Icon name="user" /> {character.relationships}</li>
+          <li><em>Relationships</em>:<br />{character.relationships}</li>
         }
-        <li><Prompts characterId={characterId} /></li>
+        <li><em>Fill in the blank</em>:<br /><Prompts characterId={characterId} /></li>
       </ul>
 
       { children || null }
