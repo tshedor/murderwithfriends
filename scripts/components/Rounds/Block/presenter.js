@@ -30,6 +30,16 @@ const Instructions = ({ instructions }) => (
   </div>
 );
 
+const LineBreakify = ({text}) => (
+  <React.Fragment>
+    {text.split('\n').map((paragraph, i) =>
+      <p key={i}>
+        {paragraph}
+      </p>
+    )}
+  </React.Fragment>
+)
+
 Instructions.propTypes = {
   instructions: PropTypes.array
 };
@@ -85,7 +95,7 @@ export default class extends React.Component {
     }
 
     return (
-      <div className="round">
+      <div className={`round drawer ${showRound ? '-open' : ''}`}>
         <header className="round-header" onClick={() => this.setState({ showRound: !showRound })}>
           <h2>
             <Icon name={this.state.showRound ? 'down' : 'right'} />
@@ -93,7 +103,7 @@ export default class extends React.Component {
           </h2>
 
           {showRound &&
-            <div className="round-text">
+            <div className="round-text helper">
               {round.roundText || round.text}
             </div>
           }
@@ -101,15 +111,17 @@ export default class extends React.Component {
 
         { showRound &&
           <React.Fragment>
-            <div className="section">
-              <header>
-                <h3>Updates <Icon name="info" /></h3>
-              </header>
+            {round.roundText &&
+              <div className="section">
+                <header>
+                  <h3>Updates <Icon name="info" /></h3>
+                </header>
 
-              <aside>
-                {round.text}
-              </aside>
-            </div>
+                <aside>
+                  <LineBreakify text={round.text} />
+                </aside>
+              </div>
+            }
             {round.instructions &&
               <Instructions instructions={round.instructions} />
             }

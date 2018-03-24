@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import Icon from 'components/Modules/Icon'
 
 const Presenter = ({ open, title, toggleOpen, children }) => (
-  <div className="drawer">
+  <div className={`drawer ${open ? '-open' : ''}`}>
     <header>
-      <h1 onClick={() => toggleOpen(!open)}>
+      <h2 onClick={() => toggleOpen(!open)}>
         <Icon name={open ? 'down' : 'right'} />{title}
-      </h1>
+      </h2>
     </header>
 
     {open &&

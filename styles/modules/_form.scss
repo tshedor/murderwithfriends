@@ -16,13 +16,17 @@ textarea {
   background: none;
   transition: border-color 0.2s ease;
   padding: 4px;
-  border-bottom: 1px solid $c-white;
-  color: $c-white;
+  border-bottom: 1px solid $c-primary;
+  color: $c-primary;
 
   &[disabled] {
     opacity: 0.3;
     cursor: default;
     pointer-events: none;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
@@ -51,13 +55,15 @@ label {
   padding: 0 4px;
   display: block;
   margin-top: 20px;
+  font-weight: bold;
 }
 
 select {
   -webkit-appearance: none;
   display: block;
   width: 100%;
-  background: $c-white;
+  background: $c-primary;
+  color: $c-white;
   border: 1px solid gray(10);
   padding: 9px 5px;
   border-radius: 0;

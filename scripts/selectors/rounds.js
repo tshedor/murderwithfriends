@@ -10,7 +10,7 @@ const determineAvailableRounds = createSelector(
   getCurrentRound,
   getTotalRounds,
   (currentRound, totalRounds=4) => {
-    return [ ...Array(totalRounds).keys() ].filter(i => i <= currentRound);
+    return [ ...Array(totalRounds + 1).keys() ].filter(i => i <= currentRound);
   }
 );
 
@@ -29,6 +29,7 @@ export const availableNarrativeRounds = createSelector(
   getNarrativeRounds,
   getCurrentCharacterUid,
   (availableRounds, narrativeRounds, currentCharacterUid) => {
+    console.log(availableRounds)
     if (currentCharacterUid) {
       let val = {}
 

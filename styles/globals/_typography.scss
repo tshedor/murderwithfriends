@@ -9,15 +9,16 @@ h5 {
   font-weight: 600;
   letter-spacing: -0.02em;
   font-family: $f-headline;
+  color: $c-primary;
 }
 
 h1 {
-  font-size: 38px;
+  font-size: remCalc(48px);
   margin-bottom: 20px;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: remCalc(42px);
   line-height: 1.1;
 }
 
@@ -28,24 +29,7 @@ h5 {
 }
 
 h3 {
-  font-size: 22px;
-}
-
-h4,
-h5 {
-  text-transform: uppercase;
-  letter-spacing: 0;
-}
-
-h4 {
-  font-weight: normal;
-  font-size: 16px;
-}
-
-h5 {
-  font-size: 14px;
-  font-weight: bold;
-  color: gray(20);
+  font-size: remCalc(32px);
 }
 
 p {
@@ -53,7 +37,9 @@ p {
 }
 
 .helper {
-  color: gray(20);
+  color: gray(70);
+  padding: 0 $side-padding;
   font-style: italic;
+  font-size: remCalc(16px);
   margin: 0;
 }

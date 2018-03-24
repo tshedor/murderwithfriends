@@ -9,45 +9,14 @@ import Rounds from 'components/Rounds/Index'
 
 import Character from 'components/Characters/Block'
 
-import EditParty from 'components/Parties/Edit'
+import EditParty from '../Edit'
+import NextButton from '../NextButton'
 
 import Icon from 'components/Modules/Icon'
 
-function nextRoundText(currentRound) {
-  if (!currentRound || currentRound === -1) {
-    return 'Start the Party';
-  }
-
-  if (currentRound === '3') {
-    return 'Vote for the Killer';
-  }
-
-  if (currentRound === '4') {
-    return 'End the Party';
-  }
-
-  return 'Next Round';
-}
-
-function currentRoundText(currentRound) {
-  if (!currentRound || currentRound === -1) {
-    return `Party hasn't started`;
-  }
-
-  if (currentRound === '0') {
-    return 'Currently Pre-Party';
-  }
-
-  if (currentRound === '4') {
-    return 'End of Party';
-  }
-
-  return `Currently Round ${currentRound}`;
-}
-
 const Clue = ({ clue }) => (
   <li>
-    {clue.roundId ? `Round ${clue.roundId}` : 'Pre Party'}:&nbsp;
+    <strong>{clue.roundId ? `Round ${clue.roundId}` : 'Pre Party'}:</strong>&nbsp;
     {clue.text}
   </li>
 );
@@ -55,8 +24,9 @@ const Clue = ({ clue }) => (
 export default class extends React.Component {
   state = {
     showEditForm: false,
-    showCharacters: true,
-    showParty: false
+    showCharacters: false,
+    showParty: false,
+    showRounds: false
   }
 
   static defaultProps = {
@@ -79,7 +49,7 @@ export default class extends React.Component {
       <React.Fragment>
 
         {isPartyMaster &&
-          <div className="button -large" onClick={onAdvanceCurrentRound}>{nextRoundText(currentRound)} <Icon name="right" /><em>{currentRoundText(currentRound)}</em></div>
+          <NextButton />
         }
 
         <Drawer open={this.state.showParty} toggleOpen={open => this.setState({ showParty: open })} title="Party">
@@ -101,6 +71,7 @@ export default class extends React.Component {
         </Drawer>
 
         <Drawer open={this.state.showClues} toggleOpen={open => this.setState({ showClues: open })} title="Clues">
+          <p className="helper">Prepare these before the party and set them out on a designated table at the start of each noted round</p>
           <ul className="clues">
             {Object.keys(clues).map(key =>
               <Clue clue={clues[key]} key={key} />
@@ -124,15 +95,9 @@ export default class extends React.Component {
           )}
         </Drawer>
 
-        {isPartyMaster &&
-          <React.Fragment>
-            <br />
-            <br />
-            <br />
-          </React.Fragment>
-        }
-
-        <Rounds />
+        <Drawer open={this.state.showRounds} toggleOpen={open => this.setState({ showRounds: open })} title="Rounds">
+          <Rounds />
+        </Drawer>
 
       </React.Fragment>
     );

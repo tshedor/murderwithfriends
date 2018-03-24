@@ -20,14 +20,14 @@ html {
 
 body {
   height: 100%;
-  line-height: 1.4;
+  line-height: 1.7;
   position: relative;
   width: 100vw;
   overflow-x:hidden;
   font-size: remCalc($em-base);
   font-family: $f-body;
-  color: $c-white;
-  background: $c-primary;
+  color: $c-black;
+  background: $c-white;
 }
 
 img,
@@ -49,7 +49,7 @@ svg {
 a {
   text-decoration: none;
   transition: color 0.2s;
-  color: $c-white;
+  color: $c-primary;
 
   &:hover {
     color: $c-black;

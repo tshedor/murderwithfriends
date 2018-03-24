@@ -1,25 +1,29 @@
 .round {
-  header {
-    .icon {
-      margin-right: 5px;
-      font-size: remCalc(18px);
-      vertical-align: middle;
+  .drawer & {
+    padding: 0 $side-padding;
+
+    h2 {
+      font-size: remCalc(32px);
+    }
+  }
+
+  .section {
+    header {
+      .icon {
+        margin-left: 5px;
+        font-size: remCalc(22px);
+        margin-bottom: 8px;
+        vertical-align: middle;
+      }
     }
   }
 }
 
-.round-header {
-  padding: 15px $side-padding;
-  background: $c-white;
-  color: $c-primary;
-  margin-bottom: $bottom-margin;
-  cursor: pointer;
-}
-
 .round-text {
-  font-size: remCalc(16px);
-  font-style: italic;
   padding-top: 8px;
+  margin-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .round-content {

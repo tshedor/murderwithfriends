@@ -11,8 +11,8 @@ const Presenter = ({ characterId }) => {
   } else {
     return (
       <React.Fragment>
-        <Character characterId={characterId} />
         <Rounds />
+        <Character characterId={characterId} />
       </React.Fragment>
     );
   }

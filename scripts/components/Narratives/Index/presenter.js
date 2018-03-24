@@ -18,23 +18,21 @@ class Narrative extends React.Component {
   toggleShowNewParty = e => this.setState({ showNewParty: !this.state.showNewParty })
 
   render() {
-    const { characters, text } = this.props;
+    const { characters, text, displayName } = this.props.narrative;
 
     return (
       <React.Fragment>
-        <div className="narrative" onClick={this.toggleShowNewParty}>
-          { this.state.showNewParty ? 'Cancel' : 'Create' }
-          <br />
+        <div className="narrative">
+          <h2>{displayName}</h2>
+          <p>{text}</p>
 
-          {text}
-
-          {Object.keys(characters).map(key =>
-            <Character key={key} displayName={characters[key].displayName} text={characters[key].text} />
-          )}
+          <div className="button" onClick={this.toggleShowNewParty}>
+            { this.state.showNewParty ? 'Cancel' : 'Create' }
+          </div>
         </div>
 
         {this.state.showNewParty &&
-          <NewPartyForm narrativeId={this.props.uid} />
+          <NewPartyForm narrativeId={this.props.narrativeId} />
         }
       </React.Fragment>
     );
@@ -44,7 +42,7 @@ class Narrative extends React.Component {
 const Presenter = ({ narratives }) => (
   <div className="narratives">
     { Object.keys(narratives).map(key =>
-      <Narrative key={key} uid={key} characters={narratives[key].characters} text={narratives[key].text} />
+      <Narrative key={key} narrativeId={key} narrative={narratives[key]} />
     )}
   </div>
 );

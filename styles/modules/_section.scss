@@ -7,8 +7,7 @@
     h2,
     h3,
     h4 {
-      margin-bottom: -5px;
-      color: $c-white;
+      margin-bottom: -8px;
       padding: $universal-padding;
       padding-top: 0;
       padding-bottom: 0;
@@ -16,11 +15,11 @@
   }
 
   aside {
-    background: $c-white;
+    background: $c-primary;
     margin: $universal-margin;
     padding: 20px $side-padding 30px;
     margin-top: 0;
-    color: $c-black;
+    color: $c-white;
 
     li {
       margin-bottom: 20px;
