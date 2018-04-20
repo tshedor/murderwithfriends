@@ -16,22 +16,20 @@ import Icon from 'components/Modules/Icon'
 
 const Clue = ({ clue }) => (
   <li>
-    <strong>{clue.roundId ? `Round ${clue.roundId}` : 'Pre Party'}:</strong>&nbsp;
-    {clue.text}
+    <div className="iterator">{`#${clue.roundId}` || 'Pre Party'}</div>
+    <div className="inside">{clue.text}</div>
   </li>
 );
 
 export default class extends React.Component {
   state = {
     showEditForm: false,
-    showCharacters: false,
     showParty: false,
     showRounds: false
   }
 
   static defaultProps = {
-    clues: {},
-    partyCharacters: {}
+    clues: {}
   }
 
   displayName = __dirname.replace('scripts/components/', '');
@@ -71,30 +69,15 @@ export default class extends React.Component {
 
         {isPartyMaster &&
           <Drawer open={this.state.showClues} toggleOpen={open => this.setState({ showClues: open })} title="Clues">
-            <p className="helper">Prepare these before the party and set them out on a designated table at the start of each noted round. An actor should retrieve the clue if it's listed in their round notes.</p>
-            <ul className="clues">
+            <p className="content helper">Prepare these before the party and set them out on a designated table at the start of each noted round. An actor should retrieve the clue if it's listed in their round notes.</p>
+
+            <ol className="numbered-list">
               {Object.keys(clues).map(key =>
                 <Clue clue={clues[key]} key={key} />
               )}
-            </ul>
+            </ol>
           </Drawer>
         }
-
-        <Drawer open={this.state.showCharacters} toggleOpen={open => this.setState({ showCharacters: open })} title="Characters">
-          {isPartyMaster ? (
-            <React.Fragment>
-              {Object.keys(partyCharacters).map(key =>
-                <Character key={partyCharacters[key]?.partyPlayerId} characterId={key}>
-                  <br />
-                  <br />
-                  <Link to={`/parties/${currentPartyUid}/${partyCharacters[key]?.partyPlayerId}`} className="button"><Icon name="link" /> Player Link<em>Copy & send this link to your actor</em></Link>
-                </Character>
-              )}
-            </React.Fragment>
-          ) : (
-            <Characters />
-          )}
-        </Drawer>
 
         { isPartyMaster &&
           <Drawer open={this.state.showRounds} toggleOpen={open => this.setState({ showRounds: open })} title="Rounds">

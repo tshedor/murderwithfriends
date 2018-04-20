@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import NewPartyForm from 'components/Parties/New'
+import { Link } from 'react-router-dom'
 
 const Character = ({ displayName, text }) => (
   <div className="character">
@@ -10,41 +9,28 @@ const Character = ({ displayName, text }) => (
   </div>
 );
 
-class Narrative extends React.Component {
-  state = {
-    showNewParty: false
-  }
+const Narrative = ({ narrative, narrativeId }) => (
+  <React.Fragment>
+    <div className="narrative">
+      <h2>{narrative.displayName}</h2>
+      <p className="content">
+        {narrative.text}
 
-  toggleShowNewParty = e => this.setState({ showNewParty: !this.state.showNewParty })
-
-  render() {
-    const { characters, text, displayName } = this.props.narrative;
-
-    return (
-      <React.Fragment>
-        <div className="narrative">
-          <h2>{displayName}</h2>
-          <p>{text}</p>
-
-          <div className="button" onClick={this.toggleShowNewParty}>
-            { this.state.showNewParty ? 'Cancel' : 'Create' }
-          </div>
-        </div>
-
-        {this.state.showNewParty &&
-          <NewPartyForm narrativeId={this.props.narrativeId} />
-        }
-      </React.Fragment>
-    );
-  }
-};
+        <Link to={`/parties/new/${narrativeId}`} className="button -inverse" >Create</Link>
+      </p>
+    </div>
+  </React.Fragment>
+);
 
 const Presenter = ({ narratives }) => (
-  <div className="narratives">
-    { Object.keys(narratives).map(key =>
-      <Narrative key={key} narrativeId={key} narrative={narratives[key]} />
-    )}
-  </div>
+  <React.Fragment>
+    <h1>Pick a Narrative</h1>
+    <div className="narratives">
+      { Object.keys(narratives).map(key =>
+        <Narrative key={key} narrativeId={key} narrative={narratives[key]} />
+      )}
+    </div>
+  </React.Fragment>
 );
 
 Presenter.propTypes = {

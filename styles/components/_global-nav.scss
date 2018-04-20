@@ -1,20 +1,22 @@
 .global-nav {
-  position: sticky;
+  position: fixed;
   background: $c-white;
   padding: 8px 15px;
-  box-shadow: 0 emCalc(4px) emCalc(6px) rgba($c-black, .11),
-              0 emCalc(1px) emCalc(3px) rgba($c-black, .08);
+  box-shadow: 0 emCalc(-1px) emCalc(3px) rgba($c-black, .08);
   text-align: center;
-  top: 0;
+  bottom: 0;
   width: 100%;
+  margin: 0 negate($p-content);
+  text-transform: uppercase;
+  font-weight: 700;
 
   ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
   }
 
   li {
-    font-size: remCalc(32px);
+    font-size: remCalc(12px);
     margin: 0;
   }
 
@@ -25,5 +27,10 @@
   a,
   .icon {
     display: block;
+    margin: 0 auto;
+  }
+
+  .icon {
+    font-size: remCalc(32px);
   }
 }

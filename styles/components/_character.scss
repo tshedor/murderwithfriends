@@ -1,16 +1,3 @@
 .character {
-  padding: 40px $side-padding 0;
-  margin-bottom: $bottom-margin;
-
-  ul {
-    margin-top: 25px;
-
-    ul {
-      margin-top: 0;
-    }
-
-    .icon {
-      font-size: remCalc(24px);
-    }
-  }
+  margin-bottom: 40px;
 }

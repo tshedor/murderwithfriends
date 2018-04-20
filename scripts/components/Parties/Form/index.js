@@ -37,34 +37,39 @@ export default class extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <TextInput
-          label="Name"
-          defaultValue={this.props.displayName}
-          inputRef={val => this.displayName = val} />
+      <React.Fragment>
+        <h1>{this.props.displayName || 'New Party'}</h1>
+        <div className="content">
+          <form onSubmit={this.handleSubmit}>
+            <TextInput
+              label="Name"
+              defaultValue={this.props.displayName}
+              inputRef={val => this.displayName = val} />
 
-        <TextInput
-          label="Location"
-          defaultValue={this.props.location}
-          inputRef={val => this.location = val} />
+            <TextInput
+              label="Location"
+              defaultValue={this.props.location}
+              inputRef={val => this.location = val} />
 
-        <TextareaInput
-          label="About"
-          defaultValue={this.props.text}
-          inputRef={val => this.text = val} />
+            <TextareaInput
+              label="About"
+              defaultValue={this.props.text}
+              inputRef={val => this.text = val} />
 
-        <TextInput
-          label="Time"
-          defaultValue={this.props.time}
-          inputRef={val => this.time = val} />
+            <TextInput
+              label="Time"
+              defaultValue={this.props.time}
+              inputRef={val => this.time = val} />
 
-        <TextareaInput
-          label="Other Notes"
-          defaultValue={this.props.otherNotes}
-          inputRef={val => this.otherNotes = val} />
+            <TextareaInput
+              label="Other Notes"
+              defaultValue={this.props.otherNotes}
+              inputRef={val => this.otherNotes = val} />
 
-        <input type="submit" value="Save" className="button" />
-      </form>
+            <input type="submit" value="Save" className="button -inverse" />
+          </form>
+        </div>
+      </React.Fragment>
     );
   }
 };

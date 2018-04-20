@@ -10,19 +10,19 @@ const Presenter = ({ authed, currentPartyUid, currentPlayerUid }) => (
   <nav className="global-nav">
     <ul>
       {currentPlayerUid &&
-        <li><Link to={`/parties/${currentPartyUid}/${currentPlayerUid}`}><Icon name="round" /></Link></li>
+        <li><Link to={`/parties/${currentPartyUid}/${currentPlayerUid}`}><Icon name="round" />Rounds</Link></li>
       }
       {currentPartyUid &&
-        <li><Link to={`/parties/${currentPartyUid}`}><Icon name="attire" /></Link></li>
+        <li><Link to={`/parties/${currentPartyUid}`}><Icon name="attire" />My Party</Link></li>
       }
       {currentPartyUid &&
-        <li><Link to={`/parties/${currentPartyUid}/characters`}><Icon name="users" /></Link></li>
+        <li><Link to={`/parties/${currentPartyUid}/characters`}><Icon name="users" />Characters</Link></li>
       }
       {authed &&
-        <li><Link to="/parties"><Icon name="clue" /></Link></li>
+        <li><Link to="/parties"><Icon name="clue" />Parties</Link></li>
       }
       {authed &&
-        <li><Link to="/" onClick={logout}><Icon name="logout" /></Link></li>
+        <li><Link to="/" onClick={logout}><Icon name="logout" />Logout</Link></li>
       }
     </ul>
   </nav>

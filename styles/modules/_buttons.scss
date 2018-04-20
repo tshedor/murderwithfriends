@@ -8,8 +8,10 @@
   transition: background 0.4s, transform 0.2s, box-shadow 0.4s;
   box-shadow: 0 emCalc(4px) emCalc(6px) rgba($c-black, .11),
               0 emCalc(1px) emCalc(3px) rgba($c-black, .08);
-  line-height: 1;
+  line-height: 1.4;
   font-size: emCalc(18px);
+  font-weight: 800;
+  text-transform: uppercase;
 
   &:hover {
     background: darken($c-white, 15%);
@@ -27,16 +29,6 @@
     box-shadow: none;
   }
 
-  &.-large {
-    margin-bottom: 40px;
-    font-size: remCalc(20px);
-    font-weight: bold;
-    background: $c-primary;
-    color: $c-white;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
   &.-right {
     margin: 0 0 0 auto;
     width: auto;
@@ -48,7 +40,7 @@
     box-shadow: none;
   }
 
-  &.-red {
+  &.-inverse {
     background: $c-primary;
     color: $c-white;
   }

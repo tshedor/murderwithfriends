@@ -8,7 +8,7 @@ import Icon from 'components/Modules/Icon'
 const Presenter = ({parties}) => (
   <div className="parties">
     <h1>Parties</h1>
-    <ul>
+    <ul className="separated-list">
       {Object.keys(parties).map(key =>
         <li key={key}>
           <Link to={`/parties/${key}`}>{parties[key].displayName} <Icon name="right" /></Link>

@@ -5,12 +5,13 @@ import Character from '../Block'
 
 import Rounds from 'components/Rounds/Index'
 
-const Presenter = ({ characterId }) => {
+const Presenter = ({ displayName, characterId }) => {
   if (!characterId) {
     return null;
   } else {
     return (
       <React.Fragment>
+        <h1>{displayName}</h1>
         <Rounds />
         <Character characterId={characterId} />
       </React.Fragment>

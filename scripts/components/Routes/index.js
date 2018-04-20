@@ -76,6 +76,7 @@ export default class extends React.Component {
             {/* <PrivateRoute {...private_props} path="/sandbox" component={Sandbox} /> */}
 
             <PartyRoute title="All Characters" path="/parties/:partyId/characters" component={CharacterIndex} />
+            <PrivateRoute {...private_props} title="New Party" path="/parties/new/:narrativeId" component={PartyNew} />
             <PrivateRoute {...private_props} title="New Party" path="/parties/new" component={NarrativeIndex} />
             <PartyPlayerRoute title="My Character" path="/parties/:partyId/:playerId" component={CharacterShow} />
             <PartyRoute title="My Party" path="/parties/:partyId" component={PartyShow} />

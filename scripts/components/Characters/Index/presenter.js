@@ -4,11 +4,16 @@ import PropTypes from 'prop-types'
 import Character from '../Block'
 
 const Presenter = ({characters={}}) => (
-  <div className="characters">
+  <React.Fragment>
+    <h1>Characters</h1>
     {Object.keys(characters).map(key =>
-      <Character key={key} characterId={key} character={characters[key]} />
+      <Character
+        key={key}
+        characterId={key}
+        character={characters[key]}
+        showName={true} />
     )}
-  </div>
+  </React.Fragment>
 );
 
 Presenter.propTypes = {

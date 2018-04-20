@@ -5,6 +5,8 @@ import Icon from 'components/Modules/Icon'
 import { TextInput } from 'components/Modules/Inputs'
 import Prompts from '../Prompts'
 
+import InviteButton from '../InviteButton'
+
 export default class extends React.Component {
   static propTypes = {
     characterId: PropTypes.string.isRequired,
@@ -15,7 +17,8 @@ export default class extends React.Component {
       PropTypes.arrayOf(PropTypes.element)
     ]),
     actorName: PropTypes.string,
-    onSaveActorName: PropTypes.func.isRequired
+    onSaveActorName: PropTypes.func.isRequired,
+    showName: PropTypes.bool
   }
 
   displayName = __dirname.replace('scripts/components/', '')
@@ -33,31 +36,38 @@ export default class extends React.Component {
 
     return (
       <div className="character">
-        <h2>{character.displayName}</h2>
-        {character.text}
+        { this.props.showName &&
+          <h2>{character.displayName}</h2>
+        }
+        <div className="content">{character.text}</div>
 
-        <ul>
-          <li><em>Attire</em>:<br />{character.attire}</li>
-          { character.relationships &&
-            <li><em>Relationships</em>:<br />{character.relationships}</li>
-          }
-          <li><em>Fill in the blank</em>:<br /><Prompts characterId={characterId} /></li>
-          <li>
-            {isPartyMaster ? (
-              <TextInput
-                label="Played by"
-                defaultValue={actorName}
-                onKeyDown={this.handleActorInput}
-                inputRef={val => this.actor = val}
-                />
-            ) : (
-              <React.Fragment>{actorName}</React.Fragment>
-            )}
-          </li>
-        </ul>
+        <h3>Attire</h3>
+        <div className="content">{character.attire}</div>
 
+        {character.relationships &&
+          <React.Fragment>
+            <h3>Relationships</h3>
+            <div className="content">{character.relationships}</div>
+          </React.Fragment>
+        }
 
-        { children || null }
+        <h3>Fill in the blank</h3>
+        <div className="content"><Prompts characterId={characterId} /></div>
+
+        <h3>Played by</h3>
+        <div className="content">
+          {isPartyMaster ? (
+            <TextInput
+              defaultValue={actorName}
+              onKeyDown={this.handleActorInput}
+              inputRef={val => this.actor = val}
+              />
+          ) : (
+            <React.Fragment>{actorName}</React.Fragment>
+          )}
+        </div>
+
+        <InviteButton characterId={characterId} />
       </div>
     );
   }

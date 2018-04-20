@@ -7,11 +7,10 @@ import { advanceRound } from 'actions/parties'
 
 import Presenter from './presenter'
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
-    party: state.parties.currentParty,
     isPartyMaster: state.parties.currentParty.createdBy === firebaseAuth().currentUser.uid,
-    clues: state.narratives.currentNarrative.clues,
+    partyPlayerId: state.parties.characters[ownProps.characterId]?.partyPlayerId,
     currentPartyUid: state.parties.currentPartyUid
   };
 }

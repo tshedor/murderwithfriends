@@ -27,7 +27,7 @@ body {
   font-size: remCalc($em-base);
   font-family: $f-body;
   color: $c-black;
-  background: $c-white;
+  background: $c-primary;
 }
 
 img,
@@ -44,6 +44,7 @@ svg {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
+
 }
 
 a {
@@ -68,4 +69,12 @@ ul {
       margin-bottom: 0;
     }
   }
+}
+
+hr {
+  border-color: $c-white;
+}
+
+main {
+  padding: ($p-content * 2) $p-content 60px;
 }

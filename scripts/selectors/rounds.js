@@ -29,7 +29,6 @@ export const availableNarrativeRounds = createSelector(
   getNarrativeRounds,
   getCurrentCharacterUid,
   (availableRounds, narrativeRounds, currentCharacterUid) => {
-    console.log(availableRounds)
     if (currentCharacterUid) {
       let val = {}
 

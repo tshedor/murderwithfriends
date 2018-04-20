@@ -37,7 +37,7 @@ export default class extends React.Component {
           inputRef={val => this.password = val} />
         <div className="row">
           <div className="column">
-            <Link to="/forgot-password" className="alert-link">Forgot Password?</Link>
+            <Link to="/forgot-password" className="alert-link">Forgott Password?</Link>
           </div>
           <div className="column">
             <input type="submit" value="Login" className="button -right" />

@@ -4,7 +4,8 @@ import Presenter from './presenter';
 
 function mapStateToProps(state, ownProps) {
   return {
-    characterId: state.parties.currentCharacterUid
+    characterId: state.parties.currentCharacterUid,
+    displayName: state.narratives.currentNarrative.characters?.[ state.parties.currentCharacterUid ]?.displayName
   };
 }
 

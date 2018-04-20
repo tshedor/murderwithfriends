@@ -41,7 +41,7 @@ const Presenter = ({ postscript, currentRound=-1, totalRounds=4, onAdvanceCurren
   }
 
   return (
-    <div className="button -large" onClick={onAdvanceCurrentRound}>
+    <div className="button" onClick={onAdvanceCurrentRound}>
       {nextRoundText(currentRound, totalRounds)} <Icon name="right" />
       <em>{currentRoundText(currentRound, totalRounds)}</em>
     </div>
