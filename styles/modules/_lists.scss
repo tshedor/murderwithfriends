@@ -1,5 +1,5 @@
 .separated-list {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 
   li {
     padding: 5px $p-content;
@@ -27,7 +27,25 @@
 .numbered-list {
   list-style: none;
   padding: 0;
-  margin: 0 auto 20px;
+  margin: 0 auto 30px;
+
+  &.-autocount {
+    counter-reset: numbered-count;
+
+    li {
+      display: flex;
+
+      &:before {
+        counter-increment: numbered-count;
+        content: "#" counter(numbered-count);
+        color: $c-white;
+        font-size: remCalc(35px);
+        font-weight: 800;
+        max-width: 60px;
+        flex: 1 0 0px;
+      }
+    }
+  }
 
   li {
     display: flex;
@@ -47,6 +65,7 @@
 
   .inside {
     background: $c-white;
-    padding: 5px $p-content;
+    padding: 10px $p-content;
+    border-radius: 0 0 5px 5px;
   }
 }

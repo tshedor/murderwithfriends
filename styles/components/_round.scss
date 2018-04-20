@@ -1,33 +1,9 @@
 .round {
-  .drawer & {
-    padding: 0 $p-content;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  border-bottom: 20px double $c-white;
 
-    h2 {
-      font-size: remCalc(32px);
-    }
+  .helper {
+    margin-bottom: 30px;
   }
-
-  .section {
-    header {
-      .icon {
-        margin-left: 5px;
-        font-size: remCalc(22px);
-        margin-bottom: 8px;
-        vertical-align: middle;
-      }
-    }
-  }
-}
-
-.round-text {
-  padding-top: 8px;
-  margin-bottom: 20px;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.round-content {
-  margin: 30px auto;
-  padding: $universal-padding;
-  color: $c-white;
 }

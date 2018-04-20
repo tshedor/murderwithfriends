@@ -1,6 +1,10 @@
 .section {
   margin-bottom: $bottom-margin;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   header {
     text-transform: uppercase;
 
@@ -8,18 +12,14 @@
     h3,
     h4 {
       margin-bottom: -9px;
-      padding: $universal-padding;
       padding-top: 0;
       padding-bottom: 0;
     }
   }
 
   aside {
-    background: $c-primary;
     margin: $universal-margin;
-    padding: 20px $p-content 30px;
     margin-top: 0;
-    color: $c-white;
 
     li {
       margin-bottom: 20px;
@@ -35,8 +35,15 @@
   padding: $p-content;
   background: $c-white;
   margin: 0 auto 30px;
+  border-radius: 0 0 5px 5px;
 
   .button {
     margin-top: 15px;
+  }
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

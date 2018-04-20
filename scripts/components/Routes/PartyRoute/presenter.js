@@ -34,7 +34,7 @@ export default class extends React.Component {
     if (hasParty === true) {
       return <Component />
     } else {
-      return 'No Party here'
+      return <h1>No Party here</h1>
     }
   }
 }

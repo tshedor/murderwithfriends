@@ -45,6 +45,10 @@
     color: $c-white;
   }
 
+  &.-large {
+    margin-bottom: 30px;
+  }
+
   &.-empty {
     background: none;
     box-shadow: none;

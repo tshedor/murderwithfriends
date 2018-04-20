@@ -50,33 +50,44 @@ export default class extends React.Component {
           <NextButton />
         }
 
-        <Drawer open={this.state.showParty} toggleOpen={open => this.setState({ showParty: open })} title="Party">
-          {isPartyMaster ? (
-            <EditParty narrativeId={party.narrativeId} />
-          ) : (
-            <React.Fragment>
-              <div className="content">
-                <ul>
-                  <li><em>Name</em>: {party.displayName}</li>
-                  <li><em>About</em>: {party.text}</li>
-                  <li><em>Time & Place</em>: {party.location}<br />{party.time}</li>
-                  <li><em>Also</em>: {party.otherNotes}</li>
-                </ul>
-              </div>
-            </React.Fragment>
-          )}
-        </Drawer>
+        {isPartyMaster ? (
+          <React.Fragment>
+            <h2>Edit Party Deets</h2>
+            <EditParty
+              showTitle={false}
+              narrativeId={party.narrativeId}
+              displayName={party.displayName}
+              text={party.text}
+              time={party.time}
+              location={party.location}
+              otherNotes={party.otherNotes} />
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <h2>{party.displayName}</h2>
+            <div className="content">{party.text}</div>
 
-        {isPartyMaster &&
-          <Drawer open={this.state.showClues} toggleOpen={open => this.setState({ showClues: open })} title="Clues">
-            <p className="content helper">Prepare these before the party and set them out on a designated table at the start of each noted round. An actor should retrieve the clue if it's listed in their round notes.</p>
+            <h3>Time & Place</h3>
+            <div className="content">
+              <strong>{party.time}</strong> @ {party.location}
+            </div>
+
+            <h3>Also</h3>
+            <div className="content">{party.otherNotes}</div>
+          </React.Fragment>
+        )}
+
+        { isPartyMaster &&
+          <React.Fragment>
+            <h2>Clues</h2>
+            <p className="helper">Prepare these before the party and set them out on a designated table at the start of each noted round. An actor should retrieve the clue if it's listed in their round notes.</p>
 
             <ol className="numbered-list">
               {Object.keys(clues).map(key =>
                 <Clue clue={clues[key]} key={key} />
               )}
             </ol>
-          </Drawer>
+          </React.Fragment>
         }
 
         { isPartyMaster &&

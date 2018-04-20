@@ -7,7 +7,7 @@ import Presenter from './presenter'
 
 function mapStateToProps(state, ownProps) {
   return {
-    narrativeId: ownProps?.computedMatch?.params?.narrativeId
+    narrativeId: ownProps.narrativeId || ownProps?.computedMatch?.params?.narrativeId
   }
 }
 

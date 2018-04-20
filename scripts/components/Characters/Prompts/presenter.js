@@ -29,24 +29,26 @@ export default class extends React.Component {
     const { prompts, answers, isCharacter } = this.props;
 
     return (
-      <ul className="prompts">
+      <ul className="numbered-list -autocount">
         {Object.keys(prompts).map(key =>
           <li key={key}>
-            <span>
-              {prompts[key]}? &nbsp;
-            </span>
+            <div className="inside">
+              <span>
+                {prompts[key]}? &nbsp;
+              </span>
 
-            {isCharacter ? (
-              <TextInput
-                defaultValue={answers[key]}
-                onKeyDown={this.handlePromptAnswer}
-                inputRef={val => this.promptAnswers[key] = val}
-                />
-            ) : (
-              <strong>
-                {answers[key]}
-              </strong>
-            )}
+              {isCharacter ? (
+                <TextInput
+                  defaultValue={answers[key]}
+                  onKeyDown={this.handlePromptAnswer}
+                  inputRef={val => this.promptAnswers[key] = val}
+                  />
+              ) : (
+                <strong>
+                  {answers[key]}
+                </strong>
+              )}
+            </div>
           </li>
         )}
       </ul>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import PartyForm from '../Form'
 
-const Presenter = ({ onEdit, narrativeId }) => <PartyForm narrativeId={narrativeId} onSubmit={onEdit} />;
+const Presenter = ({ onEdit, narrativeId, ...otherProps }) => <PartyForm narrativeId={narrativeId} onSubmit={onEdit} {...otherProps} />;
 
 Presenter.propTypes = {
   onEdit: PropTypes.func.isRequired,

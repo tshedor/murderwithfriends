@@ -1,3 +1,10 @@
+.characters {
+  .character {
+    padding-bottom: 50px;
+    border-bottom: 20px double $c-white;
+  }
+}
+
 .character {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }

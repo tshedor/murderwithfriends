@@ -13,7 +13,12 @@ export default class extends React.Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
     narrativeId: PropTypes.string.isRequired,
-    history: PropTypes.object
+    history: PropTypes.object,
+    showTitle: PropTypes.bool
+  }
+
+  static defaultProps = {
+    showTitle: false
   }
 
   static displayName = __dirname.replace('scripts/components/', '')
@@ -38,7 +43,10 @@ export default class extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>{this.props.displayName || 'New Party'}</h1>
+        { this.props.showTitle &&
+          <h1>New Party</h1>
+        }
+
         <div className="content">
           <form onSubmit={this.handleSubmit}>
             <TextInput

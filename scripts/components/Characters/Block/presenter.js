@@ -52,7 +52,7 @@ export default class extends React.Component {
         }
 
         <h3>Fill in the blank</h3>
-        <div className="content"><Prompts characterId={characterId} /></div>
+        <Prompts characterId={characterId} />
 
         <h3>Played by</h3>
         <div className="content">
