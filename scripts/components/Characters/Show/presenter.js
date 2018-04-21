@@ -14,7 +14,7 @@ const Presenter = ({ displayName, characterId, currentPartyUid }) => {
       <React.Fragment>
         <h1>{displayName}</h1>
         <div className="helper">
-          New? Learn <a href="/be-a-player">how to play</a> or see the <Link to={`/parties/${currentPartyUid}`}>party deets</Link>.
+          New? Learn <Link to="/how-to-play">how to play</Link> or see the <Link to={`/parties/${currentPartyUid}`}>party deets</Link>.
         </div>
 
         <Rounds />

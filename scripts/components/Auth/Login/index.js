@@ -15,7 +15,7 @@ export default class extends React.Component {
     return (
       <FullWithTitle>
         <PageTitle title="Login">
-          Always good to see a familiar email.<br />Not familiar? <Link to="/sign-up">Sign up here</Link>.
+          <div className="helper">Always good to see a familiar email.<br />Not familiar? <Link to="/sign-up">Sign up here</Link>.</div>
         </PageTitle>
 
         <Form />

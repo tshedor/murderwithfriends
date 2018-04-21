@@ -5,6 +5,10 @@ import { ResetPassword, VerifyEmail, Login, Register, Invited } from 'components
 
 import { EmailActionHandler, NoMatch, PrivateRoute, PublicRoute } from 'components/Modules/Routes'
 
+import Home from 'components/Pages/Home'
+import HowToHost from 'components/Pages/HowToHost'
+import HowToPlay from 'components/Pages/HowToPlay'
+
 import PartyRoute from './PartyRoute'
 import PartyPlayerRoute from './PartyPlayerRoute'
 
@@ -64,11 +68,13 @@ export default class extends React.Component {
           }
           <GlobalNav />
           <Switch>
-            <Route path="/" exact render={() => authed ? <Redirect to="/parties" /> : <Redirect to="/login" />} />
+            <Route path="/" exact render={() => authed ? <Redirect to="/parties" /> : <Home />} />
+            <Route path="/how-to-host" exact component={HowToHost} />
+            <Route path="/how-to-play" exact component={HowToPlay} />
 
             <Route path="/login" exact render={() => authed ? <Redirect to="/parties" /> : <Login /> } />
             <Route path="/invited" exact component={Invited} />
-            <Route path="/verify-email" component={VerifyEmail} />
+            <Route path="/verify-email" exact component={VerifyEmail} />
             <Route path="/email-actions" exact render={EmailActionHandler} />
             <PublicRoute title="Reset Password" authed={authed} path="/forgot-password" component={ResetPassword} />
             <PublicRoute title="Sign up" authed={authed} path="/sign-up" component={Register} />
@@ -83,6 +89,7 @@ export default class extends React.Component {
             <PrivateRoute {...private_props} title="Parties" path="/parties" component={PartyIndex} />
 
             <PrivateRoute {...private_props} title="My Account" path="/my-account" component={MyAccount} />
+
             <Route component={NoMatch} status={404} />
           </Switch>
         </React.Fragment>
@@ -90,3 +97,4 @@ export default class extends React.Component {
     );
   }
 }
+

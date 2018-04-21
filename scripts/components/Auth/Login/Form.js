@@ -28,21 +28,21 @@ export default class extends React.Component {
           </div>
         }
 
-        <EmailInput
-          label="Email"
-          placeholder="goingtomurder@withmyfriends.com"
-          inputRef={val => this.email = val} />
-        <PasswordInput
-          label="Password"
-          inputRef={val => this.password = val} />
-        <div className="row">
-          <div className="column">
-            <Link to="/forgot-password" className="alert-link">Forgott Password?</Link>
-          </div>
-          <div className="column">
-            <input type="submit" value="Login" className="button -right" />
-          </div>
+        <h3>Email</h3>
+        <div className="content">
+          <EmailInput
+            placeholder="goingtomurder@withmyfriends.com"
+            inputRef={val => this.email = val} />
         </div>
+
+        <h3>Password</h3>
+        <div className="content">
+          <PasswordInput
+            inputRef={val => this.password = val} />
+            <Link to="/forgot-password" className="alert-link">Forgot Password?</Link>
+        </div>
+
+        <input type="submit" value="Login" className="button -right" />
       </form>
     );
   }

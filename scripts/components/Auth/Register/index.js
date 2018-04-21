@@ -33,7 +33,9 @@ export default class extends React.Component {
     return (
       <FullWithTitle>
         <PageTitle title="Sign Up">
-          Always good to see a fresh email.<br />Been here before? <Link to="/login">Login here</Link>.
+          <div className="helper">
+            Always good to see a fresh email.<br />Been here before? <Link to="/login">Login here</Link>.
+          </div>
         </PageTitle>
 
         <form onSubmit={this.handleSubmit}>
@@ -43,20 +45,28 @@ export default class extends React.Component {
             </div>
           }
 
-          <TextInput
-            label="Name"
-            placeholder="Schmitty Werber Wegermanjensen"
-            required={true}
-            inputRef={val => this.displayName = val} />
-          <EmailInput
-            label="Email"
-            placeholder="whatever@whatever.com"
-            required={true}
-            inputRef={val => this.email = val} />
-          <PasswordInput
-            label="Password"
-            required={true}
-            inputRef={val => this.password = val} />
+          <h3>Name</h3>
+          <div className="content">
+            <TextInput
+              placeholder="Schmitty Werber Wegermanjensen"
+              required={true}
+              inputRef={val => this.displayName = val} />
+          </div>
+
+          <h3>Email</h3>
+          <div className="content">
+            <EmailInput
+              placeholder="whatever@whatever.com"
+              required={true}
+              inputRef={val => this.email = val} />
+          </div>
+
+          <h3>Password</h3>
+          <div className="content">
+            <PasswordInput
+              required={true}
+              inputRef={val => this.password = val} />
+          </div>
 
           <input type="submit" value="Sign Up" className="button -right" />
         </form>

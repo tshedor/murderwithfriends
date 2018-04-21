@@ -18,7 +18,7 @@ export default class extends React.Component {
   }
 
   static defaultProps = {
-    showTitle: false
+    showTitle: true
   }
 
   static displayName = __dirname.replace('scripts/components/', '')
