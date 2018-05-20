@@ -9,7 +9,7 @@ function mapStateToProps(state, ownProps) {
   return {
     character: state.narratives.currentNarrative.characters?.[ ownProps.characterId ],
     actorName: state.parties.characters?.[ ownProps.characterId ]?.partyPlayerName,
-    isPartyMaster: state.parties.currentParty.createdBy === firebaseAuth().currentUser.uid,
+    isPartyMaster: state.parties.currentParty.createdBy === firebaseAuth().currentUser?.uid,
   };
 }
 

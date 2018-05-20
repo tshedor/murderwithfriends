@@ -9,7 +9,7 @@ import Presenter from './presenter'
 
 function mapStateToProps(state, ownProps) {
   return {
-    isPartyMaster: state.parties.currentParty.createdBy === firebaseAuth().currentUser.uid,
+    isPartyMaster: state.parties.currentParty.createdBy === firebaseAuth().currentUser?.uid,
     partyPlayerId: state.parties.characters[ownProps.characterId]?.partyPlayerId,
     currentPartyUid: state.parties.currentPartyUid
   };

@@ -11,7 +11,9 @@ const makeMapStateToProps = () => {
 
   const mapStateToProps = (state, ownProps) => {
     return {
-      isPlayerInParty: hasPlayerId(state, ownProps)
+      isPlayerInParty: hasPlayerId(state, ownProps),
+      parties: state.parties.all,
+      currentParty: state.parties.currentParty
     };
   };
 
@@ -19,9 +21,11 @@ const makeMapStateToProps = () => {
 };
 
 function mapDispatchToProps(dispatch, ownProps) {
+  const partyId = ownProps?.computedMatch?.params?.partyId;
+  const playerId = ownProps?.computedMatch?.params?.playerId;
+  
   return {
-    onSetCurrentParty: () => dispatch( load( ownProps?.computedMatch?.params?.partyId ) ),
-    onSetCurrentPartyPlayer: () => dispatch( setCurrentPartyPlayer( ownProps?.computedMatch?.params?.partyId, ownProps?.computedMatch?.params?.playerId ) )
+    onSetCurrentParty: () => dispatch( load( partyId, playerId ) )
   };
 }
 

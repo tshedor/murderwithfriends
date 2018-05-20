@@ -7,7 +7,6 @@ export default class extends React.Component {
 
   populateRedux = () => {
     this.props.onSetCurrentParty();
-    this.props.onSetCurrentPartyPlayer();
 
     document.title = `${this.props.title} | Murder with Friends`;
 
@@ -15,26 +14,18 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.isPlayerInParty) {
-      this.populateRedux();
-    }
+    this.populateRedux();
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.state.didFire) return;
-
-    if (nextProps.isPlayerInParty === true) {
-      this.populateRedux();
-    }
+    
+    this.populateRedux();
   }
 
   render() {
     const { component: Component, isPlayerInParty } = this.props;
 
-    if (isPlayerInParty === true) {
-      return <Component />
-    } else {
-      return "You're not supposed to be here"
-    }
+    return <Component />
   }
 }

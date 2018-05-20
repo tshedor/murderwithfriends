@@ -16,21 +16,25 @@ function generateListeners(dispatch) {
         const allParties = snapshot.val() || {};
 
         Object.keys(allParties).forEach(partyId => {
-          return refParties(partyId).once('value').then(snap => {
-            const party = { [partyId]: snap.val() || {} };
-
-            dispatch( receiveParty( party ) );
-
-            refNarratives(party[partyId].narrativeId).once('value').then(narrativeSnap => {
-              const narrative = { [narrativeSnap.key]: narrativeSnap.val() || {} };
-
-              dispatch( receiveNarrative(narrative) );
-            });
-          });
+          return dispatch( loadPartyAndNarrative(partyId) );
         });
       }
     }
   ]
+}
+
+export const loadPartyAndNarrative = partyId => (dispatch, getState) => {
+  return refParties(partyId).once('value').then(snap => {
+    const party = { [partyId]: snap.val() || {} };
+
+    dispatch( receiveParty( party ) );
+
+    refNarratives(party[partyId].narrativeId).once('value').then(narrativeSnap => {
+      const narrative = { [narrativeSnap.key]: narrativeSnap.val() || {} };
+
+      dispatch( receiveNarrative(narrative) );
+    });
+  });
 }
 
 function receiveNarrativePreviews(previews) {

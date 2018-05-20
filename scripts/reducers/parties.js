@@ -34,7 +34,7 @@ export default function data(state = initialState, action) {
       return {
         ...state,
         currentPlayerUid: action.playerId,
-        currentCharacterUid: state.all[ action.partyId ]?.players[ action.playerId ]
+        currentCharacterUid: state.currentParty?.players?.[ action.playerId ] || state.all[ action.partyId ]?.players[ action.playerId ] 
       };
 
     case types.RECEIVE_PARTY_PLAYERS:

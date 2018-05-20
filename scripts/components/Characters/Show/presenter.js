@@ -6,10 +6,33 @@ import Character from '../Block'
 
 import Rounds from 'components/Rounds/Index'
 
-const Presenter = ({ displayName, characterId, currentPartyUid }) => {
-  if (!characterId) {
-    return null;
-  } else {
+export default class extends React.Component {
+  state = {
+    hasFired: false
+  }
+  
+  static displayName = __dirname.replace('scripts/components/', '')
+  
+  static propTypes = {
+    displayName: PropTypes.string,
+    characterId: PropTypes.string,
+    currentPartyUid: PropTypes.string
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    if (!this.state.hasFired && nextProps.currentPlayerUid && nextProps.currentPartyUid) {
+      this.props.onFindCharacterId(nextProps.currentPartyUid, nextProps.currentPlayerUid);
+      this.setState({ hasFired: true });
+    }
+  }
+  
+  render() {
+    const { displayName, characterId, currentPartyUid } = this.props;
+    
+    if (!characterId) {
+      return null;
+    }
+    
     return (
       <React.Fragment>
         <h1>{displayName}</h1>
@@ -20,17 +43,11 @@ const Presenter = ({ displayName, characterId, currentPartyUid }) => {
         <Rounds />
 
         <h2>About Me</h2>
-        <Character characterId={characterId} />
+        
+        { characterId && 
+          <Character characterId={characterId} />
+        }
       </React.Fragment>
-    );
+    )
   }
-};
-
-Presenter.propTypes = {
-  displayName: PropTypes.string,
-  characterId: PropTypes.string,
-  currentPartyUid: PropTypes.string
-};
-
-Presenter.displayName = __dirname.replace('scripts/components/', '');
-export default Presenter;
+}
