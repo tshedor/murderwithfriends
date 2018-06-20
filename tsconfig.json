@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "jsx": "react",
+    "outDir": "./dist/",
+    "allowJs": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*" : [
+        "./src/universal/*"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*",
+    "./custom.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*/stories.js",
+    "**/*.spec.ts",
+    "./server/**/*",
+    "./plop-templates/**/*"
+  ]
+}

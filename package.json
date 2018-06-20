@@ -3,23 +3,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && NODE_ENV=production webpack -p --config ./webpack.prod.config.js && cp -R static dist",
+    "build": "rm -rf dist && mkdir dist && NODE_ENV=production webpack -p --config ./webpack/production.js && cp -R static dist",
     "deploy": "yarn build && firebase deploy && rm -rf dist",
-    "start": "webpack-dev-server --progress --colors --hot --content-base . --config ./webpack.config.js",
-    "bolt": "yarn bolt:compile && yarn bolt:build",
-    "bolt:compile": "yarn bolt:remove-compiled && cat bolt/*.bolt > bolt/database.compiled.bolt",
-    "bolt:remove-compiled": "rm -f bolt/database.compiled.bolt",
-    "bolt:build": "firebase-bolt < bolt/database.compiled.bolt > database.rules.json && yarn bolt:remove-compiled"
+    "start": "webpack-dev-server --progress --colors --hot --content-base . --config webpack/development.js",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "graphql:types": "rm -rf server/types.compiled.graphql && cat server/types/*.graphql > server/types.compiled.graphql",
+    "graphql:mutations": "rm -rf server/mutations.compiled.graphql && cat server/mutations/*.graphql > server/mutations.compiled.graphql"
   },
   "author": "Tim Shedor <tshedor@gmail.com>",
   "dependencies": {
-    "@babel/core": "7.0.0-beta.42",
-    "@babel/polyfill": "7.0.0-beta.42",
-    "@babel/preset-env": "7.0.0-beta.42",
-    "@babel/preset-react": "7.0.0-beta.42",
-    "@babel/preset-stage-0": "^7.0.0-beta.42",
+    "@babel/core": "7.0.0-beta.51",
+    "@babel/polyfill": "7.0.0-beta.51",
+    "@babel/preset-env": "7.0.0-beta.51",
+    "@babel/preset-react": "7.0.0-beta.51",
+    "@babel/preset-stage-0": "7.0.0-beta.51",
+    "@babel/preset-typescript": "7.0.0-beta.51",
+    "@firebase/app-types": "^0.3.2",
+    "@types/classnames": "^2.2.4",
+    "@types/history": "^4.6.2",
+    "@types/react": "^16.3.17",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-router-dom": "^4.2.7",
     "autoprefixer": "^7.1.2",
+    "babel-core": "^7.0.0-0",
     "babel-loader": "8.0.0-beta.0",
+    "classnames": "^2.2.6",
+    "css-loader": "^0.28.11",
+    "eslint-loader": "^2.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.5",
     "firebase": "^4.3.0",
@@ -40,7 +50,10 @@
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.2.3",
     "style-loader": "^0.18.2",
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.9.1",
     "webpack": "^3.4.1"
   },
   "babel": {
@@ -51,15 +64,33 @@
           "modules": false
         }
       ],
+      "@babel/preset-typescript",
       "@babel/preset-react",
-      "@babel/preset-stage-0"
+      [
+        "@babel/preset-stage-0",
+        {
+          "decoratorsLegacy": true
+        }
+      ]
     ],
     "plugins": [
       "react-hot-loader/babel"
     ]
   },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true
+  },
   "devDependencies": {
-    "firebase-bolt": "^0.8.2",
+    "@storybook/react": "^3",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
     "react-hot-loader": "^4.0.0-beta.21",
     "redux-logger": "^3.0.6",
     "webpack-dev-server": "^2.6.1"
