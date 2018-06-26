@@ -3,10 +3,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && NODE_ENV=production webpack -p --config ./webpack/production.js && cp -R static dist",
+    "build": "rm -rf dist && mkdir dist && NODE_ENV=production BUILD_ENV=production webpack -p --config ./webpack/production.js && cp -R static dist",
     "deploy": "yarn build && firebase deploy && rm -rf dist",
     "start": "webpack-dev-server --progress --colors --hot --content-base . --config webpack/development.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:build": "NODE_ENV=production BUILD_ENV=production build-storybook -c .storybook -o dist-storybook",
     "graphql:types": "rm -rf server/types.compiled.graphql && cat server/types/*.graphql > server/types.compiled.graphql",
     "graphql:mutations": "rm -rf server/mutations.compiled.graphql && cat server/mutations/*.graphql > server/mutations.compiled.graphql"
   },
@@ -45,7 +46,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
+    "react-router-dom": "^4.3.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
@@ -77,6 +78,23 @@
       "react-hot-loader/babel"
     ]
   },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "mapCoverage": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  },
   "prettier": {
     "tabWidth": 2,
     "useTabs": false,
@@ -91,6 +109,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "plop": "^1",
     "react-hot-loader": "^4.0.0-beta.21",
     "redux-logger": "^3.0.6",
     "webpack-dev-server": "^2.6.1"
