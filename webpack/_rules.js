@@ -2,6 +2,26 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 
 const isDev = process.env.NODE_ENV !== 'production';
+const rootPath = path.join(__dirname, '../src');
+
+function cleanPath(p) {
+  return p.
+    replace('styles.scss', '').
+    replace(`${rootPath}/universal/dumb/`, '').
+    replace(`${rootPath}/slices/`, '').
+    replace(/\//g, '-').
+    replace(/\-$/, '');
+}
+
+// https://medium.freecodecamp.org/reducing-css-bundle-size-70-by-cutting-the-class-names-and-using-scope-isolation-625440de600b
+const generateScopedName = (context, localIdentName, localName) => {
+  const componentName = cleanPath(context.resourcePath);
+  const local = cleanPath(localName);
+
+  return `${componentName}__${local}`;
+};
+
+const cssNames = isDev ? { getLocalIdent: generateScopedName } : { localIdentName: '[hash:8]' };
 
 const eslint = {
   enforce: 'pre',
@@ -29,10 +49,10 @@ const json = {
 };
 
 const assets = {
-  test: /\.(jpe?g|png|gif|woff2?|eot|ttf|svg)$/,
+  test: /\.(ico|jpe?g|svg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
   loader: 'file-loader',
-  options: {
-    outputPath: 'assets/'
+  query: {
+    name: 'assets/[name].[hash:8].[ext]'
   }
 };
 
@@ -41,11 +61,12 @@ const scss = {
   use: [
     {
       loader: 'css-loader',
-      options: {
+      options: Object.assign({
         modules: true,
-        sourceMap: isDev,
-        localIdentName: '[name]__[hash:base64:5]'
-      }
+        importLoaders: 1,
+        minimize: isDev,
+        sourceMap: isDev
+      }, cssNames)
     },
     {
       loader: "postcss-loader",

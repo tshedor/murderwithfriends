@@ -62,9 +62,13 @@ $social: (
   twitter: #1DA1F2
 );
 
-
 $p-content: 20px;
 $p-content: 20px;
 $universal-padding: 20px $p-content;
 $universal-margin: 15px auto;
 $bottom-margin: 60px;
+
+$global-stack: (
+  '.modal.pop',
+  '.modal.pusher'
+)

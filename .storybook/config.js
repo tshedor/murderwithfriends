@@ -1,6 +1,6 @@
 import { configure } from '@storybook/react';
 
-const req = require.context('../src', true, /stories\.(jsx?|tsx?)$/)
+const req = require.context1('../src', true, /stories\.(jsx?|tsx?)$/)
 
 function loadStories() {
   require('../styles/globals/index.scss');

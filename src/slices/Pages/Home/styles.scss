@@ -1,0 +1,29 @@
+@import 'imports/index';
+
+.homeHero {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 540px;
+  margin: 0 auto;
+
+  img {
+    max-width: 80%;
+    margin: 0 auto 70px;
+    display: block;
+  }
+}
+
+.homeButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 40px;
+
+  .button {
+    flex: 1 0 0px;
+    max-width: 45%;
+  }
+}

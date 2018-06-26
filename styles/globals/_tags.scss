@@ -36,17 +36,6 @@ svg {
   max-width: 100%;
 }
 
-.icon {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1em;
-  height: 1em;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-
-}
-
 a {
   text-decoration: none;
   transition: color 0.2s;
@@ -77,4 +66,5 @@ hr {
 
 main {
   padding: ($p-content * 2) $p-content 60px;
+  height: 100%;
 }

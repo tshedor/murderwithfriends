@@ -12,8 +12,8 @@ const node = {
 const resolve = {
   extensions: ['.ts', '.tsx', '.js', '.jsx'],
   alias: {
-    '@components': path.resolve(__dirname, '../src/universal/'),
-    '@root': path.resolve(__dirname, '../src')
+    '+dumb': path.resolve(__dirname, '../src/universal/dumb/'),
+    '+root': path.resolve(__dirname, '../src')
   },
   modules: [
     path.resolve(__dirname, '../node_modules'),
@@ -24,7 +24,8 @@ const resolve = {
 const plugins = [
   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   new webpack.DefinePlugin({
-    'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    'BUILD_ENV': JSON.stringify(process.env.BUILD_ENV || 'development')
   }),
   new webpack.optimize.OccurrenceOrderPlugin(),
 ];

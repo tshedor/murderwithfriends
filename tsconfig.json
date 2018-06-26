@@ -6,14 +6,14 @@
     "allowJs": true,
     "baseUrl": "./src",
     "paths": {
-      "@components/*" : [
-        "./src/universal/*"
+      "+dumb/*" : [
+        "./src/universal/dumb/*"
       ]
     }
   },
   "include": [
-    "./src/**/*",
-    "./custom.d.ts"
+    "./webpack/custom.d.ts",
+    "./src/interfaces/index.d.ts"
   ],
   "exclude": [
     "node_modules",
