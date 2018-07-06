@@ -1,5 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const dist = path.join(__dirname, '../dist');
 
 const node = {
   dgram: 'empty',
@@ -22,16 +26,20 @@ const resolve = {
 };
 
 const plugins = [
+  new ExtractTextPlugin({ filename: 'css/[contenthash:8].css', allChunks: true }),
   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   new webpack.DefinePlugin({
     'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     'BUILD_ENV': JSON.stringify(process.env.BUILD_ENV || 'development')
   }),
-  new webpack.optimize.OccurrenceOrderPlugin(),
+  new CopyWebpackPlugin([
+    { from: path.join(__dirname, '../static'), to: `${dist}/static` }
+  ]),
+  new webpack.optimize.OccurrenceOrderPlugin()
 ];
 
 const output = {
-  path: path.join(__dirname, '../dist'),
+  path: dist,
   publicPath: '/',
   filename: 'js/[name].[hash:8].js',
   chunkFilename: 'js/[name].[hash:8].chunk.js',

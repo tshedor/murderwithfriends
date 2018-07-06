@@ -63,3 +63,5 @@ dist/
 public
 database.rules.json
 bolt/database.compiled.bolt
+
+webpack/stats.json

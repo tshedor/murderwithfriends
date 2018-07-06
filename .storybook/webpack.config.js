@@ -8,7 +8,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
   rules.scss.use.unshift('style-loader');
   defaultConfig.module.rules.push({
     test: /\.s?css$/,
-    use: rules.scss.use
+    use: rules.cssUnextracted.use
   });
 
   defaultConfig.resolve.alias = Object.assign(defaultConfig.resolve.alias, shared.resolve.alias);

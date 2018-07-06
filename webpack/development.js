@@ -24,18 +24,15 @@ module.exports = {
     rules: [
       // rules.eslint,
       ...rules.scripts,
-      {
-        test: /\.s?css$/,
-        use: ExtractTextPlugin.extract(rules.scss)
-      },
+      rules.css,
       rules.json,
       rules.assets
     ],
   },
   plugins: [
     ...plugins,
+    new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('css/[contenthash:8].css'),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: './index.html'

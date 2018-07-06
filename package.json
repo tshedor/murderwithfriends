@@ -3,7 +3,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && NODE_ENV=production BUILD_ENV=production webpack -p --config ./webpack/production.js && cp -R static dist",
+    "build": "rm -rf dist && mkdir dist && NODE_ENV=production BUILD_ENV=production webpack -p --config ./webpack/production.js",
+    "analyze": "rm webpack/stats.json && webpack --profile --json --config webpack/development.js >> webpack/stats.json && ./node_modules/.bin/webpack-bundle-analyzer webpack/stats.json",
     "deploy": "yarn build && firebase deploy && rm -rf dist",
     "start": "webpack-dev-server --progress --colors --hot --content-base . --config webpack/development.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
@@ -29,6 +30,7 @@
     "babel-core": "^7.0.0-0",
     "babel-loader": "8.0.0-beta.0",
     "classnames": "^2.2.6",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.11",
     "eslint-loader": "^2.0.0",
     "extract-text-webpack-plugin": "^3.0.0",

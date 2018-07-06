@@ -1,5 +1,6 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const isDev = process.env.NODE_ENV !== 'production';
 const rootPath = path.join(__dirname, '../src');
@@ -45,6 +46,7 @@ const scripts = [
 
 const json = {
   test: /\.json$/,
+  exclude: /node_modules/,
   loader: 'json-loader'
 };
 
@@ -56,7 +58,7 @@ const assets = {
   }
 };
 
-const scss = {
+const cssUnextracted = {
   fallback: 'style-loader',
   use: [
     {
@@ -94,10 +96,16 @@ const scss = {
   ]
 };
 
+const css = {
+  test: /\.s?css$/,
+  use: ExtractTextPlugin.extract(cssUnextracted)
+};
+
 module.exports = {
   eslint,
   scripts,
   json,
   assets,
-  scss
+  css,
+  cssUnextracted,
 };

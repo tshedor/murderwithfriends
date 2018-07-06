@@ -14,17 +14,13 @@ module.exports = {
   module: {
     rules: [
       ...rules.scripts,
-      {
-        test: /\.s?css$/,
-        use: ExtractTextPlugin.extract(rules.scss)
-      },
+      rules.css,
       rules.json,
       rules.assets
     ],
   },
   plugins: [
     ...plugins,
-    new ExtractTextPlugin('css/[contenthash:8].css'),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: './index.html',
@@ -43,6 +39,5 @@ module.exports = {
     })
   ],
   resolve,
-  output,
-  node
+  output
 };
