@@ -1,4 +1,5 @@
-import * as types from 'constants/actionTypes';
+import * as types from './actionTypes';
+import * as universal from 'constants/actionTypes';
 
 const initialState = {
   all: {},
@@ -19,7 +20,7 @@ export default function data(state = initialState, action) {
         }
       };
 
-    case types.SET_CURRENT_PARTY:
+    case universal.SET_CURRENT_PARTY:
       return {
         ...state,
         currentParty: action.party,
@@ -38,7 +39,7 @@ export default function data(state = initialState, action) {
         currentRound: action.roundId
       };
 
-    case types.RESET:
+    case universal.RESET:
       return initialState;
 
     default:

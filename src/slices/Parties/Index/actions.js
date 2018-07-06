@@ -1,5 +1,5 @@
 import { refParties, refMyParties } from 'constants/firebase'
-import * as types from 'constants/actionTypes'
+import * as types from '../actionTypes'
 import makeOnOffFetchListener from '+root/universal/factories/onOffFetchListener'
 
 function generateListeners(dispatch) {

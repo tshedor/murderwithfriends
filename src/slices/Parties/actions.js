@@ -1,5 +1,8 @@
 import { firebaseAuth, refNarratives, refParties, refPartyRounds, refParty } from 'constants/firebase'
-import * as types from 'constants/actionTypes'
+import * as universalTypes from 'constants/actionTypes'
+import * as types from './actionTypes'
+
+import makeOnOffFetchListener from '+root/universal/factories/onOffFetchListener'
 
 const loadPartyAndNarrative = partyId => (dispatch, getState) => {
   return refParties(partyId).once('value').then(snap => {
@@ -15,10 +18,7 @@ const loadPartyAndNarrative = partyId => (dispatch, getState) => {
   });
 };
 
-// Store listeners here so that they can be retrieved and iterated over when unbound
-let on_listeners = [];
-
-function generateListeners(partyId, dispatch) {
+function generateListeners(dispatch, { partyId }) {
   return [
     {
       ref: refPartyRounds(partyId),
@@ -64,7 +64,7 @@ function receivePartyRounds(rounds) {
 
 function setCurrentParty(party, partyId) {
   return {
-    type: types.SET_CURRENT_PARTY,
+    type: universalTypes.SET_CURRENT_PARTY,
     party,
     partyId
   };
@@ -72,23 +72,9 @@ function setCurrentParty(party, partyId) {
 
 function receiveNarrative(narrative) {
   return {
-    type: types.RECEIVE_NARRATIVE,
+    type: universalTypes.RECEIVE_NARRATIVE,
     narrative
   };
 }
 
-export const onMount = ({ partyId }) => (dispatch, getState) => {
-  const { currentPartyUid } = getState().parties;
-
-  if (partyId === currentPartyUid) return;
-
-  on_listeners.forEach(item => item.ref.off(item.eventType || 'value', item.callback));
-
-  on_listeners = generateListeners(partyId, dispatch);
-
-  on_listeners.forEach(item => item.ref.on(item.eventType || 'value', item.callback));
-};
-
-export const onUnmount = () => (dispatch) => {
-  on_listeners.forEach(item => item.ref.off(item.eventType || 'value', item.callback));
-};
+export const { onMount, onUnmount } = makeOnOffFetchListener(generateListeners);
