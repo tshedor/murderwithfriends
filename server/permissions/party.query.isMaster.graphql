@@ -1,0 +1,8 @@
+query isMasterOfParty($node_id: ID!, $user_id: ID!) {
+  SomePartyExists(filter: {
+    id: $node_id
+    partyMaster: {
+      id: $user_id
+    }
+  })
+}

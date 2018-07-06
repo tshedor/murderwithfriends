@@ -1,0 +1,13 @@
+- operation: Party.create
+- operation: Party.read
+  authenticated: true
+- operation: Party.update
+  authenticated: true
+  query: ./server/permissions/party.query.isMaster.graphql
+- operation: Party.delete
+  authenticated: true
+  query: ./server/permissions/party.query.isMaster.graphql
+
+- operation: Player.read
+- operation: PromptAnswer.read
+- operation: RoundNote.read

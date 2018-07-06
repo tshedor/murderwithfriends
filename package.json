@@ -9,8 +9,10 @@
     "start": "webpack-dev-server --progress --colors --hot --content-base . --config webpack/development.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "NODE_ENV=production BUILD_ENV=production build-storybook -c .storybook -o dist-storybook",
-    "graphql:types": "rm -rf server/types.compiled.graphql && cat server/types/*.graphql > server/types.compiled.graphql",
-    "graphql:mutations": "rm -rf server/mutations.compiled.graphql && cat server/mutations/*.graphql > server/mutations.compiled.graphql"
+    "graphql:deploy": "> graphcool.yml && yarn graphql:permissions && yarn graphql:types && graphcool deploy",
+    "graphql:permissions": "rm -rf server/permissions.compiled.yml && cat server/permissions/*.yml > server/permissions.compiled.yml && echo \"permissions:\" >> graphcool.yml && cat server/permissions.compiled.yml >> graphcool.yml && echo \"\n\" >> graphcool.yml",
+    "graphql:types": "COLLECTION=types yarn graphql:concat && echo \"types: ./server/types.compiled.graphql\n\" >> graphcool.yml",
+    "graphql:concat": "rm -rf server/$COLLECTION.compiled.yml && cat server/$COLLECTION/*.graphql > server/$COLLECTION.compiled.graphql"
   },
   "author": "Tim Shedor <tshedor@gmail.com>",
   "dependencies": {

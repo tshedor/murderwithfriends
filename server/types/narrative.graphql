@@ -1,0 +1,68 @@
+type Narrative @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  rounds: [Round!]! @relation(name: "NarrativeRounds")
+  characters: [Character!]! @relation(name: "CharacterNarratives")
+  parties: [Party!]! @relation(name: "NarrativeParties")
+  text: String!
+  previewText: String!
+  postscript: String
+}
+
+type Round @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  narrative: Narrative! @relation(name: "NarrativeRounds")
+  instructions: [Instruction!]! @relation(name: "InstructionRounds")
+  clues: [Clue!]! @relation(name: "ClueRounds")
+  roundNotes: [RoundNote!]! @relation(name: "RoundRoundNotes")
+  displayName: String
+  text: String
+}
+
+type Character @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  narrative: Narrative! @relation(name: "CharacterNarratives")
+  prompts: [Prompt!]! @relation(name: "CharacterPrompts")
+  clues: [Clue!]! @relation(name: "CharacterClues")
+  instructions: [Instruction!]! @relation(name: "CharacterInstructions")
+  displayName: String!
+  text: String!
+  previewText: String!
+  relationships: String
+  attire: String
+}
+
+type Prompt @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  character: Character! @relation(name: "CharacterPrompts")
+  answers: [PromptAnswer!]! @relation(name: "PromptPromptAnswers")
+  text: String
+}
+
+type Clue @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  character: Character! @relation(name: "CharacterClues")
+  round: Round! @relation(name: "ClueRounds")
+  hint: String!
+  text: String!
+}
+
+type Instruction @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  round: Round! @relation(name: "InstructionRounds")
+  character: Character! @relation(name: "CharacterInstructions")
+  isOptional: Boolean
+  text: String!
+  isClue: Boolean
+}

@@ -1,0 +1,43 @@
+type Party @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  narrative: Narrative! @relation(name: "NarrativeParties")
+  players: [Player!]! @relation(name: "PartyPlayers")
+  partyMaster: User! @relation(name: "PartyMasterUsers")
+  startedAt: DateTime
+  completedAt: DateTime
+  displayName: String
+  text: String
+  location: String
+  time: String
+  otherNotes: String
+}
+
+type Player @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  party: Party! @relation(name: "PartyPlayers")
+  user: User! @relation(name: "PlayerUsers")
+  promptAnswers: [PromptAnswer!]! @relation(name: "PlayerPromptAnswers")
+  roundNotes: [RoundNote!]! @relation(name: "PlayerRoundNotes")
+}
+
+type PromptAnswer @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  prompt: Prompt! @relation(name: "PromptPromptAnswers")
+  player: Player! @relation(name: "PlayerPromptAnswers")
+  text: String!
+}
+
+type RoundNote @model {
+  id: ID! @isUnique # read-only (managed by Graphcool)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  round: Round! @relation(name: "RoundRoundNotes")
+  player: Player! @relation(name: "PlayerRoundNotes")
+  text: String!
+}

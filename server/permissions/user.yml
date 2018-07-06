@@ -1,0 +1,13 @@
+- operation: User.create
+
+- operation: User.read
+  authenticated: true
+  query: ./server/permissions/user.query.is.graphql
+
+- operation: User.update
+  authenticated: true
+  query: ./server/permissions/user.query.is.graphql
+
+- operation: User.delete
+  authenticated: true
+  query: ./server/permissions/user.query.is.graphql

@@ -1,0 +1,6 @@
+- operation: Narrative.read
+- operation: Character.read
+- operation: Prompt.read
+- operation: Clue.read
+- operation: Round.read
+- operation: Instruction.read
