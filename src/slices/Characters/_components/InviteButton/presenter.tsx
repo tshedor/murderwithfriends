@@ -4,19 +4,18 @@ import Icon from '+dumb/Icon'
 import Button from '+dumb/Button'
 
 interface PresenterProps {
-  isPartyMaster?: boolean;
-  currentPartyUid?: string;
-  partyPlayerId?: string;
-  characterId: string;
+  isOwner?: boolean
+  partyId?: string
+  playerId?: string
 }
 
-const Presenter: React.SFC<PresenterProps> = ({ isPartyMaster, currentPartyUid, partyPlayerId }) => {
-  if (!isPartyMaster || !partyPlayerId) return null;
+const Presenter: React.SFC<PresenterProps> = ({ isOwner, partyId, playerId }) => {
+  if (!isOwner || !playerId) return null;
 
   return (
     <Button
       iconName="link"
-      path={`/parties/${currentPartyUid}/${partyPlayerId}`}>
+      path={`/parties/${partyId}/${playerId}`}>
       Player Link
       <em>Copy & send this link to your actor</em>
     </Button>

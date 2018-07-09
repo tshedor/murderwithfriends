@@ -1,0 +1,41 @@
+mutation SetCurrentParty($partyId: ID!) {
+  clientSetCurrentParty(id: $partyId) @client {
+    id
+  }
+}
+
+query GetParty($partyId: ID!) {
+  Party(id: $partyId) {
+    id
+    displayName
+    text
+    location
+    time
+    otherNotes
+  }
+
+  allRounds(orderBy: order_ASC, filter: {
+    narrative: {
+      parties_some: {
+        id: $partyId
+      }
+    }
+  }) {
+    id
+    order
+
+    characterRounds(filter: {
+      clues_some: {
+        id_not: null
+      }
+    }) {
+      id
+
+      clues {
+        id
+        hint
+      }
+    }
+
+  }
+}

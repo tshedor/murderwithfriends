@@ -5,9 +5,20 @@
     "outDir": "./dist/",
     "allowJs": true,
     "baseUrl": "./src",
+    "target" : "ESNext",
+    "lib": [
+      "ES7",
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost"
+    ],
     "paths": {
       "+dumb/*" : [
         "./src/universal/dumb/*"
+      ],
+      "+root/*" : [
+        "./src/*"
       ]
     }
   },

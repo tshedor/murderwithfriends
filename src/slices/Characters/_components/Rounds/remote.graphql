@@ -1,0 +1,50 @@
+subscription CurrentRound($partyId: ID!) {
+  Party(id: $partyId) {
+    currentRound
+  }
+}
+
+query GetRounds(
+  $partyId: ID!,
+  $currentRound: Int!,
+  $characterId: ID!
+) {
+  allRounds(orderBy: order_ASC, filter: {
+    AND: [{
+      order_lte: $currentRound
+    }, {
+      narrative: {
+        parties_some:{
+          id: $partyId
+        }
+      }
+    }]
+  }) {
+    id
+    text
+    order
+
+    characterRounds(filter: {
+      character: {
+        id: $characterId
+      }
+    }) {
+      id
+      text
+
+      instructions(orderBy: order_ASC) {
+        id
+        text
+        order
+        isOptional
+      }
+
+      clues(orderBy: order_ASC) {
+        id
+        order
+        hint
+        text
+      }
+    }
+  }
+}

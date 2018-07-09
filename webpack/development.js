@@ -10,6 +10,7 @@ const { plugins, node, resolve, output } = shared;
 module.exports = {
   devtool: 'inline-source-map',
   entry: [
+    '@babel/polyfill',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/application.js',
@@ -26,7 +27,8 @@ module.exports = {
       ...rules.scripts,
       rules.css,
       rules.json,
-      rules.assets
+      rules.assets,
+      rules.graphql
     ],
   },
   plugins: [

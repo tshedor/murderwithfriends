@@ -1,68 +1,69 @@
 type Narrative @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  id: ID! @isUnique
   rounds: [Round!]! @relation(name: "NarrativeRounds")
   characters: [Character!]! @relation(name: "CharacterNarratives")
   parties: [Party!]! @relation(name: "NarrativeParties")
   text: String!
   previewText: String!
+  displayName: String!
   postscript: String
 }
 
 type Round @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  id: ID! @isUnique
   narrative: Narrative! @relation(name: "NarrativeRounds")
-  instructions: [Instruction!]! @relation(name: "InstructionRounds")
-  clues: [Clue!]! @relation(name: "ClueRounds")
-  roundNotes: [RoundNote!]! @relation(name: "RoundRoundNotes")
+  characterRounds: [CharacterRound!]! @relation(name: "CharacterRoundRounds")
+  order: Int!
   displayName: String
   text: String
 }
 
 type Character @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  id: ID! @isUnique
   narrative: Narrative! @relation(name: "CharacterNarratives")
   prompts: [Prompt!]! @relation(name: "CharacterPrompts")
-  clues: [Clue!]! @relation(name: "CharacterClues")
-  instructions: [Instruction!]! @relation(name: "CharacterInstructions")
+  players: [Player!]! @relation(name: "CharacterPlayers")
+  characterRounds: [CharacterRound!]! @relation(name: "CharacterCharacterRounds")
   displayName: String!
   text: String!
   previewText: String!
+  attire: String!
   relationships: String
-  attire: String
 }
 
 type Prompt @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  id: ID! @isUnique
   character: Character! @relation(name: "CharacterPrompts")
   answers: [PromptAnswer!]! @relation(name: "PromptPromptAnswers")
   text: String
 }
 
+type CharacterRound @model {
+  id: ID! @isUnique
+  character: Character! @relation(name: "CharacterCharacterRounds")
+  round: Round! @relation(name: "CharacterRoundRounds")
+  instructions: [Instruction!]! @relation(name: "CharacterRoundInstructions")
+  clues: [Clue!]! @relation(name: "CharacterRoundClues")
+  roundNotes: [RoundNote!]! @relation(name: "CharacterRoundRoundNotes")
+  text: String!
+}
+
 type Clue @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  character: Character! @relation(name: "CharacterClues")
-  round: Round! @relation(name: "ClueRounds")
+  id: ID! @isUnique
+  characterRound: CharacterRound! @relation(name: "CharacterRoundClues")
+  appearsAfterInstruction: Instruction @relation(name: "ClueAppearsAfterInstruction")
+  order: Int!
   hint: String!
   text: String!
 }
 
 type Instruction @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  round: Round! @relation(name: "InstructionRounds")
-  character: Character! @relation(name: "CharacterInstructions")
+  id: ID! @isUnique
+  characterRound: CharacterRound! @relation(name: "CharacterRoundInstructions")
+  appearsAfterInstruction: Instruction @relation(name: "InstructionAppearsAfterInstruction")
+  appearsAfterClue: Clue @relation(name: "ClueAppearsAfterInstruction")
+  partyInstructions: [PartyInstruction!]! @relation(name: "InstructionPartyInstructions")
+  order: Int!
   isOptional: Boolean
   text: String!
-  isClue: Boolean
 }

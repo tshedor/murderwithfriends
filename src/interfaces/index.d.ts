@@ -6,6 +6,7 @@ declare namespace _types {
   }
 
   export interface Party {
+    id: string
     displayName: string
     text: string
     location: string
@@ -14,6 +15,7 @@ declare namespace _types {
   }
 
   export interface Character {
+    id: string
     displayName: string
     attire: string
     relationships: string
@@ -22,17 +24,17 @@ declare namespace _types {
   }
 
   export interface Instruction {
+    id: string
     isOptional?: boolean
     text: string
   }
 
   export interface Round {
+    id: string
     roundText?: string
     text?: string
-    instructions: InstructionList
-    clues: ClueList
+    order: number
+    instructions?: Instruction[]
+    clues?: Clue[]
   }
-
-  export type ClueList = { [key: string]: Clue }
-  export type InstructionList = { [key: string]: Instruction }
 }

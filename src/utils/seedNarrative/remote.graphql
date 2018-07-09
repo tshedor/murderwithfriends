@@ -1,0 +1,111 @@
+mutation CreateNarrative(
+  $displayName: String!,
+  $previewText: String!,
+  $postscript: String!,
+  $text: String!
+) {
+  createNarrative(
+    displayName: $displayName,
+    previewText: $previewText,
+    postscript: $postscript,
+    text: $text
+  ) {
+    id
+  }
+}
+
+mutation CreateRound(
+  $narrativeId: ID!,
+  $order: Int!,
+  $displayName: String,
+  $text: String
+) {
+  createRound(
+    narrativeId: $narrativeId,
+    order: $order,
+    displayName: $displayName,
+    text: $text
+  ) {
+    id
+  }
+}
+,
+
+
+mutation CreateCharacterRound(
+  $roundId: ID!,
+  $characterId: ID!,
+  $text: String!
+) {
+  createCharacterRound(
+    roundId: $roundId,
+    characterId: $characterId,
+    text: $text
+  ) {
+    id
+  }
+}
+
+mutation CreateCharacter(
+  $displayName: String!,
+  $attire: String!,
+  $text: String!,
+  $previewText: String!,
+  $narrativeId: ID!,
+  $relationships: String
+) {
+  createCharacter(
+    displayName: $displayName,
+    attire: $attire,
+    text: $text,
+    previewText: $previewText,
+    narrativeId: $narrativeId,
+    relationships: $relationships
+  ) {
+    id
+  }
+}
+
+mutation CreatePrompt(
+  $text: String!,
+  $characterId: ID!
+) {
+  createPrompt(
+    text: $text,
+    characterId: $characterId
+  ) {
+    id
+  }
+}
+
+mutation CreateClue(
+  $text: String!,
+  $hint: String!,
+  $order: Int!,
+  $characterRoundId: ID!
+) {
+  createClue(
+    text: $text,
+    hint: $hint,
+    characterRoundId: $characterRoundId,
+    order: $order
+  ) {
+    id
+  }
+}
+
+mutation CreateInstruction(
+  $text: String!,
+  $isOptional: Boolean,
+  $order: Int!,
+  $characterRoundId: ID!,
+) {
+  createInstruction(
+    text: $text,
+    isOptional: $isOptional,
+    order: $order,
+    characterRoundId: $characterRoundId
+  ) {
+    id
+  }
+}

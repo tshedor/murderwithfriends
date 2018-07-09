@@ -1,0 +1,4 @@
+targets:
+  prod: shared-us-west-2/cjiuzhol98qpl01183yopq2km
+  dev: shared-ap-northeast-1/cjjet83250dop0114ntopy45r
+  default: dev

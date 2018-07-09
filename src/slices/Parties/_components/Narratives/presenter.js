@@ -6,32 +6,40 @@ import styles from './styles.scss';
 
 import Button from '+dumb/Button'
 import { Content } from '+dumb/Layouts'
+import Loading from '+dumb/Loading'
 
-const Narrative = ({ narrative, narrativeId }) => (
-  <Content title={narrative.displayName}>
-    <React.Fragment>
-      {narrative.text}
+class Narrative extends React.PureComponent {
+  render() {
+    const { displayName, id, previewText } = this.props;
 
-      <Button path={`/parties/new/${narrativeId}`} inverted>Create</Button>
-    </React.Fragment>
-  </Content>
-);
+    return (
+      <Content title={displayName}>
+        <React.Fragment>
+          {previewText}
+
+          <Button path={`/parties/new/${id}`} inverted>Create</Button>
+        </React.Fragment>
+      </Content>
+    );
+  }
+}
 
 export default class extends React.PureComponent {
   static displayName = __dirname.replace('src/slices/', '');
 
   render() {
-    const { narratives } = this.props;
+    const { data: { allNarratives = [] } } = this.props;
 
     return (
       <React.Fragment>
         <h1>Pick a Narrative</h1>
         <div className={styles.root}>
-          { Object.keys(narratives).map(key =>
+          { allNarratives.map(narrative =>
             <Narrative
-              key={key}
-              narrativeId={key}
-              narrative={narratives[key]} />
+              key={narrative.id}
+              id={narrative.id}
+              previewText={narrative.previewText}
+              displayName={narrative.displayName} />
           )}
         </div>
       </React.Fragment>

@@ -33,8 +33,8 @@ A **connected component** is almost *always* enhanced by Redux. The `connect` ca
 
 #### Notes
 
-* Stateless Functional Components are [avoided like the plague](https://medium.com/@nimelrian/be-careful-with-this-statement-463d3076d562). There's always war in Eurasia, and there are always vague promises for SFC performance optimizations. The war and the wait continue.
-* While we're picking bones, [FACC](https://americanexpress.io/faccs-are-an-antipattern/)s only make sense to their author and are also 86'd.
+* Stateless Functional Components are [avoided like the plague](https://medium.com/@nimelrian/be-careful-with-this-statement-463d3076d562). There's always war in Eurasia, and there have always been [promises](https://reactjs.org/blog/2015/10/07/react-v0.14.html#stateless-functional-components) [of SFC](https://github.com/acdlite/recompose/commit/bc1fe9b02bf5c29249073b5f4e660399f6118926) [performance optimizations](https://twitter.com/dan_abramov/status/755343960470614016). The war - and the wait - continue.
+* While we're picking bones, [FACC](https://americanexpress.io/faccs-are-an-antipattern/)s only make sense to their author and are also 86'd. Looking at you, Apollo `<Query />`.
 * Redux logic is also separated to clear an open path to component testing. While it'd be more convenient to include `connect` along with the rest of presenter, this makes decoupling a bigger headache in the future When The Next Greatest State Manager rises to prominence.
 
 ### Slices

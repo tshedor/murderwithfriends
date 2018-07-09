@@ -1,0 +1,7 @@
+query fetchNarrativePreviews {
+  allNarratives {
+    id
+    previewText
+    displayName
+  }
+}

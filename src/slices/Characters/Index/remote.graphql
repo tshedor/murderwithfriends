@@ -1,0 +1,15 @@
+query GetCharacters($partyId: ID!) {
+  allCharacters(orderBy: displayName_ASC, filter: {
+    narrative: {
+      parties_some: {
+        id: $partyId
+      }
+    }
+  }) {
+    id
+    displayName
+    attire
+    relationships
+    text
+  }
+}

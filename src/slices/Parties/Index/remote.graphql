@@ -1,0 +1,6 @@
+query {
+  allParties(orderBy: displayName_ASC) {
+    id
+    displayName
+  }
+}

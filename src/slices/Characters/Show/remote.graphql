@@ -1,0 +1,19 @@
+mutation SetCurrentPlayer($playerId: ID!) {
+  clientSetCurrentPlayer(id: $playerId) @client {
+    id
+  }
+}
+
+query GetCharacter($playerId: ID!) {
+  Player(id: $playerId) {
+    id
+
+    character {
+      id
+      displayName
+      text
+      attire
+      relationships
+    }
+  }
+}

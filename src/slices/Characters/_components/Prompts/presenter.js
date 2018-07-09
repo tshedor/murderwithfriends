@@ -47,7 +47,7 @@ export default class extends React.Component {
             {isCharacter ? (
               <TextInput
                 defaultValue={answers[key]}
-                onKeyDown={this.handlePromptAnswer}
+                onKeyUp={this.handlePromptAnswer}
                 inputRef={val => this.promptAnswers[key] = val}
                 />
             ) : (

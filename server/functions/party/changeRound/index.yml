@@ -1,0 +1,11 @@
+  nextRoundForParty:
+    type: resolver
+    schema: ./functions/party/changeRound/next.graphql
+    handler:
+      code: ./functions/party/changeRound/next.ts
+
+  previousRoundForParty:
+    type: resolver
+    schema: ./functions/party/changeRound/previous.graphql
+    handler:
+      code: ./functions/party/changeRound/previous.ts

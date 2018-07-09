@@ -1,0 +1,8 @@
+type PreviousRoundPayload {
+  id: ID!
+  currentRound: Int!
+}
+
+extend type Mutation {
+  previousRoundForParty(id: ID!): PreviousRoundPayload
+}

@@ -1,21 +1,23 @@
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { graphql, compose } from 'react-apollo'
 
-import createParty from './actions'
+import {
+  CreateParty as MUTATION_CREATE_PARTY,
+  BuildRelationsForParty as MUTATION_BUILD_PARTY
+} from './remote.graphql'
 
-import Presenter from '../_components/Form';
+import Presenter from '../_components/Form'
 
-function mapStateToProps(state, ownProps) {
-  return {
-    narrativeId: ownProps?.match?.params?.narrativeId
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onSubmit: bindActionCreators(createParty, dispatch)
-  }
-}
-
-const Main = connect(mapStateToProps, mapDispatchToProps)(Presenter);
+const Main = compose(
+  graphql(MUTATION_BUILD_PARTY, {
+    props: ({ mutate }) => ({
+      onBuildParty: id => mutate({ variables: { id } })
+    })
+  }),
+  graphql(MUTATION_CREATE_PARTY, {
+    props: ({ mutate, ownProps }) => ({
+      narrativeId: ownProps?.match?.params?.narrativeId,
+      onSubmit: props => mutate({ variables: { ...props, narrativeId } }).then(data => this.props.onBuildParty(data.createParty.id))
+    })
+  })
+)(Presenter);
 export default Main;

@@ -1,8 +1,15 @@
-import makeDataFetchingContainer from '+root/universal/factories/dataFetchingContainer'
+import { graphql } from 'react-apollo'
+
+import {
+  SetCurrentParty as MUTATION_SET_CURRENT_PARTY
+} from './remote.graphql'
+
 import Presenter from './routes'
 
-import { onMount, onUnmount } from '../actions'
+const Main = graphql(MUTATION_SET_CURRENT_PARTY, {
+  props: ({ mutate, ownProps: { match: { params: { partyId } } } }) => ({
+    onMount: () => mutate({ variables: { partyId } })
+  })
+})(Presenter);
 
-const DataFetchingContainer = makeDataFetchingContainer(Presenter, onMount, onUnmount);
-
-export default DataFetchingContainer;
+export default Main;

@@ -1,0 +1,9 @@
+query GetCurrentForGlobalNav {
+  currentParty @client {
+    id
+  }
+
+  currentPlayer @client {
+    id
+  }
+}

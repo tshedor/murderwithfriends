@@ -1,0 +1,19 @@
+mutation UpdateParty(
+  $partyId: ID!,
+  $displayName: String,
+  $text: String,
+  $location: String,
+  $time: String,
+  $otherNotes: String
+) {
+  updateParty(
+    id: $partyId,
+    displayName: $displayName,
+    text: $text,
+    location: $location,
+    time: $time,
+    otherNotes: $otherNotes
+  ) {
+    id
+  }
+}

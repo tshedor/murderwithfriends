@@ -1,0 +1,18 @@
+# subscription {
+#   Party(filter: {
+#     mutation_in: [CREATED]
+#   }) {
+#     node {
+#       id
+#     }
+#   }
+# }
+
+type BuildRealtionsForPartyPayload {
+  id: ID!
+}
+
+extend type Mutation {
+  buildRelationsForParty(id: ID!): BuildRealtionsForPartyPayload
+}
+

@@ -1,7 +1,6 @@
 /// <reference types="history" />
 
 import * as React from 'react'
-import PropTypes from 'prop-types'
 
 import { TextInput, TextareaInput } from '+dumb/Inputs'
 import { Content } from '+dumb/Layouts'
@@ -16,7 +15,7 @@ function buildNarrativeOptions(narratives) {
 
 interface PresenterProps extends _types.Party, ReactRouter.RouterProps {
   onSubmit: (p: object) => void
-  narrativeId: string
+  narrativeId?: string
   showTitle: boolean
 }
 

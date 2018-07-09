@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import EditParty from '../Edit'
-import NextButton from '../_components/NextButton'
+import ChangeRound from '../_components/ChangeRound'
 
 import Icon from '+dumb/Icon'
 
@@ -13,35 +13,27 @@ import { Content } from '+dumb/Layouts'
 import { Helper } from '+dumb/Headers'
 
 export default class extends React.PureComponent {
-  state = {
-    showEditForm: false,
-    showParty: false
-  }
-
   static defaultProps = {
-    clues: {}
+    clues: []
   }
 
   static displayName = __dirname.replace('src/slices/', '');
 
-  toggleEditForm = e => {
-    e.preventDefault();
-
-    this.setState({ showEditForm: !!this.state.showEditForm })
-  }
-
   render() {
-    const { isPartyMaster, clues, partyCharacters, party, currentPartyUid } = this.props;
+    const { party, clues, isOwner } = this.props;
 
-    if (isPartyMaster) {
+    if (!party) {
+      return null;
+    }
+
+    if (isOwner) {
       return (
         <React.Fragment>
-          <NextButton />
+          <ChangeRound partyId={party.id} />
 
           <h2>Edit Party Deets</h2>
           <EditParty
             showTitle={false}
-            narrativeId={party.narrativeId}
             displayName={party.displayName}
             text={party.text}
             time={party.time}
@@ -53,8 +45,8 @@ export default class extends React.PureComponent {
 
           <NumberedList
             data={clues}
-            iteratorRender={item => `#${item.roundId}` || 'Pre Party'}
-            render={item => item.text} />
+            iteratorRender={item => `#${item.roundNumber}` || 'Pre Party'}
+            render={item => item.hint} />
 
         </React.Fragment>
       );

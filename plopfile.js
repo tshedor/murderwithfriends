@@ -1,7 +1,7 @@
 const generatorNames = [
   'UniversalComponent',
   'ConnectedComponent',
-  'SliceRoute'
+  'Slice'
 ];
 const generators = generatorNames.map(name => {
   return {

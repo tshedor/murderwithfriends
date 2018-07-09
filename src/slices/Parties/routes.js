@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { PrivateRoute } from '+dumb/Routes'
+import { PrivateRoute } from '+root/universal/routes'
 
-import PartyIndex from './Index/entry'
+import PartyIndex from './Index'
 
 import PartyNew from './New'
 
@@ -19,8 +19,8 @@ export default class extends React.PureComponent {
       <Switch>
         <PrivateRoute exact title="Parties" path={url} component={PartyIndex} />
         <PrivateRoute exact title="New Party" path={`${url}/new`} component={NarrativeIndex} />
-        <PrivateRoute title="New Party" path={`${url}/new/:narrativeId`} component={PartyNew} />
         <Route path={`${url}/:partyId`} component={ShowRoutes} />
+        <PrivateRoute title="New Party" path={`${url}/new/:narrativeId`} component={PartyNew} />
       </Switch>
     );
   }

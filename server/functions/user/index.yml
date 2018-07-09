@@ -1,0 +1,17 @@
+  registerUser:
+    type: resolver
+    schema: ./functions/user/register.graphql
+    handler:
+      code: ./functions/user/register.ts
+
+  authenticateUser:
+    type: resolver
+    schema: ./functions/user/authenticate.graphql
+    handler:
+      code: ./functions/user/authenticate.ts
+
+  loggedInUser:
+    type: resolver
+    schema: ./functions/user/loggedInUser.graphql
+    handler:
+      code: ./functions/user/loggedInUser.ts

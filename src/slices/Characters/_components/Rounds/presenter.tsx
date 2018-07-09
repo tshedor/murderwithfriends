@@ -1,34 +1,43 @@
 import * as React from 'react'
 
-import Round from '+dumb/Round'
+import RoundHeading from '../RoundHeading'
+import RoundImperatives from '../RoundImperatives'
+
+const styles = require('./styles.scss');
 
 interface PresenterProps {
-  rounds?: object
+  rounds?: string[]
+  characterId: string
+  partyId: string
 }
 
-function sortKeys(rounds) {
-  let keys = Object.keys(rounds).map(key => parseInt(key, 10));
-
-  return keys.sort((a, b) => b - a);
-}
-
-export default class extends React.PureComponent<PresenterProps, {}> {
+export default class extends React.Component<PresenterProps, {}> {
   static displayName = __dirname.replace('src/slices/', '')
 
   static defaultProps = {
-    rounds: {}
+    rounds: []
+  }
+
+  shouldComponentUpdate(nextProps) {
+    const { rounds, characterId } = this.props;
+    const { rounds: nextRounds, characterId: nextCharacterId } = nextProps;
+
+    return rounds.every(roundId => nextRounds.includes(roundId)) || characterId !== nextCharacterId;
   }
 
   render() {
-    const { rounds } = this.props;
+    const { rounds, partyId, characterId } = this.props;
 
     return (
       <React.Fragment>
-        {sortKeys(rounds).map(roundId =>
-          <Round
-            round={rounds[roundId]}
-            key={roundId}
-            roundId={roundId} />
+        {rounds.map(roundId =>
+          <div className={styles.root} key={roundId}>
+            <RoundHeading roundId={roundId} />
+            <RoundImperatives
+              roundId={roundId}
+              characterId={characterId}
+              partyId={partyId} />
+          </div>
         )}
       </React.Fragment>
     );

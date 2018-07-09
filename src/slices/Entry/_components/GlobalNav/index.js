@@ -1,15 +1,18 @@
-import { connect } from 'react-redux'
-import { firebaseAuth } from 'constants/firebase'
+import { graphql, compose } from 'react-apollo'
+import { onlyUpdateForKeys } from 'recompose'
+
+import QUERY_CURRENT_PARTY_AND_PLAYER from './remote.graphql'
 
 import Presenter from './presenter'
 
-function mapStateToProps(state) {
-  return {
-    authed: !!firebaseAuth().currentUser?.uid,
-    currentPartyUid: state.parties.currentPartyUid,
-    currentPlayerUid: state.members.currentPlayerUid
-  };
-}
+const Main = compose(
+  graphql(QUERY_CURRENT_PARTY_AND_PLAYER, {
+    props: ({ data }) => ({
+      currentPartyId: data.currentParty?.id,
+      currentPlayerId: data.currentPlayer?.id
+    })
+  }),
+  onlyUpdateForKeys(['currentPartyId', 'currentPlayerId'])
+)(Presenter);
 
-const Main = connect(mapStateToProps)(Presenter);
 export default Main;

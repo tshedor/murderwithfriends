@@ -6,7 +6,7 @@ import { Content } from '+dumb/Layouts'
 
 interface PresenterProps {
   onSaveActorName: (v: string) => void
-  isPartyMaster: boolean
+  isOwner: boolean
   actorName: string
 }
 
@@ -20,14 +20,14 @@ export default class extends React.PureComponent<PresenterProps, {}> {
   }
 
   render() {
-    const { isPartyMaster, actorName } = this.props;
+    const { isOwner, actorName } = this.props;
 
     return (
       <Content title="Played by">
-        {isPartyMaster ? (
+        {isOwner ? (
           <TextInput
             defaultValue={actorName}
-            onKeyDown={this.handleActorInput}
+            onKeyUp={this.handleActorInput}
             inputRef={val => this.actor = val}
             />
         ) : (

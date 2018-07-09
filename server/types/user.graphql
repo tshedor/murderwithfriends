@@ -2,8 +2,8 @@ type User @model {
   id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
-  players: [Player!]! @relation(name: "PlayerUsers")
-  partyMasterParties: [Party!]! @relation(name: "PartyMasterUsers")
+  parties: [Party!]! @relation(name: "PartiesUser")
   name: String
   email: String! @isUnique
+  password: String!
 }

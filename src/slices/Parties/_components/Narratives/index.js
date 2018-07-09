@@ -1,12 +1,13 @@
-import { connect } from 'react-redux';
+import { graphql } from 'react-apollo'
 
-import Presenter from './presenter';
+import makeComponentWithLoadingAndError from '+root/universal/factories/graphqlWithLoadingAndError'
+import QUERY_NARRATIVE_PREVIEWS from './remote.graphql'
 
-function mapStateToProps(state) {
-  return {
-    narratives: state.narratives.previews
-  };
-}
+import Presenter from './presenter'
 
-const Main = connect(mapStateToProps)(Presenter);
+const Main = makeComponentWithLoadingAndError(
+  graphql(QUERY_NARRATIVE_PREVIEWS),
+  Presenter
+);
+
 export default Main;

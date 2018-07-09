@@ -1,10 +1,11 @@
 type Party @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
+  id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
   narrative: Narrative! @relation(name: "NarrativeParties")
   players: [Player!]! @relation(name: "PartyPlayers")
-  partyMaster: User! @relation(name: "PartyMasterUsers")
+  owner: User @relation(name: "PartiesUser")
+  currentRound: Int! @defaultValue(value: "0")
   startedAt: DateTime
   completedAt: DateTime
   displayName: String
@@ -15,17 +16,18 @@ type Party @model {
 }
 
 type Player @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
+  id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
   party: Party! @relation(name: "PartyPlayers")
-  user: User! @relation(name: "PlayerUsers")
+  character: Character! @relation(name: "CharacterPlayers")
+  partyInstructions: [PartyInstruction!]! @relation(name: "PartyInstructionsPlayer")
   promptAnswers: [PromptAnswer!]! @relation(name: "PlayerPromptAnswers")
   roundNotes: [RoundNote!]! @relation(name: "PlayerRoundNotes")
 }
 
 type PromptAnswer @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
+  id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
   prompt: Prompt! @relation(name: "PromptPromptAnswers")
@@ -33,11 +35,20 @@ type PromptAnswer @model {
   text: String!
 }
 
-type RoundNote @model {
-  id: ID! @isUnique # read-only (managed by Graphcool)
+type PartyInstruction @model {
+  id: ID! @isUnique
   createdAt: DateTime!
   updatedAt: DateTime!
-  round: Round! @relation(name: "RoundRoundNotes")
+  player: Player! @relation(name: "PartyInstructionsPlayer")
+  instruction: Instruction! @relation(name: "InstructionPartyInstructions")
+  hasCompleted: Boolean
+}
+
+type RoundNote @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  round: CharacterRound! @relation(name: "CharacterRoundRoundNotes")
   player: Player! @relation(name: "PlayerRoundNotes")
   text: String!
 }

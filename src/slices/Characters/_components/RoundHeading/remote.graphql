@@ -1,0 +1,9 @@
+query GetRound(
+  $roundId: ID!,
+) {
+  round: Round(id: $roundId) {
+    id
+    order
+    text
+  }
+}

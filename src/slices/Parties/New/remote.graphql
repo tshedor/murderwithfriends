@@ -1,0 +1,27 @@
+mutation CreateParty(
+  $narrativeId: ID!,
+  $displayName: String,
+  $text: String,
+  $location: String,
+  $time: String,
+  $otherNotes: String
+) {
+  createParty(
+    narrativeId: $narrativeId,
+    displayName: $displayName,
+    text: $text,
+    location: $location,
+    time: $time,
+    otherNotes: $otherNotes
+  ) {
+    id
+  }
+}
+
+mutation BuildRelationsForParty(
+  $partyId: ID!
+) {
+  buildRelationsForParty(id: $partyId) {
+    id
+  }
+}

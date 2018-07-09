@@ -16,7 +16,8 @@ module.exports = {
       ...rules.scripts,
       rules.css,
       rules.json,
-      rules.assets
+      rules.assets,
+      rules.graphql
     ],
   },
   plugins: [

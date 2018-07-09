@@ -1,0 +1,34 @@
+mutation PreviousRound($partyId: ID!) {
+  previousRoundForParty(id: $partyId) {
+    id
+    currentRound
+  }
+}
+
+mutation NextRound($partyId: ID!) {
+  nextRoundForParty(id: $partyId) {
+    id
+    currentRound
+  }
+}
+
+query NarrativeProps($partyId: ID!) {
+  Party(id: $partyId) {
+    id
+
+    narrative {
+      id
+      postscript
+      rounds {
+        id
+      }
+    }
+  }
+}
+
+query CurrentRound($partyId: ID!) {
+  Party(id: $partyId) {
+    id
+    currentRound
+  }
+}

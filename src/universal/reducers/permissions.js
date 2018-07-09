@@ -3,7 +3,7 @@ import * as types from 'constants/actionTypes';
 import { firebaseAuth } from 'constants/firebase';
 
 const initialState = {
-  isPartyMaster: false
+  isOwner: false
 };
 
 export default function data(state = initialState, action) {
@@ -11,7 +11,7 @@ export default function data(state = initialState, action) {
     case types.SET_CURRENT_PARTY:
       return {
         ...state,
-        isPartyMaster: action.party.createdBy === firebaseAuth().currentUser?.uid
+        isOwner: action.party.createdBy === firebaseAuth().currentUser?.uid
       };
 
     case types.RESET:

@@ -1,0 +1,23 @@
+query GetCharacterRound(
+  $roundId: ID!,
+  $characterId: ID!
+) {
+  round: CharacterRound(characterId: $characterId, roundId: $roundId) {
+    id
+    text
+
+    instructions(orderBy: order_ASC) {
+      id
+      text
+      order
+      isOptional
+    }
+
+    clues(orderBy: order_ASC) {
+      id
+      order
+      hint
+      text
+    }
+  }
+}

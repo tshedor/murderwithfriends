@@ -26,7 +26,7 @@ const resolve = {
 };
 
 const plugins = [
-  new ExtractTextPlugin({ filename: 'css/[contenthash:8].css', allChunks: true }),
+  new ExtractTextPlugin({ filename: 'css/[contenthash:8].css', allChunks: false }),
   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   new webpack.DefinePlugin({
     'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),

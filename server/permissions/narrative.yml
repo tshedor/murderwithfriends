@@ -1,6 +1,20 @@
-- operation: Narrative.read
-- operation: Character.read
-- operation: Prompt.read
+- operation: Narrative.create
+
+- operation: Character.create
+- operation: CharacterRound.create
+
+- operation: Round.create
+
+- operation: Instruction.create
+
+- operation: Prompt.create
+
+- operation: Clue.create
+
 - operation: Clue.read
-- operation: Round.read
+- operation: Prompt.read
 - operation: Instruction.read
+- operation: Round.read
+- operation: Character.read
+- operation: CharacterRound.read
+- operation: Narrative.read

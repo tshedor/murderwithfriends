@@ -31,6 +31,12 @@ const eslint = {
   loader: 'eslint-loader'
 };
 
+const graphql = {
+  test: /\.(graphql|gql)$/,
+  exclude: /node_modules/,
+  loader: 'graphql-tag/loader'
+};
+
 const scripts = [
   {
     test: /\.jsx?$/,
@@ -108,4 +114,5 @@ module.exports = {
   assets,
   css,
   cssUnextracted,
+  graphql
 };

@@ -1,15 +1,19 @@
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { graphql, compose } from 'react-apollo'
+import { onlyUpdateForKeys } from 'recompose'
+
+import QUERY_CURRENT_PARTY_AND_PLAYER from './remote.graphql'
 
 import Presenter from './presenter'
 
-function mapStateToProps(state, ownProps) {
-  return {
-    isPartyMaster: state.permissions.isPartyMaster,
-    partyPlayerId: state.members.characters[ownProps.characterId]?.partyPlayerId,
-    currentPartyUid: state.parties.currentPartyUid
-  };
-}
+const Main = compose(
+  graphql(QUERY_CURRENT_PARTY_AND_PLAYER, {
+    props: ({ data }) => ({
+      isOwner: true,
+      partyId: data.currentParty?.id,
+      playerId: data.currentPlayer?.id
+    })
+  }),
+  onlyUpdateForKeys(['partyId', 'playerId'])
+)(Presenter);
 
-const Main = connect(mapStateToProps)(Presenter);
 export default Main;

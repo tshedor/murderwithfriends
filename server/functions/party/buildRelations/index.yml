@@ -1,0 +1,9 @@
+  # Should this be a resolver? Absolutely not.
+  # However, Graphcool doesn't pass auth info on
+  # subscripts or operation hooks
+  # https://github.com/prismagraphql/graphcool-framework/issues/317
+  buildRelationsForParty:
+    type: resolver
+    schema: ./functions/party/buildRelations/index.graphql
+    handler:
+      code: ./functions/party/buildRelations/index.ts

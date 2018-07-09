@@ -7,7 +7,7 @@ import Presenter from './presenter'
 function mapStateToProps(state, ownProps) {
   return {
     actorName: state.members.characters?.[ ownProps.characterId ]?.partyPlayerName,
-    isPartyMaster: state.permissions.isPartyMaster
+    isOwner: state.permissions.isOwner
   };
 }
 

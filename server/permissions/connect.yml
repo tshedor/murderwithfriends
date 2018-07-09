@@ -1,0 +1,29 @@
+# NARRATIVES
+
+- operation: NarrativeRounds.connect
+- operation: NarrativeParties.connect
+
+- operation: CharacterNarratives.connect
+- operation: CharacterPrompts.connect
+- operation: CharacterRoundRounds.connect
+- operation: CharacterCharacterRounds.connect
+
+- operation: InstructionAppearsAfterInstruction.connect
+- operation: InstructionPartyInstructions.connect
+- operation: CharacterRoundInstructions.connect
+
+- operation: ClueAppearsAfterInstruction.connect
+- operation: CharacterRoundClues.connect
+
+# PARTIES
+
+- operation: PartiesUser.connect
+
+- operation: PartyPlayers.connect
+- operation: CharacterPlayers.connect
+
+- operation: PromptPromptAnswers.connect
+
+- operation: PlayerRoundNotes.connect
+- operation: PartyInstructionsPlayer.connect
+- operation: PlayerPromptAnswers.connect
