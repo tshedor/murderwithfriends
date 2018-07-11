@@ -1,0 +1,13 @@
+query GetSomething(
+{{#each props}}
+    ${{this.name}}: {{pascalCase this.type}},
+{{/each}}
+) {
+  allSomethings(
+{{#each props}}
+    {{this.name}}: ${{this.name}},
+{{/each}}
+  ) {
+    id
+  }
+}

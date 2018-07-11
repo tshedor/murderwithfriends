@@ -9,20 +9,21 @@ export default class extends React.PureComponent {
   static displayName = __dirname.replace('src/slices/', '')
 
   static defaultProps = {
-    characters: {}
+    players: []
   }
 
   render() {
-    const { characters } = this.props;
+    const { players } = this.props;
 
     return (
       <React.Fragment>
         <h1>Characters</h1>
         <div className={styles.root}>
-          {characters.map(character =>
+          {players.map(player =>
             <Character
-              key={character.id}
-              character={character}
+              playerId={player.id}
+              key={player.id}
+              character={player.character}
               showName={true} />
           )}
         </div>

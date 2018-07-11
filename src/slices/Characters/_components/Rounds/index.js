@@ -1,6 +1,6 @@
 import { graphql } from 'react-apollo'
 
-import makeComponentWithLoadingAndError from '+root/universal/factories/graphqlWithLoadingAndError'
+import composeWithLoadingAndError from '+root/universal/factories/composeWithLoadingAndError'
 
 import {
   CurrentRound as SUBSCRIPTION_CURRENT_ROUND,
@@ -9,7 +9,7 @@ import {
 
 import Presenter from './presenter'
 
-const Main = makeComponentWithLoadingAndError(
+const Main = composeWithLoadingAndError(
   [
     graphql(SUBSCRIPTION_CURRENT_ROUND, {
       options: ({ partyId }) => ({ variables: { partyId } }),
@@ -26,11 +26,9 @@ const Main = makeComponentWithLoadingAndError(
       }),
       props: ({ ownProps, data: { loading, error, allRounds } }) => {
         return {
-          data: {
-            loading,
-            error
-          },
-          rounds: allRounds.map(r => r.id)
+          loading,
+          error,
+          rounds: allRounds?.map(r => r.id)
         };
       }
     }),

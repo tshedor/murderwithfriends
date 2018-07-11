@@ -1,0 +1,76 @@
+query GetPromptAnswers(
+  $playerId: ID!
+) {
+  allPromptAnswers(filter: {
+    player: {
+      id: $playerId
+    }
+  }) {
+    id
+    text
+
+    prompt {
+      id
+    }
+  }
+}
+
+query GetPrompts(
+  $characterId: ID!
+) {
+  allPrompts(filter: {
+    character: {
+      id: $characterId
+    }
+  }) {
+    id
+    text
+  }
+}
+
+mutation UpdateAnswer(
+  $promptAnswerId: ID!,
+  $text: String!
+) {
+  updatePromptAnswer(
+    id: $promptAnswerId,
+    text: $text
+  ) {
+    id
+  }
+}
+
+# Everyone EXCEPT active user if available
+subscription SubscribePromptAnswers(
+  $promptAnswerIds: [ID!]!,
+  $playerId: ID,
+  $characterId: ID
+) {
+  allPromptAnswers(filter: {
+    AND: [{
+      prompt: {
+        ids: $promptAnswerIds
+      }
+    }, {
+      OR: [{
+        player: {
+          id_not: $playerId
+        }
+      }, {
+        player: {
+          character: {
+            id_not: $characterId
+          }
+        }
+      }]
+    }]
+  }) {
+    id
+    text
+
+    prompt {
+      id
+    }
+  }
+}
+

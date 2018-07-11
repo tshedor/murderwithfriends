@@ -1,0 +1,20 @@
+mutation UpdateDisplayName(
+  $playerId: ID!,
+  $displayName: String!
+) {
+  updatePlayer(
+    id: $playerId,
+    displayName: $displayName
+  ) {
+    id
+  }
+}
+
+query GetDisplayName(
+  $playerId: ID!
+) {
+  Player(id: $playerId) {
+    id
+    displayName
+  }
+}

@@ -1,21 +1,15 @@
-import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
+import { graphql } from 'react-apollo'
 
+import composeWithLoadingAndError from '+root/universal/factories/composeWithLoadingAndError'
+
+import QUERY_SOMETHING from './remote.graphql'
 import Presenter from './presenter'
 
-function mapStateToProps(state, ownProps) {
-  return {
-{{#each props}}
-    {{this.name}}: state.
-{{/each}}
-  };
-}
-
-function mapDispatchToProps(dispatch, ownProps) {
-  return {
-
-  };
-}
-
-const Main = connect(mapStateToProps, mapDispatchToProps)(Presenter);
+const Main = graphql(QUERY_SOMETHING, {
+  options: ({ variables }) => ({ variables: { } }),
+  props: ({ data: { loading, error } }) => ({
+    loading,
+    error
+  })
+})(Presenter);
 export default Main;

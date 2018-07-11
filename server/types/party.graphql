@@ -24,6 +24,7 @@ type Player @model {
   partyInstructions: [PartyInstruction!]! @relation(name: "PartyInstructionsPlayer")
   promptAnswers: [PromptAnswer!]! @relation(name: "PlayerPromptAnswers")
   roundNotes: [RoundNote!]! @relation(name: "PlayerRoundNotes")
+  displayName: String
 }
 
 type PromptAnswer @model {

@@ -1,5 +1,7 @@
 type Narrative @model {
   id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   rounds: [Round!]! @relation(name: "NarrativeRounds")
   characters: [Character!]! @relation(name: "CharacterNarratives")
   parties: [Party!]! @relation(name: "NarrativeParties")
@@ -11,6 +13,8 @@ type Narrative @model {
 
 type Round @model {
   id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   narrative: Narrative! @relation(name: "NarrativeRounds")
   characterRounds: [CharacterRound!]! @relation(name: "CharacterRoundRounds")
   order: Int!
@@ -20,6 +24,8 @@ type Round @model {
 
 type Character @model {
   id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   narrative: Narrative! @relation(name: "CharacterNarratives")
   prompts: [Prompt!]! @relation(name: "CharacterPrompts")
   players: [Player!]! @relation(name: "CharacterPlayers")
@@ -33,6 +39,8 @@ type Character @model {
 
 type Prompt @model {
   id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   character: Character! @relation(name: "CharacterPrompts")
   answers: [PromptAnswer!]! @relation(name: "PromptPromptAnswers")
   text: String
@@ -40,6 +48,8 @@ type Prompt @model {
 
 type CharacterRound @model {
   id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   character: Character! @relation(name: "CharacterCharacterRounds")
   round: Round! @relation(name: "CharacterRoundRounds")
   instructions: [Instruction!]! @relation(name: "CharacterRoundInstructions")
@@ -50,6 +60,8 @@ type CharacterRound @model {
 
 type Clue @model {
   id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   characterRound: CharacterRound! @relation(name: "CharacterRoundClues")
   appearsAfterInstruction: Instruction @relation(name: "ClueAppearsAfterInstruction")
   order: Int!
@@ -59,6 +71,8 @@ type Clue @model {
 
 type Instruction @model {
   id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   characterRound: CharacterRound! @relation(name: "CharacterRoundInstructions")
   appearsAfterInstruction: Instruction @relation(name: "InstructionAppearsAfterInstruction")
   appearsAfterClue: Clue @relation(name: "ClueAppearsAfterInstruction")

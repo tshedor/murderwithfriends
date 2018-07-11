@@ -11,8 +11,13 @@ interface EventData {
 }
 
 interface QueryNarrativeCharacters extends GraphQLResponse {
-  narrative: {
-    characters: [{ id: string }]
+  Party: {
+    narrative: {
+      characters: {
+        id: string
+        prompts: { id: string }[]
+      }[]
+    }
   }
 }
 
@@ -40,6 +45,10 @@ query getCharacters($partyId: ID!) {
     narrative {
       characters {
         id
+
+        prompts {
+          id
+        }
       }
     }
   }
@@ -51,6 +60,18 @@ mutation CreatePlayer($partyId: ID!, $characterId: ID!) {
   createPlayer(
     partyId: $partyId,
     characterId: $characterId
+  ) {
+    id
+  }
+}
+`;
+
+const MUTATION_CREATE_PROMPT_ANSWER = `
+mutation CreatePromptAnswer($playerId: ID!, $promptId: ID!) {
+  createPromptAnswer(
+    playerId: $playerId,
+    promptId: $promptId,
+    text: ""
   ) {
     id
   }
@@ -74,15 +95,29 @@ mutation AddPartyToUser($partyId: ID!, $userId: ID!) {
 }
 `;
 
+const findPrompts = (characters, characterId) => {
+  return characters
+    .find(item => item.id === characterId)
+    .prompts.map(p => p.id);
+}
+
 const generateCharacters = async (api: GraphQLClient, partyId: string) => {
   try {
-    const characters = await api.request<{ Party: QueryNarrativeCharacters }>(QUERY_NARRATIVE_CHARACTERS, { partyId }).then(data => data.Party.narrative.characters);
+    const characters = await api.request<QueryNarrativeCharacters>(QUERY_NARRATIVE_CHARACTERS, { partyId }).then(data => data.Party.narrative.characters);
 
     const characterIds = characters.map(data => data.id);
 
     return Promise.all(
-      characterIds.map(characterId => {
-        return api.request<MutationCreatePlayer>(MUTATION_CREATE_PLAYER, { partyId, characterId });
+      characterIds.map(async (characterId) => {
+        const playerId = await api.request<MutationCreatePlayer>(MUTATION_CREATE_PLAYER, { partyId, characterId });
+
+        const promptIds = findPrompts(characters, characterId)
+
+        return Promise.all(
+          promptIds.map(promptId =>
+            api.request(MUTATION_CREATE_PROMPT_ANSWER, { playerId, promptId })
+          )
+        )
       })
     );
   } catch (e) {

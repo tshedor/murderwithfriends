@@ -1,16 +1,18 @@
 - operation: Party.create
+  authenticated: true
 - operation: Party.read
-  # authenticated: true
 - operation: Party.update
-  # authenticated: true
-  # query: ./permissions/party.query.isOwner.graphql
+  authenticated: true
+  query: ./permissions/party.query.isOwner.graphql
 - operation: Party.delete
-  # authenticated: true
+  authenticated: true
   query: ./permissions/party.query.isOwner.graphql
 
 - operation: Player.read
-- operation: Player.create
+- operation: Player.update
 
 - operation: PromptAnswer.read
+- operation: PromptAnswer.create
+- operation: PromptAnswer.update
 
 - operation: RoundNote.read

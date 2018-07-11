@@ -1,15 +1,17 @@
-query GetCharacters($partyId: ID!) {
-  allCharacters(orderBy: displayName_ASC, filter: {
-    narrative: {
-      parties_some: {
-        id: $partyId
-      }
+query GetPlayers($partyId: ID!) {
+  allPlayers(filter: {
+    party: {
+      id: $partyId
     }
   }) {
     id
-    displayName
-    attire
-    relationships
-    text
+
+    character {
+      id
+      displayName
+      attire
+      relationships
+      text
+    }
   }
 }

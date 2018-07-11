@@ -25,6 +25,8 @@ interface PresenterProps {
   round?: _types.Round
 }
 
+const renderClue = item => item.text
+
 export default class extends React.PureComponent<PresenterProps, {}> {
   static displayName = __dirname.replace('src/slices/', '')
 
@@ -51,7 +53,7 @@ export default class extends React.PureComponent<PresenterProps, {}> {
           <Section title="Clues">
             <NumberedList
               data={round.clues}
-              render={item => item.text} />
+              render={renderClue} />
           </Section>
         }
       </React.Fragment>

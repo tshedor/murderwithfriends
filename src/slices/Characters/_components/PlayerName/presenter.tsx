@@ -5,9 +5,9 @@ import { TextInput } from '+dumb/Inputs'
 import { Content } from '+dumb/Layouts'
 
 interface PresenterProps {
-  onSaveActorName: (v: string) => void
+  onUpdate: (v: string) => void
   isOwner: boolean
-  actorName: string
+  displayName: string
 }
 
 export default class extends React.PureComponent<PresenterProps, {}> {
@@ -15,23 +15,23 @@ export default class extends React.PureComponent<PresenterProps, {}> {
 
   static displayName = __dirname.replace('src/slices/', '')
 
-  handleActorInput = e => {
-    this.props.onSaveActorName(this.actor.value);
+  handleChange = e => {
+    this.props.onUpdate(this.actor.value);
   }
 
   render() {
-    const { isOwner, actorName } = this.props;
+    const { isOwner, displayName } = this.props;
 
     return (
       <Content title="Played by">
         {isOwner ? (
           <TextInput
-            defaultValue={actorName}
-            onKeyUp={this.handleActorInput}
+            defaultValue={displayName}
+            onKeyUp={this.handleChange}
             inputRef={val => this.actor = val}
             />
         ) : (
-          <React.Fragment>{actorName}</React.Fragment>
+          <React.Fragment>{displayName}</React.Fragment>
         )}
       </Content>
     );

@@ -1,7 +1,6 @@
 const generatorNames = [
   'UniversalComponent',
-  'ConnectedComponent',
-  'Slice'
+  'ConnectedComponent'
 ];
 const generators = generatorNames.map(name => {
   return {

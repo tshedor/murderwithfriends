@@ -1,15 +1,15 @@
-- operation: Narrative.create
+# - operation: Narrative.create
 
-- operation: Character.create
-- operation: CharacterRound.create
+# - operation: Character.create
+# - operation: CharacterRound.create
 
-- operation: Round.create
+# - operation: Round.create
 
-- operation: Instruction.create
+# - operation: Instruction.create
 
-- operation: Prompt.create
+# - operation: Prompt.create
 
-- operation: Clue.create
+# - operation: Clue.create
 
 - operation: Clue.read
 - operation: Prompt.read

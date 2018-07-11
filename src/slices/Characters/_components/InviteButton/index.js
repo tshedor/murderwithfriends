@@ -7,10 +7,10 @@ import Presenter from './presenter'
 
 const Main = compose(
   graphql(QUERY_CURRENT_PARTY_AND_PLAYER, {
-    props: ({ data }) => ({
+    props: ({ data, ownProps: { playerId } }) => ({
       isOwner: true,
       partyId: data.currentParty?.id,
-      playerId: data.currentPlayer?.id
+      playerId
     })
   }),
   onlyUpdateForKeys(['partyId', 'playerId'])

@@ -14,10 +14,8 @@ const options = ({ partyId }) => ({
 });
 
 const narrativeQueryProps = ({ ownProps, data: { loading, error, Party } }) => ({
-  data: {
-    loading,
-    error
-  },
+  loading,
+  error,
   postscript: Party?.narrative?.postscript,
   rounds: Party?.narrative?.rounds.length - 1
 });

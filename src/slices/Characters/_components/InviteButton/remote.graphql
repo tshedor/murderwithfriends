@@ -2,8 +2,4 @@ query GetCurrentPartyAndPlayer {
   currentParty @client {
     id
   }
-
-  currentPlayer @client {
-    id
-  }
 }

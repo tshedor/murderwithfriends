@@ -6,7 +6,7 @@ import {
   SetCurrentParty as MUTATION_SET_CURRENT_PARTY
 } from './remote.graphql'
 
-import makeComponentWithLoadingAndError from '+root/universal/factories/graphqlWithLoadingAndError'
+import composeWithLoadingAndError from '+root/universal/factories/composeWithLoadingAndError'
 
 import Presenter from './presenter'
 
@@ -31,7 +31,7 @@ const pullCluesFromRounds = memoized((rounds) =>
     .reduce(flatten, [])
 );
 
-const Main = makeComponentWithLoadingAndError(
+const Main = composeWithLoadingAndError(
   graphql(QUERY_PARTY, {
     options: ({ match: { params: { partyId } } }) => ({ variables: { partyId } }),
     props: ({ ownProps, data }) => {
@@ -42,10 +42,8 @@ const Main = makeComponentWithLoadingAndError(
       const { loading, error, Party, allRounds } = data;
 
       const resp = {
-        data: {
-          loading,
-          error
-        },
+        loading,
+        error,
         isOwner: true
       };
 

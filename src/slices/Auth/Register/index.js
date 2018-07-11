@@ -3,13 +3,13 @@ import { branch, renderComponent } from 'recompose'
 import { withRouter } from 'react-router-dom'
 
 import Loading from '+dumb/Loading'
-import makeComponentWithLoadingAndError from '+root/universal/factories/graphqlWithLoadingAndError'
+import composeWithLoadingAndError from '+root/universal/factories/composeWithLoadingAndError'
 
 import MUTATION_SIGNUP_USER from './remote.graphql'
 
 import Presenter from './presenter'
 
-const Main = makeComponentWithLoadingAndError(
+const Main = composeWithLoadingAndError(
   graphql(MUTATION_SIGNUP_USER, {
     props: ({ mutate }) => ({
       onSubmit: async (variables) => {

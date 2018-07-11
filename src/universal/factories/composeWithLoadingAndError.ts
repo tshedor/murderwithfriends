@@ -14,7 +14,7 @@ const reportNonBreakingError = (propName = 'data') =>
 
 export const renderWhileLoading = (component, propName = 'data') =>
   branch(
-    props => props[propName] && props[propName].loading,
+    props => props.loading || (props[propName] && props[propName].loading),
     renderComponent(component)
   );
 
@@ -27,8 +27,7 @@ const enhance = (composables: void | void[], component: React.ComponentType, pro
   const { loadingProp, errorProp } = props;
 
   let composeArgs = [
-    renderWhileLoading(Loading, loadingProp),
-    reportNonBreakingError(errorProp)
+    renderWhileLoading(Loading, loadingProp)
   ];
 
   Array.prototype.unshift.apply(composeArgs, [].concat(composables));

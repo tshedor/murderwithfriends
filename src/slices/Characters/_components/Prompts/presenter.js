@@ -8,8 +8,8 @@ import Loading from '+dumb/Loading'
 
 export default class extends React.Component {
   static propTypes = {
-    prompts: PropTypes.array,
-    answers: PropTypes.array,
+    prompts: PropTypes.object,
+    answers: PropTypes.object,
     isCharacter: PropTypes.bool.isRequired
   }
 
@@ -18,41 +18,39 @@ export default class extends React.Component {
   promptAnswers = {}
 
   static defaultProps = {
-    promps: {},
-    answers: []
+    prompts: {},
+    answers: {}
   }
 
-  handlePromptAnswer = e => {
-    Object.keys(this.promptAnswers).forEach(key => {
-      this.props.onSavePrompt(key, this.promptAnswers[key].value);
-    });
+  handlePromptAnswer(promptAnswerId, e) {
+    // Re-rendered anonymous functions or function refs?
+    // Only God may judge me.
+    const text = e.currentTarget.value;
+
+    this.props.onUpdate({ promptAnswerId, text });
   }
 
   render() {
-    const { prompts, answers, isCharacter } = this.props;
-
-    if (!prompts) {
-      return <Loading />;
-    }
+    const { answers, isCharacter } = this.props;
+    const prompts = Object.values(this.props.prompts)
 
     return (
       <NumberedList
         data={prompts}
-        render={(item, key) => (
+        render={(item, promptId) => (
           <React.Fragment>
             <span>
-              {item}? &nbsp;
+              {item.text}? &nbsp;
             </span>
 
             {isCharacter ? (
               <TextInput
-                defaultValue={answers[key]}
-                onKeyUp={this.handlePromptAnswer}
-                inputRef={val => this.promptAnswers[key] = val}
+                defaultValue={answers[promptId]?.text}
+                onKeyUp={this.handlePromptAnswer.bind(this, answers[promptId]?.id)}
                 />
             ) : (
               <strong>
-                {answers[key]}
+                {answers[promptId]?.text}
               </strong>
             )}
           </React.Fragment>

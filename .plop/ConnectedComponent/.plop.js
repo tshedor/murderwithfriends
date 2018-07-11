@@ -15,6 +15,7 @@ const generator = {
     actions.push( addFactory('styles.scss') );
     actions.push( addFactory('index.js') );
     actions.push( addFactory('presenter.tsx') );
+    actions.push( addFactory('remote.graphql') );
 
     return actions;
   }

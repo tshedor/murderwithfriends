@@ -13,10 +13,19 @@ export default class extends React.PureComponent {
   static propTypes = {
     character: PropTypes.object,
     partyId: PropTypes.string,
+    playerId: PropTypes.string,
+  }
+
+  componentDidMount() {
+    this.props.onMount();
   }
 
   render() {
-    const { character, partyId } = this.props;
+    const {
+      character,
+      partyId,
+      playerId
+    } = this.props;
 
     return (
       <React.Fragment>
@@ -30,7 +39,7 @@ export default class extends React.PureComponent {
           partyId={partyId} />
 
         <h2>About Me</h2>
-        <Character character={character} />
+        <Character character={character} playerId={playerId} />
       </React.Fragment>
     )
   }

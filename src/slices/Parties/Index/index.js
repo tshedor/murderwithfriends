@@ -2,11 +2,11 @@ import { graphql } from 'react-apollo'
 
 import QUERY_ALL_PARTIES from './remote.graphql'
 
-import makeComponentWithLoadingAndError from '+root/universal/factories/graphqlWithLoadingAndError'
+import composeWithLoadingAndError from '+root/universal/factories/composeWithLoadingAndError'
 
 import Presenter from './presenter'
 
-const Main = makeComponentWithLoadingAndError(
+const Main = composeWithLoadingAndError(
   graphql(QUERY_ALL_PARTIES),
   Presenter
 );

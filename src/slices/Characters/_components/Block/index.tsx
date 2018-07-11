@@ -1,19 +1,17 @@
 import * as React from 'react'
 
-import Icon from '+dumb/Icon'
-import { TextInput } from '+dumb/Inputs'
-import Loading from '+dumb/Loading'
 import { Content } from '+dumb/Layouts'
 
 import Prompts from '../Prompts'
 import InviteButton from '../InviteButton'
-import ActorInput from '../ActorInput'
+import PlayerName from '../PlayerName'
 
 const styles = require('./styles.scss')
 
 interface PresenterProps {
   character?: _types.Character
   characterId: string
+  playerId?: string
   showName: boolean
 }
 
@@ -23,11 +21,8 @@ export default class extends React.PureComponent<PresenterProps, {}> {
   render() {
     const {
       character,
+      playerId,
       showName } = this.props;
-
-    if (!character) {
-      return <Loading />;
-    }
 
     return (
       <div className={styles.root}>
@@ -43,11 +38,11 @@ export default class extends React.PureComponent<PresenterProps, {}> {
         }
 
         <h3>Fill in the blank</h3>
-        <Prompts characterId={character.id} />
+        <Prompts characterId={character.id} playerId={playerId} />
 
-        <ActorInput />
+        <PlayerName playerId={playerId} />
 
-        <InviteButton />
+        <InviteButton playerId={playerId} />
       </div>
     );
   }
