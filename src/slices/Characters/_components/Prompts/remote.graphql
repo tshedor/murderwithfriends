@@ -11,20 +11,8 @@ query GetPromptAnswers(
 
     prompt {
       id
+      text
     }
-  }
-}
-
-query GetPrompts(
-  $characterId: ID!
-) {
-  allPrompts(filter: {
-    character: {
-      id: $characterId
-    }
-  }) {
-    id
-    text
   }
 }
 
@@ -37,6 +25,7 @@ mutation UpdateAnswer(
     text: $text
   ) {
     id
+    text
   }
 }
 

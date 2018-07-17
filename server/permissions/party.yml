@@ -3,10 +3,10 @@
 - operation: Party.read
 - operation: Party.update
   authenticated: true
-  query: ./permissions/party.query.isOwner.graphql
+  query: ./permissions/party.isOwner.graphql
 - operation: Party.delete
   authenticated: true
-  query: ./permissions/party.query.isOwner.graphql
+  query: ./permissions/party.isOwner.graphql
 
 - operation: Player.read
 - operation: Player.update

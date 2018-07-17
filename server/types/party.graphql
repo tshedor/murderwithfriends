@@ -17,7 +17,6 @@ type Party @model {
 
 type Player @model {
   id: ID! @isUnique
-  createdAt: DateTime!
   updatedAt: DateTime!
   party: Party! @relation(name: "PartyPlayers")
   character: Character! @relation(name: "CharacterPlayers")
@@ -29,7 +28,6 @@ type Player @model {
 
 type PromptAnswer @model {
   id: ID! @isUnique
-  createdAt: DateTime!
   updatedAt: DateTime!
   prompt: Prompt! @relation(name: "PromptPromptAnswers")
   player: Player! @relation(name: "PlayerPromptAnswers")
@@ -38,7 +36,6 @@ type PromptAnswer @model {
 
 type PartyInstruction @model {
   id: ID! @isUnique
-  createdAt: DateTime!
   updatedAt: DateTime!
   player: Player! @relation(name: "PartyInstructionsPlayer")
   instruction: Instruction! @relation(name: "InstructionPartyInstructions")
@@ -47,7 +44,6 @@ type PartyInstruction @model {
 
 type RoundNote @model {
   id: ID! @isUnique
-  createdAt: DateTime!
   updatedAt: DateTime!
   round: CharacterRound! @relation(name: "CharacterRoundRoundNotes")
   player: Player! @relation(name: "PlayerRoundNotes")

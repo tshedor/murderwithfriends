@@ -5,8 +5,16 @@ import { PageTitle, Helper } from '+dumb/Headers';
 import { EmailInput, PasswordInput } from '+dumb/Inputs';
 import { Content } from '+dumb/Layouts'
 import Button from '+dumb/Button'
+import Notice from '+dumb/Notice'
 
 export default class extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.email = React.createRef();
+    this.password = React.createRef();
+  }
+
   state = {
     errorMsg: null
   }
@@ -17,9 +25,11 @@ export default class extends React.Component {
     const { onSubmit, history } = this.props;
 
     onSubmit({
-      email: this.email.value,
-      password: this.password.value
-    }).then(() => history.push('/parties'))
+      email: this.email.current.value,
+      password: this.password.current.value
+    })
+      .then(() => history.push('/parties'))
+      .catch(e => this.setState({ errorMsg: e.graphQLErrors?.[0]?.functionError }))
   }
 
   render () {
@@ -30,21 +40,17 @@ export default class extends React.Component {
         </PageTitle>
 
         <form onSubmit={this.handleSubmit} className="endcap">
-          { this.state.errorMsg &&
-            <div className="notice -error" role="alert">
-              {this.state.errorMsg}
-            </div>
-          }
+          <Notice msg={this.state.errorMsg} error />
 
           <Content title="Email">
             <EmailInput
               placeholder="goingtomurder@withmyfriends.com"
-              inputRef={val => this.email = val} />
+              ref={this.email} />
           </Content>
 
           <Content title="Password">
             <PasswordInput
-              inputRef={val => this.password = val} />
+              ref={this.password} />
           </Content>
 
           <Button value="Login" />

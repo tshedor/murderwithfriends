@@ -1,7 +1,10 @@
 import { graphql, compose } from 'react-apollo'
 import { onlyUpdateForKeys } from 'recompose'
 
-import QUERY_CURRENT_PARTY_AND_PLAYER from './remote.graphql'
+import {
+  GetCurrentForGlobalNav as QUERY_CURRENT_PARTY_AND_PLAYER,
+  IsUserLoggedIn as QUERY_IS_LOGGED_IN
+} from './remote.graphql'
 
 import Presenter from './presenter'
 
@@ -12,7 +15,12 @@ const Main = compose(
       currentPlayerId: data.currentPlayer?.id
     })
   }),
-  onlyUpdateForKeys(['currentPartyId', 'currentPlayerId'])
+  graphql(QUERY_IS_LOGGED_IN, {
+    props: ({ data }) => ({
+      authed: !!data.loggedInUser?.id
+    })
+  }),
+  onlyUpdateForKeys(['currentPartyId', 'currentPlayerId', 'authed'])
 )(Presenter);
 
 export default Main;

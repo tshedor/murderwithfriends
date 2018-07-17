@@ -1,0 +1,12 @@
+@import 'imports/index';
+
+.root {
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: $c-white;
+  background: status(success);
+
+  &.error {
+    background: status(error);
+  }
+}

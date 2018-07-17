@@ -2,12 +2,12 @@
 
 - operation: User.read
   authenticated: true
-  query: ./permissions/user.query.is.graphql
+  query: ./permissions/user.is.graphql
 
 - operation: User.update
   authenticated: true
-  query: ./permissions/user.query.is.graphql
+  query: ./permissions/user.is.graphql
 
 - operation: User.delete
   authenticated: true
-  query: ./permissions/user.query.is.graphql
+  query: ./permissions/user.is.graphql

@@ -14,17 +14,27 @@ function buildNarrativeOptions(narratives) {
 }
 
 interface PresenterProps extends _types.Party, ReactRouter.RouterProps {
-  onSubmit: (p: object) => void
+  onSubmit: (p: object) => Promise<{ data: { buildRelationsForParty: { id: string } } }>
   narrativeId?: string
   showTitle: boolean
 }
 
 export default class extends React.Component<PresenterProps> {
-  displayName: HTMLInputElement
-  text: HTMLInputElement
-  location: HTMLInputElement
-  time: HTMLInputElement
-  otherNotes: HTMLInputElement
+  displayName: React.RefObject<HTMLInputElement>
+  text: React.RefObject<HTMLInputElement>
+  location: React.RefObject<HTMLInputElement>
+  time: React.RefObject<HTMLInputElement>
+  otherNotes: React.RefObject<HTMLInputElement>
+
+  constructor(props) {
+    super(props);
+
+    this.displayName = React.createRef();
+    this.text = React.createRef();
+    this.location = React.createRef();
+    this.time = React.createRef();
+    this.otherNotes = React.createRef();
+  }
 
   static displayName = __dirname.replace('src/slices/', '')
 
@@ -32,23 +42,21 @@ export default class extends React.Component<PresenterProps> {
     e.preventDefault();
 
     this.props.onSubmit({
-      displayName: this.displayName.value,
-      text: this.text.value,
-      location: this.location.value,
-      time: this.time.value,
-      otherNotes: this.otherNotes.value,
+      displayName: this.displayName.current.value,
+      text: this.text.current.value,
+      location: this.location.current.value,
+      time: this.time.current.value,
+      otherNotes: this.otherNotes.current.value,
       narrativeId: this.props.narrativeId
-    });
-
-    if (this.props.history) {
-      this.props.history.push('/parties');
-    }
+    })
   }
 
   render() {
+    const { showTitle, displayName, location, text, time, otherNotes } = this.props;
+
     return (
       <React.Fragment>
-        { this.props.showTitle &&
+        { showTitle &&
           <h1>New Party</h1>
         }
 
@@ -56,28 +64,28 @@ export default class extends React.Component<PresenterProps> {
           <form onSubmit={this.handleSubmit}>
             <TextInput
               label="Name"
-              defaultValue={this.props.displayName}
-              inputRef={val => this.displayName = val} />
+              defaultValue={displayName}
+              ref={this.displayName} />
 
             <TextInput
               label="Location"
-              defaultValue={this.props.location}
-              inputRef={val => this.location = val} />
+              defaultValue={location}
+              ref={this.location} />
 
             <TextareaInput
               label="About"
-              defaultValue={this.props.text}
-              inputRef={val => this.text = val} />
+              defaultValue={text}
+              ref={this.text} />
 
             <TextInput
               label="Time"
-              defaultValue={this.props.time}
-              inputRef={val => this.time = val} />
+              defaultValue={time}
+              ref={this.time} />
 
             <TextareaInput
               label="Other Notes"
-              defaultValue={this.props.otherNotes}
-              inputRef={val => this.otherNotes = val} />
+              defaultValue={otherNotes}
+              ref={this.otherNotes} />
 
             <Button value="Save" inverted />
           </form>

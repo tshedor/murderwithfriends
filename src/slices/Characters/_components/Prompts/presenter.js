@@ -8,18 +8,14 @@ import Loading from '+dumb/Loading'
 
 export default class extends React.Component {
   static propTypes = {
-    prompts: PropTypes.object,
-    answers: PropTypes.object,
+    answersWithPrompts: PropTypes.array,
     isCharacter: PropTypes.bool.isRequired
   }
 
   static displayName = __dirname.replace('src/slices/', '')
 
-  promptAnswers = {}
-
   static defaultProps = {
-    prompts: {},
-    answers: {}
+    answersWithPrompts: []
   }
 
   handlePromptAnswer(promptAnswerId, e) {
@@ -31,26 +27,25 @@ export default class extends React.Component {
   }
 
   render() {
-    const { answers, isCharacter } = this.props;
-    const prompts = Object.values(this.props.prompts)
+    const { answersWithPrompts, isCharacter } = this.props;
 
     return (
       <NumberedList
-        data={prompts}
+        data={answersWithPrompts}
         render={(item, promptId) => (
           <React.Fragment>
             <span>
-              {item.text}? &nbsp;
+              {item.prompt.text}? &nbsp;
             </span>
 
             {isCharacter ? (
               <TextInput
-                defaultValue={answers[promptId]?.text}
-                onKeyUp={this.handlePromptAnswer.bind(this, answers[promptId]?.id)}
+                defaultValue={item.text}
+                onKeyUp={this.handlePromptAnswer.bind(this, item.id)}
                 />
             ) : (
               <strong>
-                {answers[promptId]?.text}
+                {item.text}
               </strong>
             )}
           </React.Fragment>

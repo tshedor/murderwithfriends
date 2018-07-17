@@ -18,7 +18,7 @@ What is a developer without a code?
 
 ### Universal Components
 
-A **universal component** is a shared UI element used across multiple slices. For example, a `<Button />`. These are referenced `+dumb/<Name>`. These do not retrieve data and are not tied to any state management.
+A **universal component** is a shared UI element used across multiple slices. For example, a `<Button />`. These are referenced `+dumb/<Name>`. They do not retrieve data and are not tied to any state management.
 
 ### Connected Components
 
@@ -35,7 +35,7 @@ A **connected component** is almost *always* enhanced by Apollo. The `graphql` o
 
 * Only `index.js` files can fetch data.
 * Stateless Functional Components are [avoided like the plague](https://medium.com/@nimelrian/be-careful-with-this-statement-463d3076d562). There's always war in Eurasia, and there have always been [promises](https://reactjs.org/blog/2015/10/07/react-v0.14.html#stateless-functional-components) [of SFC](https://github.com/acdlite/recompose/commit/bc1fe9b02bf5c29249073b5f4e660399f6118926) [performance optimizations](https://twitter.com/dan_abramov/status/755343960470614016). The war - and the wait - continue.
-* While we're picking bones, [FACC](https://americanexpress.io/faccs-are-an-antipattern/)s only make sense to their author and are also 86'd. Looking at you, Apollo `<Query />`. Also, TODOMoResearch, but this pattern also breaks the [downstream equality checks](https://github.com/acdlite/recompose/blob/master/docs/API.md#withhandlers), right?
+* While we're picking bones, [FACC](https://americanexpress.io/faccs-are-an-antipattern/)s only make sense to their author and are also 86'd. I understand this as a [growing](https://www.apollographql.com/docs/react/essentials/queries.html#basic) [pattern](https://reactjs.org/docs/context.html#examples), but deriving the purpose of a complex FACC is not worth the initial convenience. [Grotesque nesting](https://www.apollographql.com/docs/react/essentials/mutations.html#errors) is far more easily achieved when you're starting an extra indent deep, and I'm old enough to remember callback hell. Also, TODOMoResearch, but this pattern seemingly breaks the [downstream equality checks](https://github.com/acdlite/recompose/blob/master/docs/API.md#withhandlers) reducing its performance, right?
 * App state logic is also separated to clear an open path to component testing. While it'd be more convenient to include `graphql` or `compose` along with the rest of presenter, this makes decoupling a bigger headache in the future when The Next Greatest State Manager/[You Don't Need a State Manager](https://blog.apollographql.com/reducing-our-redux-code-with-react-apollo-5091b9de9c2a) philosophy rises to prominence.
 
 ### Slices
@@ -102,6 +102,7 @@ In order of influence
 
 * Adventures in TypeScript
 * Storybook
+* [Forward Refs](https://reactjs.org/docs/forwarding-refs.html)
 * Graphcool and Apollo (GraphQL)
 * [Plop](https://github.com/amwmedia/plop) *pllloooppppppppp*
 
@@ -118,7 +119,7 @@ In order of influence
 * Unified conversion to TypeScript. `.d.ts` or `.tsx` just pick one.
 * Soothing ESLint
 * Use [React Context](https://reactjs.org/docs/context.html) instead of [Apollo's local hackery](https://github.com/apollographql/apollo-link-state)
-* Confront the sins of `+dumb/Inputs`
+* ~Confront the sins of `+dumb/Inputs`~
 * Advanced Storybook usage
 
 ## Development

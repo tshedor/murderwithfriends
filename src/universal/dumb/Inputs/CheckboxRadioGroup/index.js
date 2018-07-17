@@ -1,11 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
-import { stringToUnderscores } from '../shared';
+import styles from './styles.scss'
 
 function htmlId(name, option) {
   return `${stringToUnderscores(name)}_${stringToUnderscores(option)}`;
 }
+
+function stringToUnderscores(str) {
+  if (!str) {
+    return null;
+  }
+
+  return str
+    .toLowerCase()
+    .replace(/\n/g, '')
+    .replace(/\s/g, '_')
+    .replace(/"/g, '\"');
+}
+
 
 export default class extends React.Component {
   inputs = {}
@@ -45,10 +59,10 @@ export default class extends React.Component {
 
   render() {
     return (
-      <fieldset className={`toggle toggle-group -${this.props.type}`}>
+      <fieldset className={classNames(styles.root, styles.rootGroup, `prop${this.props.type}`)}>
         <label>{this.props.label}</label>
         {this.props.options.map(option =>
-          <label className="nested-label" htmlFor={htmlId(this.props.label, option)} key={option}>
+          <label className={styles.nestedLabel} htmlFor={htmlId(this.props.label, option)} key={option}>
             <input
               type={this.props.type}
               id={htmlId(this.props.label, option)}

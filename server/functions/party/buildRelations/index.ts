@@ -109,7 +109,7 @@ const generateCharacters = async (api: GraphQLClient, partyId: string) => {
 
     return Promise.all(
       characterIds.map(async (characterId) => {
-        const playerId = await api.request<MutationCreatePlayer>(MUTATION_CREATE_PLAYER, { partyId, characterId });
+        const playerId = await api.request<MutationCreatePlayer>(MUTATION_CREATE_PLAYER, { partyId, characterId }).then(data => data.createPlayer.id);
 
         const promptIds = findPrompts(characters, characterId)
 

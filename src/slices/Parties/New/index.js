@@ -1,3 +1,4 @@
+import { withRouter } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 
 import {
@@ -9,15 +10,21 @@ import Presenter from '../_components/Form'
 
 const Main = compose(
   graphql(MUTATION_BUILD_PARTY, {
-    props: ({ mutate }) => ({
-      onBuildParty: id => mutate({ variables: { id } })
+    props: ({ mutate, ownProps }) => ({
+      onBuildParty: partyId => {
+        return mutate({ variables: { partyId } }).then(({ data }) =>
+          ownProps.history.push(`/parties/${data.buildRelationsForParty.id}`)
+        )
+      }
     })
   }),
   graphql(MUTATION_CREATE_PARTY, {
-    props: ({ mutate, ownProps }) => ({
-      narrativeId: ownProps?.match?.params?.narrativeId,
-      onSubmit: props => mutate({ variables: { ...props, narrativeId } }).then(data => this.props.onBuildParty(data.createParty.id))
-    })
+    props: ({ mutate, ownProps }) => {
+      return {
+        narrativeId: ownProps?.match?.params?.narrativeId,
+        onSubmit: variables => mutate({ variables }).then(({ data }) => ownProps.onBuildParty(data?.createParty.id))
+      }
+    }
   })
-)(Presenter);
+)(withRouter(Presenter));
 export default Main;

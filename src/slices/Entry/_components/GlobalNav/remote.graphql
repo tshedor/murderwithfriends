@@ -7,3 +7,11 @@ query GetCurrentForGlobalNav {
     id
   }
 }
+
+# TODO This is recycled from universal/routes/remote.graphql
+#   Unsure the logical place for shared queries. Maybe a universal/queries/index.graphql?
+query IsUserLoggedIn {
+  loggedInUser {
+    id
+  }
+}

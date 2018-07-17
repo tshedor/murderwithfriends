@@ -5,8 +5,17 @@ import { PageTitle, Helper } from '+dumb/Headers'
 import { TextInput, EmailInput, PasswordInput } from '+dumb/Inputs'
 import { Content } from '+dumb/Layouts'
 import Button from '+dumb/Button'
+import Notice from '+dumb/Notice'
 
 export default class extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.displayName = React.createRef();
+    this.email = React.createRef();
+    this.password = React.createRef();
+  }
+
   state = {
     errorMsg: null
   }
@@ -17,9 +26,9 @@ export default class extends React.PureComponent {
     const { onSubmit, history } = this.props;
 
     onSubmit({
-      email: this.email.value,
-      password: this.password.value,
-      displayName: this.displayName.value
+      email: this.email.current.value,
+      password: this.password.current.value,
+      displayName: this.displayName.current.value
     }).then(() => history.push('/parties'))
   }
 
@@ -31,30 +40,26 @@ export default class extends React.PureComponent {
         </PageTitle>
 
         <form onSubmit={this.handleSubmit}>
-          { this.state.errorMsg &&
-            <div className="notice -error" role="alert">
-              {this.state.errorMsg}
-            </div>
-          }
+          <Notice msg={this.state.errorMsg} error />
 
           <Content title="Name">
             <TextInput
               placeholder="Schmitty Werber Wegermanjensen"
               required={true}
-              inputRef={val => this.displayName = val} />
+              ref={this.displayName} />
           </Content>
 
           <Content title="Email">
             <EmailInput
               placeholder="whatever@whatever.com"
               required={true}
-              inputRef={val => this.email = val} />
+              ref={this.email} />
           </Content>
 
           <Content title="Password">
             <PasswordInput
               required={true}
-              inputRef={val => this.password = val} />
+              ref={this.password} />
           </Content>
 
           <Button value="Sign Up" />

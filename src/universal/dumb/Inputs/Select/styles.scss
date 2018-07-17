@@ -1,0 +1,23 @@
+@import 'imports/index';
+
+.root {
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  background: $c-primary;
+  color: $c-white;
+  border: 1px solid gray(10);
+  padding: 9px 5px;
+  border-radius: 0;
+  color: gray(50);
+  font-size: remCalc(14px);
+
+  &:focus {
+    outline-color: $c-primary;
+  }
+}
+
+.error {
+  padding: 3px 0;
+  color: $c-error;
+}

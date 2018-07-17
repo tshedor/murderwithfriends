@@ -8,7 +8,7 @@ import { getMainDefinition } from 'apollo-utilities'
 
 import { getToken } from '+root/utils/auth'
 
-const isDev = BUILD_ENV !== 'development'
+const isDev = BUILD_ENV === 'development'
 
 const GRAPHCOOL_SERVICE_ID = isDev ? 'cjjet83250dop0114ntopy45r' : 'cjiuzhol98qpl01183yopq2km'
 const cache = new InMemoryCache().restore(isDev ? {} : window.__APOLLO_STATE__);
