@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Route, BrowserRouter } from 'react-router-dom'
 
 import AuthRoutes from '+root/slices/Auth/routes';

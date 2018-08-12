@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Icon from '../Icon';
 import * as classNames from 'classnames';
-import styles from './styles.scss';
+const styles = require('./styles.scss');
 
 const determineElementForButton = (path) => {
   if (path) {
@@ -17,8 +17,19 @@ const determineElementForButton = (path) => {
   return <div />
 };
 
+interface PresenterProps {
+  component?: React.ComponentElement<{}, null>
+  path?: string
+  inverted?: boolean
+  large?: boolean
+  small?: boolean
+  className?: string
+  iconName?: string
+  children?: React.ReactNode
+  value?: string
+}
 
-class Button extends React.PureComponent {
+class Button extends React.PureComponent<PresenterProps> {
   render() {
     const {
       component,
@@ -44,7 +55,7 @@ class Button extends React.PureComponent {
       className
     );
 
-    if (res?.value) {
+    if (res && res.value) {
       return <input {...res} type="submit" className={filteredClassName} />
     }
 

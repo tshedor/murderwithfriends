@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import { Switch } from 'react-router-dom';
 
 import Login from './Login';
 import Register from './Register';
 
-import { PrivateRoute, PublicRoute } from '+root/universal/routes';
+import { PublicRoute } from '+root/universal/routes';
 
 const Presenter = () => (
   <Switch>

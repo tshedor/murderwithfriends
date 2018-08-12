@@ -1,17 +1,18 @@
-import React from 'react'
+import * as React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { graphql } from 'react-apollo'
+import { graphql } from 'react-apollo';
 
 import LOGGED_IN_USER_QUERY from './remote.graphql'
 
-const makeGraphqlComponent = component => graphql(LOGGED_IN_USER_QUERY, {
+const makeGraphqlComponent = (component) => graphql(LOGGED_IN_USER_QUERY, {
   options: { fetchPolicy: 'network-only' }
 })(component);
 
 const makeRoute = (redirectPath, shouldBeAuthed) => ({title, data, ...res}) => {
   document.title = `${title} | Murder with Friends`;
 
-  const authed = !!data.loggedInUser?.id;
+  // TODO reimplement optional chaining operator
+  const authed = data.loggedInUser && data.loggedInUser.id;
 
   if (authed === shouldBeAuthed) {
     return <Redirect to={redirectPath} />
@@ -25,4 +26,4 @@ const Public = makeRoute('/parties', true);
 
 export const PrivateRoute = makeGraphqlComponent(Private);
 export const PublicRoute = makeGraphqlComponent(Public);
-export { default as Unauthorized } from './Unauthorized'
+export { default as Unauthorized } from './Unauthorized';

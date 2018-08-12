@@ -1,11 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 
 import Character from '../_components/Block'
 
 import styles from './styles.scss';
 
-export default class extends React.PureComponent {
+type PresenterProps = {
+  players: _types.Player[]
+}
+
+export default class extends React.PureComponent<PresenterProps, {}> {
   static displayName = __dirname.replace('src/slices/', '')
 
   static defaultProps = {

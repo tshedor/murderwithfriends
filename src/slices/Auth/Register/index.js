@@ -1,8 +1,6 @@
-import { graphql, compose } from 'react-apollo'
-import { branch, renderComponent } from 'recompose'
+import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 
-import Loading from '+dumb/Loading'
 import composeWithLoadingAndError from '+root/universal/factories/composeWithLoadingAndError'
 
 import MUTATION_SIGNUP_USER from './remote.graphql'
@@ -10,7 +8,7 @@ import MUTATION_SIGNUP_USER from './remote.graphql'
 import Presenter from './presenter'
 
 const Main = composeWithLoadingAndError(
-  graphql(MUTATION_SIGNUP_USER, {
+  graphql<{},{ registerUser: { token: string } },{},{}>(MUTATION_SIGNUP_USER, {
     props: ({ mutate }) => ({
       onSubmit: async (variables) => {
         try {

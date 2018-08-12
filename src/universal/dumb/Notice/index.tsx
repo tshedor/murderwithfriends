@@ -1,11 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 
 import classNames from 'classnames'
 
-import styles from './styles.scss'
+const styles = require('./styles.scss');
 
-const Presenter = ({msg, error=false}) => {
+type PresenterProps = {
+  msg: string
+  error: boolean
+};
+
+const Presenter = ({msg, error=false}: PresenterProps) => {
   if (!msg) {
     return null;
   }
@@ -15,11 +19,6 @@ const Presenter = ({msg, error=false}) => {
       {msg}
     </div>
   );
-};
-
-Presenter.propTypes = {
-  msg: PropTypes.string,
-  error: PropTypes.bool
 };
 
 export default Presenter;

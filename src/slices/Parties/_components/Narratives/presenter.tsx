@@ -1,14 +1,17 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 
 import styles from './styles.scss';
 
 import Button from '+dumb/Button'
 import { Content } from '+dumb/Layouts'
-import Loading from '+dumb/Loading'
 
-class Narrative extends React.PureComponent {
+interface NarrativeProps {
+  displayName: string,
+  id: string,
+  previewText: string
+}
+
+class Narrative extends React.PureComponent<NarrativeProps, {}> {
   render() {
     const { displayName, id, previewText } = this.props;
 
@@ -24,7 +27,7 @@ class Narrative extends React.PureComponent {
   }
 }
 
-export default class extends React.PureComponent {
+export default class extends React.PureComponent<{ data: { allNarratives: Array<NarrativeProps> }}> {
   static displayName = __dirname.replace('src/slices/', '');
 
   render() {

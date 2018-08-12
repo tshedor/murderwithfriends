@@ -11,7 +11,7 @@ import { getToken } from '+root/utils/auth'
 const isDev = BUILD_ENV === 'development'
 
 const GRAPHCOOL_SERVICE_ID = isDev ? 'cjjet83250dop0114ntopy45r' : 'cjiuzhol98qpl01183yopq2km'
-const cache = new InMemoryCache().restore(isDev ? {} : window.__APOLLO_STATE__);
+const cache = new InMemoryCache().restore(isDev ? {} : window['__APOLLO_STATE__']);
 
 export const httpLink = new HttpLink({
   uri: `https://api.graph.cool/simple/v1/${GRAPHCOOL_SERVICE_ID}`
@@ -26,8 +26,8 @@ const wsLink = new WebSocketLink({
 
 const httpAndSubscribeLink = split(
   ({ query }) => {
-    const { kind, operation } = getMainDefinition(query);
-    return kind === 'OperationDefinition' && operation === 'subscription';
+    const def = getMainDefinition(query);
+    return def.kind === 'OperationDefinition' && def.operation === 'subscription';
   },
   wsLink,
   httpLink

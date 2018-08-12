@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { branch, renderComponent, withProps } from 'recompose'
-import { graphql, compose } from 'react-apollo'
+import { compose } from 'react-apollo'
 
 import Loading from '+dumb/Loading'
 
@@ -23,7 +23,7 @@ interface EnhanceProps {
   errorProp?: string
 }
 
-const enhance = (composables: void | void[], component: React.ComponentType, props: EnhanceProps = {}) => {
+const enhance = (composables: any, component: React.ComponentType, props: EnhanceProps = {}) => {
   const { loadingProp, errorProp } = props;
 
   let composeArgs = [

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import { PageTitle, Helper } from '+dumb/Headers';
@@ -7,7 +7,17 @@ import { Content } from '+dumb/Layouts'
 import Button from '+dumb/Button'
 import Notice from '+dumb/Notice'
 
-export default class extends React.Component {
+import * as H from 'history';
+
+type PresenterProps = {
+  onSubmit: Function
+  history: H.History
+}
+
+export default class extends React.Component<PresenterProps, {}> {
+  email: React.RefObject<HTMLInputElement>
+  password: React.RefObject<HTMLInputElement>
+
   constructor(props) {
     super(props);
 
@@ -29,7 +39,8 @@ export default class extends React.Component {
       password: this.password.current.value
     })
       .then(() => history.push('/parties'))
-      .catch(e => this.setState({ errorMsg: e.graphQLErrors?.[0]?.functionError }))
+      // TODO reimplement optional chaining operator
+      .catch(e => this.setState({ errorMsg: e.graphQLErrors && e.graphQLErrors[0] ? e.graphQLErrors[0].functionError : null }))
   }
 
   render () {

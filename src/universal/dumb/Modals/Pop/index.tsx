@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-import styles from './styles.scss';
+const styles = require('./styles.scss');
 
 import Icon from '+dumb/Icon';
 
@@ -9,7 +9,16 @@ function onContentClick(e) {
   e.stopPropagation();
 }
 
-export default class extends React.PureComponent {
+interface PresenterProps {
+  onClose: () => void
+  showClose?: boolean
+  className: string
+  children: React.ReactNode
+}
+
+export default class extends React.PureComponent<PresenterProps> {
+  onKeyDown: EventListenerOrEventListenerObject
+
   constructor(props) {
     super(props);
     this.onKeyDown = this.handleKeyDown;
@@ -19,7 +28,7 @@ export default class extends React.PureComponent {
     showClose: true
   }
 
-  handleKeyDown = e => {
+  handleKeyDown = (e: KeyboardEvent) => {
     if (e.keyCode === 27) {
       this.props.onClose();
     }

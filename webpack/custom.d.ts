@@ -1,3 +1,6 @@
+declare const BUILD_ENV: String
+declare const NODE_ENV: String
+
 declare module "*.svg" {
   const content: any;
   export default content;

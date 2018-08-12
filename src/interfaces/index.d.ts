@@ -14,6 +14,16 @@ declare namespace _types {
     otherNotes: string
   }
 
+  export interface Player {
+    id: string
+    character: Character
+  }
+
+  export interface PromptAnswer {
+    id: string
+    text: string
+  }
+
   export interface Character {
     id: string
     displayName: string

@@ -10,7 +10,6 @@ const styles = require('./styles.scss')
 
 interface PresenterProps {
   character?: _types.Character
-  characterId: string
   playerId?: string
   showName: boolean
 }

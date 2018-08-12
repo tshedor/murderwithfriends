@@ -3,13 +3,25 @@ import classNames from 'classnames'
 
 import Icon from '../Icon'
 
-import styles from './styles.scss';
+const styles = require('./styles.scss');
 
-export default class extends React.PureComponent {
+interface PresenterProps {
+  open?: boolean
+  title: string
+  toggleOpen: (b: boolean) => void
+  children: React.ReactNode
+}
+
+export default class extends React.PureComponent<PresenterProps> {
   static displayName = __dirname.replace('src/universal/dumb/', '')
 
   render() {
-    const { open, title, toggleOpen, children } = this.props;
+    const {
+      open,
+      title,
+      toggleOpen,
+      children
+    } = this.props;
 
     return (
       <div className={classNames(styles.drawer, {[styles.open]: open})}>

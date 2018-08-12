@@ -1,12 +1,16 @@
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 
 import { TextInput } from '+dumb/Inputs'
-import Icon from '+dumb/Icon'
 import { NumberedList } from '+dumb/Lists'
-import Loading from '+dumb/Loading'
 
-export default class extends React.Component {
+type PresenterProps = {
+  onUpdate: Function
+  answersWithPrompts: _types.PromptAnswer[]
+  isCharacter: boolean
+}
+
+export default class extends React.Component<PresenterProps, {}> {
   static propTypes = {
     answersWithPrompts: PropTypes.array,
     isCharacter: PropTypes.bool.isRequired

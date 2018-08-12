@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 import { PageTitle, Helper } from '+dumb/Headers'
@@ -6,8 +6,18 @@ import { TextInput, EmailInput, PasswordInput } from '+dumb/Inputs'
 import { Content } from '+dumb/Layouts'
 import Button from '+dumb/Button'
 import Notice from '+dumb/Notice'
+import * as H from 'history';
 
-export default class extends React.PureComponent {
+type PresenterProps = {
+  onSubmit: Function,
+  history: H.History
+}
+
+export default class extends React.PureComponent<PresenterProps, {}> {
+  displayName: React.RefObject<HTMLInputElement>
+  email: React.RefObject<HTMLInputElement>
+  password: React.RefObject<HTMLInputElement>
+
   constructor(props) {
     super(props);
 
