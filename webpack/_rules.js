@@ -46,7 +46,18 @@ const scripts = [
   {
     test: /\.tsx?$/,
     exclude: /node_modules/,
-    loaders: [ 'babel-loader', 'ts-loader' ]
+    use: [
+      {
+        loader: 'babel-loader'
+      },
+      {
+        loader: 'ts-loader',
+        options: {
+          context: path.join(__dirname, '../'),
+          configFile: path.join(__dirname, '../tsconfig.json')
+        }
+      }
+    ]
   },
 ];
 

@@ -5,7 +5,7 @@
     "outDir": "./dist/",
     "allowJs": true,
     "baseUrl": "./src",
-    "target" : "ESNext",
+    "target": "esnext",
     "lib": [
       "ES7",
       "ESNext",
