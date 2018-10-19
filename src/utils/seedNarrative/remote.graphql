@@ -29,8 +29,6 @@ mutation CreateRound(
     id
   }
 }
-,
-
 
 mutation CreateCharacterRound(
   $roundId: ID!,

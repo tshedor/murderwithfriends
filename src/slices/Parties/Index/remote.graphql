@@ -1,4 +1,25 @@
-query {
+# TODO This is recycled from universal/routes/remote.graphql
+#   Unsure the logical place for shared queries. Maybe a universal/queries/index.graphql?
+query IsUserLoggedIn {
+  loggedInUser {
+    id
+  }
+}
+
+query GetParties(
+  $userId: ID!
+) {
+  allParties(orderBy: displayName_ASC, filter: {
+    owner: {
+      id: $userId
+    }
+  }) {
+    id
+    displayName
+  }
+}
+
+query AllParties {
   allParties(orderBy: displayName_ASC) {
     id
     displayName

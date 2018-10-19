@@ -17,7 +17,8 @@ const Main = compose(
   }),
   graphql(QUERY_IS_LOGGED_IN, {
     props: ({ data }) => ({
-      authed: !!data.loggedInUser?.id
+      authed: !!data.loggedInUser?.id,
+      isOwner: false
     })
   }),
   onlyUpdateForKeys(['currentPartyId', 'currentPlayerId', 'authed'])

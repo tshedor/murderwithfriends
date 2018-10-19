@@ -65,6 +65,6 @@ hr {
 }
 
 main {
-  padding: ($p-content * 2) $p-content 60px;
-  height: 100%;
+  padding: ($p-content * 2) $p-content 80px;
+  min-height: 100%;
 }

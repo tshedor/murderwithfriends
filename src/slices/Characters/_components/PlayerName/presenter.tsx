@@ -37,7 +37,7 @@ export default class extends React.PureComponent<PresenterProps, {}> {
             ref={this.actor}
             />
         ) : (
-          <React.Fragment>{displayName}</React.Fragment>
+          <strong>{displayName}</strong>
         )}
       </Content>
     );

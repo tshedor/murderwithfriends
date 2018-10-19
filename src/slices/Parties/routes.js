@@ -17,7 +17,7 @@ export default class extends React.PureComponent {
 
     return (
       <Switch>
-        <PrivateRoute exact title="Parties" path={url} component={PartyIndex} />
+        {/* <PrivateRoute exact title="Parties" path={url} component={PartyIndex} /> */}
         <PrivateRoute exact title="New Party" path={`${url}/new`} component={NarrativeIndex} />
         <PrivateRoute title="New Party" path={`${url}/new/:narrativeId`} component={PartyNew} />
         <Route path={`${url}/:partyId`} component={ShowRoutes} />
