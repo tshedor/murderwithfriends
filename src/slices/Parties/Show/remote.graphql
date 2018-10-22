@@ -1,6 +1,19 @@
-mutation SetCurrentParty($partyId: ID!) {
-  clientSetCurrentParty(id: $partyId) @client {
+mutation SetCurrentParty($partyId: ID, $isOwner: Boolean) {
+  clientSetCurrentParty(id: $partyId, isOwner: $isOwner) @client {
     id
+    isOwner
+  }
+}
+
+query GetIsPartyOwner($partyId: ID!) {
+  isPartyOwner(partyId: $partyId) {
+    isOwner
+  }
+}
+
+query GetClientIsPartyOwner {
+  currentParty @client {
+    isOwner
   }
 }
 

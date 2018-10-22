@@ -28,6 +28,7 @@ type Player @model {
 
 type PromptAnswer @model {
   id: ID! @isUnique
+  createdAt: DateTime!
   updatedAt: DateTime!
   prompt: Prompt! @relation(name: "PromptPromptAnswers")
   player: Player! @relation(name: "PlayerPromptAnswers")
@@ -44,6 +45,7 @@ type PartyInstruction @model {
 
 type RoundNote @model {
   id: ID! @isUnique
+  createdAt: DateTime!
   updatedAt: DateTime!
   round: CharacterRound! @relation(name: "CharacterRoundRoundNotes")
   player: Player! @relation(name: "PlayerRoundNotes")

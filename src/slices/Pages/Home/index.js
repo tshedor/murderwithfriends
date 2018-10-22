@@ -10,10 +10,10 @@ const Presenter = () => (
     <div className={styles.homeButtons}>
       <Button path="/how-to-host">How to Host</Button>
       <Button path="/how-to-play">How to Play</Button>
-    </div>{/*
+    </div>
     <div className={styles.homeButtons}>
       <Button path="/login">Login</Button>
-    </div>*/}
+    </div>
   </section>
 );
 

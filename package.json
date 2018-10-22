@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --progress --colors --hot --content-base . --config webpack/development.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "NODE_ENV=production BUILD_ENV=production build-storybook -c .storybook -o dist-storybook",
-    "deploy": "yarn deploy:server",
+    "deploy": "yarn build && firebase deploy",
     "deploy:server": "cd server && yarn deploy"
   },
   "author": "Tim Shedor <opensource@timshedor.com>",

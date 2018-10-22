@@ -1,5 +1,6 @@
 query GetCurrentPartyAndPlayer {
   currentParty @client {
     id
+    isOwner
   }
 }

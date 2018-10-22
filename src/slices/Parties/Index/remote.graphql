@@ -18,10 +18,3 @@ query GetParties(
     displayName
   }
 }
-
-query AllParties {
-  allParties(orderBy: displayName_ASC) {
-    id
-    displayName
-  }
-}

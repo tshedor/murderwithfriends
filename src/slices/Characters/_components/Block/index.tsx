@@ -15,6 +15,16 @@ interface PresenterProps {
   showName: boolean
 }
 
+const LineBreakify = ({ text }) => (
+  <React.Fragment>
+    {text.split('\n').map((paragraph, i) =>
+      <p key={i}>
+        {paragraph}
+      </p>
+    )}
+  </React.Fragment>
+);
+
 export default class extends React.PureComponent<PresenterProps, {}> {
   static displayName = __dirname.replace('src/slices/', '')
 
@@ -29,6 +39,7 @@ export default class extends React.PureComponent<PresenterProps, {}> {
         { showName &&
           <h2>{character.displayName}</h2>
         }
+
         <Content>{character.text}</Content>
 
         <Content title="Attire">{character.attire}</Content>
@@ -41,6 +52,8 @@ export default class extends React.PureComponent<PresenterProps, {}> {
         <Prompts characterId={character.id} playerId={playerId} />
 
         <PlayerName playerId={playerId} />
+
+        <Content title="TL;DR"><LineBreakify text={character.previewText} /></Content>
 
         <InviteButton playerId={playerId} />
       </div>

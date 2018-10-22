@@ -1,0 +1,7 @@
+type IsPartyOwnerPayload {
+  isOwner: Boolean
+}
+
+extend type Query {
+  isPartyOwner(partyId: ID!): IsPartyOwnerPayload
+}

@@ -12,6 +12,7 @@ query GetCharacter($playerId: ID!) {
       id
       displayName
       text
+      previewText
       attire
       relationships
     }

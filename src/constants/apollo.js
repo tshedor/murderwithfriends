@@ -8,6 +8,8 @@ import { getMainDefinition } from 'apollo-utilities'
 
 import { getToken } from '+root/utils/auth'
 
+// const isDev = true
+// TODO HACK A HACK
 const isDev = BUILD_ENV === 'development'
 
 const GRAPHCOOL_SERVICE_ID = isDev ? 'cjjet83250dop0114ntopy45r' : 'cjiuzhol98qpl01183yopq2km'
@@ -77,7 +79,7 @@ const makeStateMutation = (key, __typename, defaultValues) => {
   };
 };
 
-const setCurrentParty = makeStateMutation('currentParty', 'CurrentParty', { id: null });
+const setCurrentParty = makeStateMutation('currentParty', 'CurrentParty', { id: null, isOwner: false });
 const setCurrentPlayer = makeStateMutation('currentPlayer', 'CurrentPlayer', { id: null });
 
 const stateLink = withClientState({

@@ -19,6 +19,7 @@ declare namespace _types {
     displayName: string
     attire: string
     relationships: string
+    previewText?: string
     text: string
     uid: string
   }

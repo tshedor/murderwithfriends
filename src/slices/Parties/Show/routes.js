@@ -14,6 +14,11 @@ export default class extends React.PureComponent {
     this.props.onMount();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.isOwner !== nextProps.isOwner)
+      this.props.onOwnerChecked(nextProps.isOwner);
+  }
+
   render() {
     // TODO bad practice to use path instead of url?
     //   for convenience, /:partyId is grabbed in later routes

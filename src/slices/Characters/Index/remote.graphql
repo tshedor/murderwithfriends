@@ -11,6 +11,7 @@ query GetPlayers($partyId: ID!) {
       displayName
       attire
       relationships
+      previewText
       text
     }
   }

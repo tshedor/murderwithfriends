@@ -18,3 +18,10 @@ query GetDisplayName(
     displayName
   }
 }
+
+query GetIsOwner {
+  currentParty @client {
+    id
+    isOwner
+  }
+}

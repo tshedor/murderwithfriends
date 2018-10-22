@@ -15,3 +15,9 @@
     schema: ./functions/user/loggedInUser.graphql
     handler:
       code: ./functions/user/loggedInUser.ts
+
+  isPartyOwner:
+    type: resolver
+    schema: ./functions/user/isPartyOwner.graphql
+    handler:
+      code: ./functions/user/isPartyOwner.ts

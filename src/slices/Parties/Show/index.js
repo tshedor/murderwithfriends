@@ -3,7 +3,7 @@ import memoized from 'fast-memoize'
 
 import {
   GetParty as QUERY_PARTY,
-  SetCurrentParty as MUTATION_SET_CURRENT_PARTY
+  GetClientIsPartyOwner as QUERY_IS_PARTY_OWNER
 } from './remote.graphql'
 
 import composeWithLoadingAndError from '+root/universal/factories/composeWithLoadingAndError'
@@ -31,7 +31,12 @@ const pullCluesFromRounds = memoized((rounds) =>
     .reduce(flatten, [])
 );
 
-const Main = composeWithLoadingAndError(
+const Main = composeWithLoadingAndError([
+  graphql(QUERY_IS_PARTY_OWNER, {
+    props: ({ data }) => ({
+      isOwner: data?.currentParty?.isOwner
+    })
+  }),
   graphql(QUERY_PARTY, {
     options: ({ match: { params: { partyId } } }) => ({ variables: { partyId } }),
     props: ({ ownProps, data }) => {
@@ -39,12 +44,11 @@ const Main = composeWithLoadingAndError(
       //   Normalizing here doesn't trigger rerender of the component
       //   And....I really don't understand why I'd want to manipulate
       //   the Apollo cache, which feels like the place to normalize if anywhere
-      const { loading, error, Party, allRounds } = data;
+      const { loading, error, Party, allRounds, currentParty } = data;
 
       const resp = {
         loading,
-        error,
-        isOwner: true
+        error
       };
 
       if (!Party || !allRounds) {
@@ -69,7 +73,7 @@ const Main = composeWithLoadingAndError(
         }
       };
     }
-  }),
+  })],
   Presenter
 );
 

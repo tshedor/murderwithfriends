@@ -29,7 +29,7 @@ function nextRoundText(currentRound, totalRounds) {
     case 0 :
     case -1 :
       return 'Start the Party';
-    case 3 : return 'Vote for the Killer';
+    case (totalRounds - 1) : return 'Vote for the Killer';
     case totalRounds : return false;
     default : return 'Next Round'
   }
