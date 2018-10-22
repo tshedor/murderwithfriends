@@ -1,4 +1,4 @@
-subscription CurrentRound($partyId: ID!) {
+query CurrentRound($partyId: ID!) {
   Party(id: $partyId) {
     currentRound
   }
@@ -9,7 +9,7 @@ query GetRounds(
   $currentRound: Int!,
   $characterId: ID!
 ) {
-  allRounds(orderBy: order_ASC, filter: {
+  allRounds(orderBy: order_DESC, filter: {
     AND: [{
       order_lte: $currentRound
     }, {

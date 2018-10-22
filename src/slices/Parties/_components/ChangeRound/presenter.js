@@ -17,10 +17,10 @@ function previousRoundText(currentRound, totalRounds) {
 
 function currentRoundText(currentRound, totalRounds) {
   switch(currentRound) {
-    case 0 : return 'Pre-Party';
+    case 0 : return 'Round 1';
     case -1 : return `Party hasn't started`;
     case totalRounds : return 'End of Party';
-    default : return `Round ${currentRound}`
+    default : return `Round ${currentRound + 1}`
   }
 }
 

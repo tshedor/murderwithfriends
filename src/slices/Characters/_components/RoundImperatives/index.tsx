@@ -33,6 +33,8 @@ export default class extends React.PureComponent<PresenterProps, {}> {
   render() {
     const { round } = this.props;
 
+    if (!round) return null;
+
     return (
       <React.Fragment>
         {round.text &&

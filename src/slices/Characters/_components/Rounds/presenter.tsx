@@ -5,9 +5,15 @@ import RoundImperatives from '../RoundImperatives'
 
 const styles = require('./styles.scss');
 
+interface RoundWrapper {
+  id: string
+  characterRounds: _types.Round[]
+}
+
 interface PresenterProps {
-  rounds?: string[]
+  allRounds?: RoundWrapper[]
   characterId: string
+  currentRound: number
   partyId: string
 }
 
@@ -15,28 +21,29 @@ export default class extends React.Component<PresenterProps, {}> {
   static displayName = __dirname.replace('src/slices/', '')
 
   static defaultProps = {
-    rounds: []
+    allRounds: []
   }
 
   shouldComponentUpdate(nextProps) {
-    const { rounds, characterId } = this.props;
-    const { rounds: nextRounds, characterId: nextCharacterId } = nextProps;
+    const { allRounds, characterId } = this.props;
+    const { allRounds: nextRounds, characterId: nextCharacterId } = nextProps;
 
-    return rounds.every(roundId => nextRounds.includes(roundId)) || characterId !== nextCharacterId;
+    return allRounds.every(roundId => nextRounds.includes(roundId)) || characterId !== nextCharacterId;
   }
 
   render() {
-    const { rounds, partyId, characterId } = this.props;
+    const { allRounds } = this.props;
 
     return (
       <React.Fragment>
-        {rounds.map(roundId =>
-          <div className={styles.root} key={roundId}>
-            <RoundHeading roundId={roundId} />
-            <RoundImperatives
-              roundId={roundId}
-              characterId={characterId}
-              partyId={partyId} />
+        {allRounds.map(round =>
+          <div className={styles.root} key={round.id}>
+            <RoundHeading roundId={round.id} />
+            {round.characterRounds.map(characterRound =>
+              <RoundImperatives
+                round={characterRound}
+                key={characterRound.id} />
+            )}
           </div>
         )}
       </React.Fragment>

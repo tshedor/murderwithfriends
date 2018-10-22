@@ -13,24 +13,23 @@ const Main = composeWithLoadingAndError(
   [
     graphql(SUBSCRIPTION_CURRENT_ROUND, {
       options: ({ partyId }) => ({ variables: { partyId } }),
-      props: ({ data: { Party } }) => ({
-        currentRound: Party?.currentRound,
+      props: ({ data }) => ({
+        currentRound: data.Party?.currentRound,
       })
     }),
     graphql(QUERY_ROUNDS, {
-      options: ({ partyId, currentRound }) => ({
+      options: ({ partyId, currentRound, characterId }) => ({
         variables: {
           partyId,
+          characterId,
           currentRound
         }
       }),
-      props: ({ ownProps, data: { loading, error, allRounds } }) => {
-        return {
-          loading,
-          error,
-          rounds: allRounds?.map(r => r.id)
-        };
-      }
+      props: ({ ownProps, data: { loading, error, allRounds } }) => ({
+        loading,
+        error,
+        allRounds
+      })
     }),
   ],
   Presenter
