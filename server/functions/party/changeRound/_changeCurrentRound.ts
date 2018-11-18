@@ -67,7 +67,7 @@ export default async function(event: FunctionEvent<EventData>, shouldIncrement=t
       return { error: `The party hasn't even started` };
     }
 
-    if (changedRoundNumber > maxRound) {
+    if (changedRoundNumber >= 3) {
       return { error: `This is the last round` };
     }
 

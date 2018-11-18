@@ -3,22 +3,23 @@ import * as React from 'react'
 import { Helper } from '+dumb/Headers'
 
 interface PresenterProps {
-  round?: _types.Round
+  order?: number
+  text: string
 }
 
 function roundName(roundId: number) {
   if (roundId === 0) {
-    return 'Pre-Party';
+    return 'Round 1';
   }
 
-  return `Round ${roundId}`;
+  return `Round ${roundId + 1}`;
 }
 
 export default class extends React.PureComponent<PresenterProps, {}> {
   static displayName = __dirname.replace('src/slices/', '')
 
   render() {
-    const { order, text } = this.props.round;
+    const { order, text } = this.props;
 
     const name = roundName(order);
 

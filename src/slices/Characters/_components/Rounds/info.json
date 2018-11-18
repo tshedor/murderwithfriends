@@ -1,0 +1,512 @@
+{
+  "displayName" : "Rumder High",
+  "previewText" : "Ten years ago we parted ways to take on college, adulthood, and the world. We may be older and wiser but forever Rumder Rascals! This reunion is to die for. PG-13 (a few F-bombs), some adult themes (obviously, there's a murder). 8 characters (4 men, 4 women; 2 married couples).",
+  "postscript" : "",
+  "text" : "Ten years ago we parted ways to take on college, adulthood, and the world. We may be older and wiser but forever Rumder Rascals! This reunion is to die for. PG-13 (a few F-bombs), some adult themes (obviously, there's a murder). 21 characters (11 men, 10 women; 2 married couples).",
+  "characters" : {
+    "Seth Mark" : {
+      "attire" : "A tightly strapped backpack",
+      "displayName" : "Seth Mark",
+      "previewText" : "In HS: you ran with your backpack from class to class\nIn adulthood: slow-talking chauffeur",
+      "prompts" : [ "Jansport or Hurley" ],
+      "relationships" : "Harry Singer's chauffer",
+      "text" : "You might be surprised to hear my voice as a drawl. Surprised me too. Surprised my own mother, even more than when she stood up and found a toilet basin baby. See, I've always been in a hurry to get somewhere. That's why I was Rumder's token backpack runner, and why I'm an elite chauffeur. But when I speak, well son, there ain't no rushing that."
+    },
+    "Leslie Potts" : {
+      "attire" : "Stethoscope, bright blouse",
+      "displayName" : "Leslie Potts",
+      "previewText" : "In HS: Class president, mascot\nIn adulthood: No one recognizes you because you were the mascot, Doctor",
+      "prompts" : [ "Your favorite IB class" ],
+      "text" : "Carrie Underwood speaks to my soul. When she said \"behind these hazel eyes\" she spoke to the pain I feel being so happy. In high school, the student council had to know I was overjoyed. The SHARE volunteer committee couldn't know I thought spreading mulch wasn't real volunteering. Some habits never break. Today, I'm a doctor/project manager, gladhanding clients like it's no one's business. Although maybe, just maybe, tonight I'll give someone a piece of my mind."
+    },
+    "Harry Singer" : {
+      "attire" : "Tight white button-on or splatter paint overalls",
+      "displayName" : "Harry Singer",
+      "previewText" : "In HS: Mild-mannered, forgettable\nIn adulthood: Instagram famous, vain AF",
+      "prompts" : [ "Your rival Instagram account but he's actually your best friend, actually, really, he is" ],
+      "text" : "My life was always basic. I got Bs in European History. I sat in the middle of the class. My prom group was never larger than four couples. When the Common App asked me to submit an essay about myself I titled it \"Perfectly Forgettable.\" If any of my 205,782 followers had to write that essay for me today, they'd say \"Perfectly Perfect.\" That's right, the most forgettable kid is now Instagram famous. I didn't pay for these clothes. Believe the hype."
+    },
+    "Suzanne Struegel" : {
+      "attire" : "Booty shorts and sweat bands",
+      "displayName" : "Suzanne Struegel",
+      "previewText" : "In HS: Did everyone's homework\nIn adulthood: Semi-pro bodybuilder",
+      "prompts" : [ "How much you can bench" ],
+      "text" : "You ever hear of Paleo? Miss Arkansas Bodybuilding? Venice Beach Crossfit Championship? Notches on my belt, bud. I'm stone cold the strongest bitch here. You hear that? That's my hardware, 2015, 2017, 2018. I was at the Olympics in 2016. I bet I could lift you with one hand. I was everyone's and no one's friend at Rumder. Y'all knew me when you needed those chapter review answers for AP Psych, but never when it was time to form a dance group. I was mad when I graduated. Mad and alone. Yeah. Mad and alone. Rags to roids to riches, that's my life."
+    },
+    "Wozzy Barber" : {
+      "attire" : "Tourist Mexican poncho",
+      "displayName" : "Wozzy Barber",
+      "previewText" : "In HS: stoner\nIn adulthood: Indiegogo bottom-feeder / stoner",
+      "prompts" : [ "What mom cooked last night at home, where you live with her" ],
+      "text" : "Ok, okay, hear me out. School Bus party bus. Drunk adults that feel like drunk kids. Hit the indie cities first - Portland, Austin, and then take it global. It's portable so you can do anything anywhere. Nah? Ok, okay, how about this one? Smart shoes. It's the next step for fashion. Everything's on our wrist, but what about our ankle? It could tell you how high you jumped and stuff. I'm saving up now, but you can get in on this with a small investment. Let me know what you think, ya feel?"
+    },
+    "Jake Jones" : {
+      "attire" : "High school jersey and chubbies",
+      "displayName" : "Jake Jones",
+      "prompts" : [ "Your best score" ],
+      "previewText" : "In HS: Football superstar\nIn adulthood: Nostalgic gregarian who can't hold down a job",
+      "text" : "Haha, wassup, man? Haven't seen you in ages. You remember when we used to kick it under the bleachers after the game? Man, we ran this school. Those were the days, you and me under the Friday night lights. What's that? Yeah, I'm doing great. Figuring stuff out, you know, working odds and ends. Making it meet. I've got some leads. So good to see you. Man, we gotta catch up more often. Great to see you. Peace out."
+    },
+    "Keith Jacops" : {
+      "attire" : "The most boring thing you own",
+      "displayName" : "Keith Jacops",
+      "prompts" : [ "The best magazine at the dentist's office" ],
+      "previewText" : "In HS: normal everyman\nIn adulthood: normal everyman",
+      "text" : "Pet peeve number one. It's Jacops, not Jacobs. I hate it when people get that wrong, and I don't hesitate to let them know. Pet peeve number two. Sentences that end in prepositions. It's not good grammar. I like barbeque, the WSJ Sunday crossword, and coffee with two creamers. Life is OK."
+    },
+    "Allister Jane Dickens Bishtropic" : {
+      "attire" : "Dead animal shawl",
+      "displayName" : "Allister Jane Dickens Bishtropic",
+      "prompts" : [ "How much this dead animal shawl costs" ],
+      "previewText" : "In HS: mindless hair twirler, looked over shoulders for test answers\nIn adulthood: academic trophy wife and notorious tupperware party peddler",
+      "text" : "You've heard of Heath Corriander Bishtropic? No? Oh well you should. He's my darling husband AND the eminent Orson Welles scholar in the United States. Fantastically brilliant. I don't remember my life before him because it's simply not worth remembering. The one piece of animosity that  I do hold is towards that slut Allison Rich and her third-world tupperware parties. Remember her? Of course you don't. We used to be friends until \"The Incident.\" In any regard, you must come to my Pyrex party on November 5th in NW. You can sample the finest food-storage containers in the West. Please, you must make it."
+    },
+    "Allison Rich" : {
+      "attire" : "Lacoste rubbish",
+      "displayName" : "Allison Rich",
+      "prompts" : [ "Your best tennis match" ],
+      "previewText" : "In HS: nosy gossiper, pen tapper who annoyed everyone who sat nearby\nIn adulthood: bored makeup party pedaler",
+      "text" : "Wealth would be easy, I thought. Growing up in the lower-middle class suburbs around Rumder, I imagined marrying into wealth would solve all my problems. Thanks to my husband, a personal injury lawyer...I'm sure you've seen his face on the park benches around town, I can afford to get all the Lilly Pulitzer a woman could dream of. And yet, I've yet to shake boredom. My latest antidote is organizing mascara parties, sending messages to these old \"friends\" and watching the Facebook message change from sent to delivered to read without even a courtesy denial. My next get-together is November 5th in SE. They can't escape me in person."
+    },
+    "Lauren Lightfoot" : {
+      "attire" : "Absolutely no skin",
+      "displayName" : "Lauren Lightfoot",
+      "prompts" : [ "Your go-to Relient K album" ],
+      "previewText" : "In HS: church camp attendee\nIn adulthood: church camp leader",
+      "relationships" : "Married to Harry Horndog",
+      "text" : "The best days of my life were at Kanalukak Summer Camp, and that's why I'm so blessed to be the program coordinator now that I have the chance to make a difference. I love changing young lives by showing them the truth. You're so lucky to have Director Lauren by your side, your all-in-all. Together you and I will make a difference for those lost and confused youths that need salvation."
+    },
+    "Harry Horndog" : {
+      "attire" : "You have more buttons unbuttoned than buttoned, including your pants",
+      "displayName" : "Harry Horndog",
+      "prompts" : [ "Your favorite topping" ],
+      "previewText" : "In HS: slut\nIn adulthood: slut",
+      "relationships": "Married to Lauren Lightfoot",
+      "text" : "Who is THAT? I haven't seen an ass like that since the third grade. Am I blushing? I'm definitely blushing. Oh but I can't help it. My whole body is warm in imagined delight. They're taking me behind the bleachers and straddling me. Oh yes. Their hands gripping the steel girders, fully throttling me. I'm squeezing that butt. I can't get enough of that butt. Yes, yes, don't make this easy, fuck me like it's ninth grade passing period just do it raw. Oh my. Oh yes. I'm going to be the rock between some paper and scissors tonight or my name isn't Harry \"Threesome\" Horndog."
+    },
+    "Kellen Fromson" : {
+      "attire" : "Earth tones",
+      "displayName" : "Kellen Fromson",
+      "prompts" : [ "Your favorite moment on set with Steve Buscemi" ],
+      "previewText" : "In HS: theater kid\nIn adulthood: off-broadway star, you may have seen him as an extra in \"Stranger Things\"",
+      "text" : "\"ARGHHHHHHH!!\" Yes, you may remember me from that rift scene in the second season of \"Stranger Things.\" I know Dustin personally. Do you know want to hear that line again? What? You thought season 1 was better? Sorry, didn't know I was talking to a H-A-T-E-R. To all the haters that thought I would just be a theater kid, you were right! Hatin' my way to Broadway."
+    },
+    "Clean Teen A & B" : {
+      "attire" : "Catholic skirts, but sexy Catholic skirts",
+      "displayName" : "Clean Teen A & B",
+      "prompts" : [ "Your favorite STD home remedy" ],
+      "previewText" : "In HS: clean teen/God squad\nIn adulthood: not so clean",
+      "text" : "The best days of our life were at Kanalukak Summer Camp, the hideaway youth camp. People thought we were there in Spirit but we were sneaking off together, breaking into the Sexploration camp across the lake. There we learned how to pleasure our partners and that apple cider vinegar soothes all strange itches. We still go to Kanalukak every summer as a counselor (we have summers off as Rumder District substitutes), and we still sneak off once the kids are asleep. Some things never change. Except for this rash, but that's nothing a little apple cider vinegar can't cover up."
+    },
+    "Debbie Cubbit" : {
+      "attire" : "Crisp hair",
+      "displayName" : "Debbie Cubbit",
+      "prompts" : [ "Your favorite annual finance webinar" ],
+      "previewText" : "In HS: valedictorian\nIn adulthood: balanced stock market investor, co-owner of Clogs N' More",
+      "relationships" : "Married to Dana Cubbit",
+      "text" : "I'm a practical woman. I'm a business woman. I know where the money makers are at. And clogs are MONEY. Dana might have discovered the clog through her gardening, but I studied, analyzed and played the market. We've managed to tap into a niche, wealthy and incredibly sensible consumer market - the lesbian market. We are hoping to expand nationwide by 2020. We are looking for seed funders - you interested in getting Clogs N' Rich?"
+    },
+    "Dana Cubbit" : {
+      "attire" : "Frizzy hair",
+      "displayName" : "Dana Cubbit",
+      "prompts" : [ "Your favorite community garden" ],
+      "previewText" : "In HS: basketball captain\nIn adulthood: arborist, avid bird watcher, Multnomah County 3-Time Fair Winner for Finest Home-Grown Zucchini, co-owner of Clogs N' More",
+      "relationships" : "Married to Debbie Cubbit",
+      "text" : "After high school I went on to get a bio-tech degree at Harvard, but after working for a big medical corporation, all I wanted to do was work in my garden and tend to my hives. I still do. Sometimes I imagine a quieter life before Clogs N' More was the roaring success it is today, when Dana and I would have a smoke on the porch and hold hands as the sun set, teasing Roseau between long pauses."
+    },
+    "Jim and Pam Brooks" : {
+      "attire" : "Complimenting shoes, and matching biz casual tops",
+      "displayName" : "Jim and Pam Brooks",
+      "prompts" : [ "The names of your unborn children/startups" ],
+      "previewText" : "In HS: voted most likely to be Jim and Pam from the office\nIn adulthood: successful startup owners and angel investors",
+      "text" : "Yep, we're that couple. Quintessential high school sweethearts, swimming star and decathlon nerd, married after college (not a moment too soon or too late). We moved back to Tallahassee and launched a few successful startups before becoming angel investors in the community. Everyone idealizes us because together we cover the emotional spectrum. One, conversational, approachable, and quiet. The other, gregarious, easy on the eyes, giver of million-dollar compliments. \"They're so perfect\" everyone says. Yes, so very perfect."
+    },
+    "Jared Deegan" : {
+      "attire" : "Rough beige polo, inflated gut",
+      "displayName" : "Jared Deegan",
+      "prompts" : [ "The last time you were happy" ],
+      "previewText" : "In HS: cellophane shop teacher\nIn adulthood: cellophane chaperone",
+      "text" : "Slowly, you inhale that beer gut. Oh what's the use, Jared. These kids didn't like you 10 years ago, they're not going to remember you 60 pounds lighter 10 years ago. Every year, I see these students succeed and can't help but feel jealousy. Unsuccessful kids are the metric of bad teaching, but who's measuring unsuccessful teachers? I agreed to this because I had nothing better to do. What's another evening with Kahlua and Point Break presented by TNT? I used to believe in something, fine carpentry perhaps, now I'm just a stipend-collecting, beer-belly, easy elective."
+    },
+    "Sam Richards" : {
+      "attire" : "Something that says I didn't take this seriously enough until my wife dressed me but my shirt's still untucked because I'm loose",
+      "displayName" : "Sam Richards",
+      "prompts" : [ "Your kids' soccer team name" ],
+      "previewText" : "In HS: Lifetime sports lurker\nIn adulthood: Soccer coach",
+      "text" : "*inhales deeply* All you running around, trying to get those GPAs up. AP, IB, FART, you don't need any of that. Nah, you just need a successful partner and a minivan. I wake up at 6, nap at 9, shuttle at 3, and coach at 5. Every. Fucking. Day. I'm living the dream, man. I was born to be a soccer dad. Ain't no doubt about it. You hear someone yelling on the sideline and holding up yellow + red cards, giving the ref a piece of their mind? Yeah, that's me. What can I say? I love three things in this world: My kids, my wife, and my Lazyboy Recliner."
+    },
+    "Mac OG Kush" : {
+      "attire" : "Graphic tee",
+      "displayName" : "Mac OG Kush",
+      "prompts" : [ "The hip product name of your latest designer vape" ],
+      "previewText" : "- In HS: stoner\nIn adulthood: commercially successful stoner",
+      "text" : "Things have been rough recently, thanks for asking. Regulations prevent us from moving into the south Florida market which would've seen ARRs of over $58 million. Instead we're restricted to the Jacksonville metro, which, while still green, is a much smaller bear. Who would've thought making that apple bong electronic would be so revolutionary?"
+    },
+    "Calvin Harris" : {
+      "attire": "Plain white shirt, rave gear",
+      "displayName": "Calvin Harris",
+      "previewText": "In HS: ugly-ass duckling. Seriously, Google a picture of Calvin Harris before he was Calvin Harris.\nIn adulthood: catch of the century; brains, brawn, beauty",
+      "prompts": [ "The last three people in your studio" ],
+      "text": "When I dated Taylor Swift, I didn't make it. When I dropped \"Funky Wave Bounces vol. 1\" with LA's best, I didn't make it. When I made a sexy beat with Rihanna, I made it. Damn right I made it. Low-key I had this talent in high school, but ya'll voted me out of Battle of the Bands to that punk Simone Gravy. No hard feelings, just don't pretend like ya know me now. I got money and I bloomed. That's all you need, money. Frontin' on all these fools."
+    },
+    "Foreign Exchange Spouse" : {
+      "attire": "Checkboard shirt or jumper",
+      "displayName": "Foreign Exchange Spouse",
+      "previewText": "In HS: ???\nIn adulthood: mating behavior/body language expert",
+      "prompts": [ "The Esperanto word for I don't want to be here" ],
+      "text": "In old country, we have reunions of shoes. You find your shoe from birth and try to put it on again. This reunion of high school is very unusual. But it is what you do when you are spouse: you are pleasing. That is stereotype, right? I know nothing about America and hope to learn tonight. I hope to marry swiftly and effect chain migration."
+    }
+  },
+  "rounds" : [ {
+    "characters" : {
+      "Seth Mark" : {
+        "instructions" : [ {
+          "text" : "Your operation requires Mac OG Kush's participation. Give him a bag of oranges and nod. Make sure no one's watching. Optionally mask your involvement with \"Sir, a client told me to deliver these to you.\""
+        }, {
+          "text" : "Maintain your privacy."
+        } ],
+        "text" : "Some people tell me I speak like Matthew McConaughey in those Lincoln commercials. Some people would be right. I drive a Lincoln, just like Matt, only mine's a limo. Sometimes it's Harry. Sometimes it's more important folk. You could say I'm taking the night off tonight. Except I never take a night off. Last night I was at the Peel 'Em Inn. Enjoying the evening. Enjoying the warm, thick dribble of whiskey on my tonsils. Mac OG Kush came in, but he didn't recognize me. To people like Mac, to these people, my face is a blur. I was always running with my backpack. I like being a blur. I move between them. They think I'm blue collar, but I'm on their table. I'm in their streets. I'm at their bars. You see, I'm an orange oligarch. I own every farm from Miami to Jacksonville. But I keep that to myself, because that raises a lot of questions. Namely \"How did you become an orange oligarch?\" And I only give them a smile before I'm just a blur."
+      },
+      "Leslie Potts" : {
+        "instructions" : [ {
+          "text" : "Rekindle with Harry. Get Lauren out of the picture if you need to. Also, holy shit, is that Calvin Harris??? What is he up to? Talk to Calvin Harris."
+        } ],
+        "text" : "Harry and I dated for three years. It was simultaneously the most painful relationship of my life and the most fulfilling. Harry unlocked my heart and opened me to a new world of emotions. He showed me love and taught me how to love myself. I wonder if he still feels the same, after all these years and all the relationships we've both had."
+      },
+      "Harry Singer" : {
+        "clues" : [
+          {
+            "hint" : "Steroids - A ziploc bag of white powder",
+            "text" : "Bag of steroids"
+          }
+        ],
+        "instructions" : [ {
+          "text" : "Suzanne is your biggest client. Catch up like you're so excited to see her after all these years (you guys met behind Gold's last week FFS), give her a hug and whisper \"These are steroids\" before pretending to give her steroids."
+        }, {
+          "text" : "Pick up a dead drop from behind the snack table, your connect said they'd be here tonight. Also, no one can know about your operation. If approached, deny anything and everything throughout the night."
+        } ],
+        "text" : "No one noticed me. And now all these haters are all about me because I have 100 times more followers than they do. April, 8 years ago. I was at a Cum N' Go when a man approached me with a card. He said I was beautiful. We did a photo shoot behind the station (twilight, the golden hour, don't you know). Sure, his post was heavily edited and he chiseled my physique far more than reality would allow, but I became addicted to myself. I had to become that Photoshop. I had to become...me. I started taking steroids and injections and all sorts of illicit beauty drugs (in LA, you only cough for a prescription. Any prescription). So I keep half for my beauty and half for my people. The rest of the world should feel this good in the mirror...as long as they don't look better than me. It's not abusing drugs, it's loving drugs."
+      },
+      "Suzanne Struegel" : {
+        "instructions" : [ {
+          "text" : "You've got about two months of run-off left. Tactfully lobby Jim and Pam to lead Series A."
+        } ],
+        "text" : "Bodybuilding AIN'T cheap, but once you're on the 'roids and Optimum Gold Standard 100% Whey, you're on for life. Yah gotta keep shaking that protein shake. But damn do I look good. I tells you what doesn't look good, is this wallet. That's when I called my old pals, the angels, Jim and Pam. I sold them on a trendy homeopathy diet that will take America by storm. They don't know that half their money is going into my veins. Competition isn't cheap, and neither are these sequin bathing suits."
+      },
+      "Wozzy Barber" : {
+        "instructions" : [ {
+          "text" : "Confront Mac OG Kush about stealing \"Wake.\""
+        }, {
+          "text" : "Pitch Jim and Pam on one of your ideas sometime tonight and be super sloppy about the whole thing (e.g. \"bump\" into them so hard their wallets drop). Bird scooters, but with donkeys? The iPhone of hats? Barbershop meets SaaS? Pull from the banks or pen a new one."
+        }, {
+          "text" : "Never stop pitching tonight. Even if someone's not paying attention, just start talking."
+        } ],
+        "text" : "Ok...ok...what about an online thrift store? Why enjoy the hunt when you could enjoy your couch? Man, give up the game, Wozzy. Nothing's ever worked out for me. My mom thinks I'm brilliant, but the buck stops there. Actually, there was one idea. Digital cigarette. Recharge it. Reload it. Add flashing lights and noises like a kid's toy. The \"wake.\" It was going to \"wake\" everyone up to the threat of big tobacco and cause huge, trailing, disruptive waves in the markets. Mac OG Kush was my best friend until he stole my idea. \"Vape.\" What a stupid name. Is he here? Maybe now he can face me."
+      },
+      "Jake Jones" : {
+        "instructions" : [ {
+          "text" : "Challenge Suzanne to feats of strength through out the night and draw a crowd before you _actually_ do said feat."
+        }, {
+          "isOptional" : true,
+          "text" : "Figure out why the last 30 out of 50 Grocerifyly rides have included four crates of oranges. OR make up and recite parts of your screenplay."
+        } ],
+        "text" : "I peaked in high school. Just going to be honest with myself. I looked in the mirror in the morning and said, Jake, you're great, but not as great as you were when you were great. I'm writing a screenplay between Grocerifyly (grocery store delivery app/service) runs about my time as a sexy orange farmer. It's my ticket out of Tallahassee.\nWho's that lady? Suzanne Struegel? No kidding. Wow she's got some biceps. Not as big as my biceps, but no one's got biceps like my biceps. Is she...lifting the punch table? Alright, Suzanne, it's on. You and me."
+      },
+      "Keith Jacops" : {
+        "instructions" : [ {
+          "text" : "Get to know Wozzy. Drop hints about your adult success, like your recent promotion at Sears."
+        }, {
+          "text" : "Ask around to find out why Jared Deegan is here. Do we really need a chaperone?"
+        } ],
+        "text" : "Wozzy is completely unlike me in every way. He's imaginative. He's enlightened. He's got a B in his last name. There's something so enigmatic about the way he tries to pitch you...I wish he would pitch me on himself. I'd invest. I remember the first time I fell in love with Wozzy. He was across the stands at the Homecoming pep rally. I followed him out the door but he was holding hands with Allister Jane and I remembered my caste and stayed in my lane. I wonder if he's changed."
+      },
+      "Allister Jane Dickens Bishtropic": {
+        "instructions" : [ {
+          "text" : "Do not let Allison Rich get the edge on you. Convince Pam Banks to come. If she comes, the world will follow. Her commitment seals Allison's fate as purveyor of the lesser party."
+        }, {
+          "text" : "Spit game on Keith. Become enamored with his delusions of mediocrity."
+        } ],
+        "text" : "My greatest love - my eternal love - was always Keith. He was so creative, yet so sensitive. He was the man that would lead me softly to a life of picket fence romance and Saturday night pizza. He was the Simpleton. I love Heath Corriander Bishtropic with the entirety of my beating heart, but I am always in his shadow. I want to be the shining sun. I want to become the Pyrex Queen of Tallahassee. I want to ride the coattails of others into my own sunset."
+      },
+      "Allison Rich": {
+        "instructions" : [ {
+          "text" : "Continue persuading the crowd to come to your party. Don't blow your MO until the next round."
+        }, {
+          "text" : "Find the love interest of Allister's love interest. Figure out what they want in life, and how you can buy it for them."
+        } ],
+        "text" : "Allister and I were best friends. But she committed an offense so sickening, so deplorable, that I cannot bring myself to elaborate. Instead, I've been draining her softly. She thinks the best revenge is throwing Pyrex parties and stealing guests from my own soires. Years ago, when I first heard she was a Pyrex rep, I bought stock. Lots of it, with my faceless husband's immense wealth. I only hosted parties so that she would host them better, more aggressively, with determination and rage and competition. And everytime Allister threw a party, that stock value grew and grew and grew. Tonight has been ten years in the making. I'm so glad we're all together again."
+      },
+      "Lauren Lightfoot": {
+        "instructions" : [ {
+          "text" : "Oh! The Clean Teens. Love seeing them. All. The. Fucking. Time. FFS don't they have someone better to bother."
+        }, {
+          "text" : "Ruminate on how your family has come to such fortune, but ponder these things in your heart."
+        } ],
+        "text" : "My father would always say \"May God walk you toward the light.\" That's why we're the Lightfoots. My grandfather, Saint Herbert Lightfoot, immigrated penniless from the Isle of Man in 1897 but through God's grace earned enough to build a steel factory during Prohibition. My mother, Mother Donna Lightfoot of course, operates four churches in the tri-county area. And I'm a legacy Saint, so it's only a matter of time before I assume my family's mantle."
+      },
+      "Harry Horndog": {
+        "instructions" : [ {
+          "text" : "Shoot your shot, Harry."
+        } ],
+        "text" : "I just can't keep my hotdog in its bun. Hot damn did this class get hot. This ol dog won't be sleeping tonight. The Clean Teens are looking foine. Lauren could get in on that. We'll keep the Lord on the bookshelf. Jim's my boy, but he'd have to be involved if Pam was. Still an option. Is that...Dana Bertrand? Debbie Cubbit? Are they...married? Holy shit. Holy shit. Holy shit. YES."
+      },
+      "Kellen Fromson": {
+        "instructions" : [ {
+          "text" : "Keep singing \"If I was a rich man…..badabididibadabidibi bum\""
+        }, {
+          "text" : "Spit some game with Harry Singer. Success is attracted to success. Also, that definitely looks like cocaine. Alfred Molina probably did cocaine in Fiddler on the Roof, so you will too."
+        } ],
+        "text" : "Before I became a star, I was best friends with Dana and Debbie. But they never told me they were lesbians! What a twist. It doesn't matter now: a scout saw my performance as Arcade Kid #3 and absolutely had to have me in the chorus of Fiddler on the Roof. Alfred Molina was in Fiddler on the Roof. I will become Alfred Molina. \nIs that...Harry Singer? Getting out of Seth Mark's car? I don't remember Harry Singer being that attractive. Or wealthy. I'm sure he's seen my work, but I'd love to see his. That was a really long hug with Suzanne...since when….what's that in his hands?"
+      },
+      "Clean Teen A & B": {
+        "instructions" : [ {
+          "text" : "Cock block Harry at every opportunity. He's got syphillsmalldickingitis, haven't you heard? He shouldn't be able to embrace his wild side and cheat on Lauren. But remember, you're still God's angels."
+        }, {
+          "text" : "Compulsively spend time with Lauren, you haven't seen her since yesterday. Keep asking about her parents, you haven't seen them in forever. You strangely/obsessively miss them."
+        } ],
+        "text" : "Lauren was always our best friend. \"The Holy Trinity\" we would say aloud if only it wasn't so blasphemous. Every Sunday we're in the third pew from the front and every Tuesday is Bible study at Lauren's house. Dunking basement donuts into stale styrofoam coffee with Mother and Father Lightfoot was our favorite past time. Life was blessed, until Harry tied her knot. He's a horny monster. Just like us, except he can show it and get away with it. We're stuck here with a promise ring and a bad stereotype."
+      },
+      "Debbie Cubbit": {
+        "instructions" : [ {
+          "text" : "Convince Dana to pitch Jim and Pam. Get other people involved, make up hockey stick numbers. You might fail."
+        }, {
+          "isOptional" : true,
+          "text" : "Pitch Jim and Pam yourself if you can't convince Dana. If you go behind Dana's back, this could have severe repercussions on your marriage. How far will you go to achieve national market penetration?"
+        }, {
+          "text" : "Talk to Sam Richards. Catch up with him. Tell him about the stock markets and how he could spend his time earning money instead of jacking off at home."
+        } ],
+        "text" : "Now, I love Clogs N' More. I also love Dana. But I love the American Dream most. This is 2018,  the perfect time for a lesbian indie clothing store reviving a centuries-old fashion to slay. I've always wanted to be the #girlboss of a franchised retail chain, and now I've never been closer. Lest we forget my former failures: Moosic Munchies (milk-based chocolate puns), Fedoras + Helmets, Cubbit Subaru. Not this time. Clogs N' More is going to the top of the capitalist food chain."
+      },
+      "Dana Cubbit": {
+        "instructions" : [ {
+          "text" : "Convince Debbie to temper her expectations. You want her to live her dreams, but you also want to enjoy your life and your passion for making clogs."
+        }, {
+          "text" : "If Debbie pitches Jim and Pam, with or without you, get pissed, but in a muted, cold shoulder way."
+        } ],
+        "text" : "Clogs N' More is my life. I love waking up next to Debbie, giving her a sharp pat on the tush, and opening the front doors. Converting our living to a storefront has been our best decision since marriage. Life was so hard when we had to hide our marriage and just be friends. Only Kellen knew, and that's because, well, we always assumed he was gay. Now it's fashionable to know a gay friend, and so everyone loves us. Debbie quickly forgets why we had to hide our relationship from all these people in high school. And how dark those years were. I just want to enjoy our time and our home together. We don't need grandiose dreams; we have each other."
+      },
+      "Jim and Pam Brooks": {
+        "instructions" : [ {
+          "text" : "A lot of folk will pitch you this round. You have two options: take them mano-y-mano or interrupt the party and announce a pitch competition a la Shark Tank. I love the Shark Tank option. Whatever you do, respond to each pitch by suggesting oranges fit into their product. You gotta get out of the game."
+        }, {
+          "text" : "Maintain your image of a perfect couple and marriage, despite the chronic health conditions."
+        }],
+        "text" : "Five years ago, we had a dream. Grocerifyly, a convenient way for consumers to get their...groceries. We amassed a small empire of drivers and sackers and people who don't know a pickle from a cucumber. Then the drought came. Why order groceries when you can order meals? In a last ditch effort to raise capital, we took Series G money from an anonymous angel. That's when the orange orders came in. Soon we were getting boxes and boxes. Our dear grocery business is someone's slush fund now. Every morning we wonder if this is the day bankruptcy catches us. We've developed chronic health conditions. We both have/had affairs.\nOnly success matters now. We've staked our lives on our money and our image. These people think we have it all. They want to be us, and who can blame them? But as they say, be careful what you wish for."
+      },
+      "Jared Deegan": {
+        "instructions" : [ {
+          "text" : "Talk to Lauren. It'd be better if you two were alone. Get weirdly sentimental about those high school days. Make it emotional. Creepy emotional."
+        } ],
+        "text" : "\"Keep room for Jesus\" I used to tell them. Just like Mother Lightfoot used to tell me. The Lightfoots are a family from a long line of saints, and Mother herself runs four churches in the tri-county area. That's what she said when I called her after Lauren was born. I just wanted to know if I was the Father. \"Keep room for Jesus or your reckoning will be earlier than ours, Jared.\" There I was, speechless in sawdust between bells, the cursed phone dribbling off the receiver. I knew I'd never find out if I was Lauren's Father. Mother doesn't \"run\" churches. It's a mob front. When she grew up, I'd have four sweet years to know her. I haven't seen her in 10 years, and besides the Harry Horndog thing, she's done great. I couldn't be more proud of her and more existential about my lot in life."
+      },
+      "Sam Richards": {
+        "instructions" : [ {
+          "text" : "Allison Rich and Allister Jane both inhale deeply from the capitalist Juul.  Approach them aggressively until you realize that Allister can get you a good deal on Pyrex."
+        }, {
+          "text" : "Talk sports with someone who definitely doesn't want to talk about sports."
+        } ],
+        "text" : "The best part of being a stay at home dad? Not feeding into the capitalist agenda. This rigid power structure we call \"America\" is the product of the bourgeois's centuries-long oppression. This land is free if your last name ends in Inc. We are crushed daily under the system that forces you to consider what your food storage choice says about you (Pyrex, my wife says it's good for the kids). Are we living the American dream or am I the only one awake? I really need a hobby."
+      },
+      "Mac OG Kush" : {
+        "instructions" : [{
+          "text" : "Wozzy will confront you. Argue with him before rudely taking a phone call from that guy at Peel 'Em. Enigmatically go over some details, but act hilarious and insecure. You must mention \"Tallahassee Mob\" at least once. Make sure he hears you."
+        }],
+        "text" : "I always beent a hustla. Fifth grade. Sold test scores out of the second floor bathroom. Ninth grade. Peddled wholesale red and white socks. Senior year. Bought every blue book in the tri-county area and marked those suckers up 500 percent. I'm a business, man. That's why I love fellow hustlers. Yesterday at Peel 'Em Inn a bourbon neat chases my fourth Old Fashioned, and my new best friend says we could do business. \"Stranger, you gotta ask for my number before we start rounding the bases,\" I say, hilariously and insecurely. He knows a guy whose cousin's best friend's mother owns a farm next to a massive farm in the Everglades. Inaccessible without a guide, and covered from Google Maps. They're growing Crack Oranges. Health craze? Check. Addiction? Check. The American market is ripe for this. I'd be a fool not to take this. He says they'll trial you. Fifty crates, fifty hours, out of the state. \"Easy peezy, orange squeezy,\" I tell him."
+      },
+      "Calvin Harris" : {
+        "clues" : [{
+          "hint" : "Garbage bag of something heavy",
+          "text" : "Dead drop bag of potpourri drugs"
+        }],
+        "instructions" : [{
+          "text" : "Do a dead drop behind the snack table for Harry Singer. He's the Florida distributor."
+        }, {
+          "text" : "Ignore your fans. Especially if they were the mascot. They were the mascot, ain't no way you're responsible for recognizing their face."
+        }],
+        "text" : "Yo, you think mixing beats is cool, wait til you see drug trafficking. That's right, ain't no one checking a white boy's tour bus for drugs. My connect in Florida don't even know we graduated the same year! That's how fame and drugs work, ya feel, it's all anonymous trickle down. It's always the most obvious people that get away with the biggest coverups because too big to fail, ya feel. I just watched The Big Short, ama, yo."
+      },
+      "Foreign Exchange Spouse" : {
+        "instructions" : [{
+          "text" : "Discover the American dream. Fall in love with the pursuit of potential. Ask people \"What do you they want? What is goal?\""
+        }],
+        "text" : "You were told many things about this country. Anything could happen. Anyone could be anyone. The land of opportunity, I read it. I want to be a part of it."
+      }
+    },
+    "text" : "Build your character. Make up back stories. Riff on what the instructions have provided. Interact with other characters' stories. Ask stupid questions like \"What did you major in?\" and \"Do you remember Donny Hullaview? How about that time we snuck into the country club pool!\" Eat, drink, and be comfortable. Have fun.",
+    "order" : 0
+  }, {
+    "characters" : {
+      "Seth Mark" : {
+        "instructions" : [ {
+          "text" : "Yeah -- so low-key you're the head of the Tallahassee Mafia. No one has to know, or you can leverage this to uncover the real perps. Jake Jones delivers your oranges, and Mac OG Kush was the main supplier to him. If Mac OG Kush claims they're crack oranges, you can duly correct him. \"Mac, you wannabe gangsta, they're just citrus.\""
+        }, {
+          "text" : "To maintain the balance of interstate mafia, you occasionally re-invest anonymous donors into local startups. It's not laundering: it's a hedge fund. Calvin Harris recently asked you to invest as John Galt, and you figured Grocerifly was the perfect avenue to distribute these great oranges."
+        } ],
+        "text" : "Now, Ol' Father Lightfoot was one of my favorite clients. One of my best. Said he saw something in me, a little of himself. It wasn't until a few months ago I realized not only was Father Lightfoot the best minister in Florida, but he was also Don Lightfoot of the Tallahassee Mob. Between cancerous coughs, he told me, Seth Mark, imploring that I pick up when he was picked off. \"Like God, I always wanted a son,\" he meekly said. \"But I never wanted another man's daughter.\" As though I was Saul on Damascus, the truth was revealed: Lauren was Jared Deegan's daughter, born of adultery, and Father Lightfoot had somehow discovered it for himself. Painfully, slowly, his chronic health condition succeeded him.\nAm I the head of the Tallahassee Mob? You could say I am. But we are a law-abiding folk. We'd never kill a man. Besides, American carnage is so commonplace, we're criminal by operating within the confines of the law. A modern mob, you could brand us. These days, we invest in the orange industry. Especially private growers in the Everglades. Under my purview, we're not doing anything illegal."
+      },
+      "Leslie Potts" : {
+        "instructions" : [ {
+          "text" : "It's definitely drugs."
+        }, {
+          "text" : "There will be a murder this round. After the victim dies, you need to run to them, scream \"GET OUT OF THE WAY I'M A DOCTOR\" and diagnose the cause of death as a heart attack. You may publicly or interpersonally declare that there are only three things that could've caused this. 1. Natural causes. 2. A sudden introduction of stimulants (cocaine). 3. A  fatal introduction of extreme sugar (orange concentrate) could do it to someone with a chronic health condition. You're sure the victim has a chronic health condition."
+        } ],
+        "text" : "Ok, so that was hella weird. Calvin Harris definitely knows who I am. He was my vice president! Why does everyone keep saying they don't recognize me! I wasn't wearing the mascot costume all the time!\nWeirder still was Calvin left a package behind that trash can; it's either drugs, a bomb, or a hot mixtape! Wow! Calvin, you sly dog."
+      },
+      "Harry Singer" : {
+        "instructions" : [ {
+          "text" : "Fine, sell Wozzy drugs if it'll get him off your back. But secretly sell him the black market talcum powder, not any of that blow. Pay close attention to Mac OG Kush."
+        }, {
+          "text" : "Sure, you were mediocre in high school. But Dana was always an earnest friend. If she asks a favor of you, be accommodating. Go above and beyond."
+        } ],
+        "text" : "What I really want to know is how Mac OG Kush is moving his product. When he dealt OG Kush in high school, he was always super sly. I don't buy the honest businessman perspective. In fact, looks like he's slinging with old Deegan. Deegan inspired me to buy my first mirror, because I never wanted to know such low self-respect. They're near the punch table right now, but Mac OG Kush's back is to me and I can't see Deegan's face...\nWozzy Barber. Sure, now he notices me. Now that I'm Instafamous he wants to pretend like I know him. Why couldn't he have a more forgetful name. Whatever."
+      },
+      "Suzanne Struegel" : {
+        "instructions" : [ {
+          "text" : "Synthesize a new drug with cocaine and citrus. Try it on Wozzy; that boy is down for anything. If he likes it, lobby Seth Mark. Low key, he drives the head of the Tallahassee Mob, so you know he's got the connections."
+        }, {
+          "text" : "When the murder happens this round, Lauren Lightfoot looked like she was going to stab the victim. Jump up and intercede if you see her getting sketchy, separate her from her alleged victim with your massive muscles."
+        } ],
+        "text" : "These drug deals and high school hallways remind me that I'm actually really good at science and books (plus tri dips holla). Yeah, I got a lot of learning done. You know. Why bankrupt myself? I'm a modern Rosie, Imma just make a safer alternative. One that I don't become addicted to. Or a club drug that doesn't make you sniffle. Forget sketchy diets. Pivot. Healthy, homeopathic club drugs. My true calling."
+      },
+      "Wozzy Barber" : {
+        "instructions" : [ {
+          "text" : "Figure out what Harry Singer is selling and try and get in on that. And you definitely saw him pick up that dead drop from behind the snack table."
+        }, {
+          "text" : "You will meet a huge benefactor this round. Accept the benefactor's offer immediately, unflinchingly, and act with three times the confidence that you had before. Now that you have one success on your plate, you'll be rolling through Series B, C, D, all the way to NASDAQ oh baby."
+        }],
+        "text" : "Harry Singer definitely sold drugs to Suzanne last round. Since I moved in with my mom, I've had to stay clean, but tonight, man, that could really open up those creative dams and let the ideas come a'rushing in. Yeah. Ok, so get some drugs then get back to pitching. Yeah. Just a few drugs. One drug. Ok, more than one drug."
+      },
+      "Jake Jones" : {
+        "instructions" : [ {
+          "text" : "Get Kellen's help finishing your sexy orange farmer script. Maybe he's gay? You'd be ok if he was gay, and also if it became a sexy orange Brokeback Mountain farm. Whatever it takes to get out of Tallahassee."
+        }, {
+          "text" : "Does anyone else think it's weird that all these oranges I'm delivering have crosses on them? They look like the Lightfoots' church insignia but what do I know about religion haha lol."
+        } ],
+        "text" : "Haha, yeah I know, I still have all these oranges to deliver. Always have oranges to deliver. You know who could play me super well in my sexy orange farm fantasy script? Kellen. Always liked him. Was always a player. He committed to stuff. I'm not committed to anything, and I wish I was. Since he's an actor and stuff, maybe he could help me finish this script and stuff.\nAll these old friends having success...I mean that's great, good on them. I'm Jake Jones, I don't wish ill will on anyone, I'm a good guy haha be cool. This reunion should've revived that confidence I had when I peaked in high school. But this is only a bummer, man. All I can think about is that everyone else got better. I'm the loser now. I'm not proud of anything I've done. This is a reminder of how far I haven't come. I need to move away, try again. Be something nah mean? Anything. Anywhere."
+      },
+      "Keith Jacops" : {
+        "instructions" : [ {
+          "text" : "\"...time to squeeze the pulp.\" Now, I can't be certain, but that sounded like Lauren saying that to Mother on the phone. Mother is her manipulative, tri-county church system figurehead of a...mother. She sounded desperate. Will something happen this round that relates to pulp being squeezed/sinful souls being purged? Perhaps it's best to stay in your lane and be boring. It hasn't failed you yet."
+        }, {
+          "text" : "Focus solely on Wozzy as a love interest. Rudely decline or ignore all other suitors."
+        } ],
+        "text" : "(Editor's note: Wozzy will get a huge influx of capital this round). Well, that does it. Now that Wozzy has a huge influx of capital, this proves my case that I always knew he'd be successful. He's got such brilliant ideas. He'll never be better than me. But I'll never be better than him. At least we'll always be financially solvent, with my Sears job and his boom-bust startups. I can't wait to buy him a nice pair of slacks as congratulations."
+      },
+      "Allister Jane Dickens Bishtropic": {
+        "instructions" : [ {
+          "text" : "The rug will be pulled from beneath you this round. Chase Keith. Your heart calls to him. If Heath Corriander Bishtropic can pursue his passion, so can you."
+        }, {
+          "text" : "Perhaps make amends with Allison. She might not remember \"The Incident\" either and you both can reconcile your differences after so many years of Cold War suburban sampler parties. She used to be your best friend."
+        } ],
+        "text" : "Darling, if you must know, my existence is a fraudulent spectacle. Heath Corriander Bishtropic is an academic, and as the world knows, academics make passion, not money. This animal across my naked shoulders is my savings account. The Pyrex parties are our only income. We watch Netflix on three used IKEA pillows."
+      },
+      "Allison Rich": {
+        "instructions" : [ {
+          "text" : "Bootstrap Wozzy with the stock you just sold, and be very public about it. Make sure Keith's paying attention."
+        }, {
+          "text" : "Light the flame. Burn it all down. Rub your plan publicly in Allister's face or focus on the murder that occurs this round."
+        } ],
+        "text" : "Now the dominoes will fall. Why hoard all of that stock? Because I'm going to dump it and bankrupt Pyrex. One swift tap on eTrade and Allister's only hobby becomes nothingness. I figured out last round she loves Keith. So I'm going to give all the dividends as a charitable donation to Wozzy's dumbass ideas, because he'd never turn down money. Keith has been a social climber since he unasked his first girlfriend to homecoming; he'll surely follow.This will both fiscally and emotionally devastate her. Finally. I have my revenge."
+      },
+      "Lauren Lightfoot": {
+        "instructions" : [ {
+          "text" : "Spoof taking that phone call. Mother's best sermon was about people growing whole and bright in the fruit of the Spirit, just like oranges. You remember that metaphor and use it on this fake phone call, only to describe how you will complete murder."
+        }, {
+          "text" : "You've got to kill Mr. Deegan. Wait until he's totally alone and then shank him. Or whatever murderers do; this is your first time. Speaking of first times, are the Clean Teens virgins? Just a thought."
+        } ],
+        "text" : "Mother called. She said the trinity is influx. I told her \"Mom, the trinity is always unified.\" She said Father died, and there was a lot she never told me, and never protected me from. She told me Father was head of the Tallahassee Mob and would always bless those he dismissed from this sinful Earth with \"May God walk you toward the light.\" She said that Mr. Deegan is my real father. And she said that if we're not careful, we'll lose control of the Family because he's about to squeal on his affair. God hates squealers, look what happened to Judas. What family do I want to be in? The family of Christ or the family of the Tallahassee Mob? Easy, the mob. I can have both God and money and power instead of just God. Besides, what Mother says, Daughter does.\nI don't want to commit patricide, but I know God will forgive me if I do."
+      },
+      "Harry Horndog": {
+        "instructions" : [ {
+          "text" : "Ask publicly where the rest of that cocaine is at. Think Michael Cera in \"This is The End.\""
+        }, {
+          "text" : "Keep propositioning for a threesome, but as the evening grows later, you're more interested in starting a rave. Convince Calvin Harris to party."
+        } ],
+        "text" : "Holy shit, is this cocaine? On the table? Hot dog, Horndog! Where can I find more of this? A threesome on cocaine is three times as fun. Nine times as fun as regular sex. Boy, I love sex. But I also love raving. Calvin Harris is here, we could throw a rave/orgy right in this gym. That'd be _legendary_."
+      },
+      "Kellen Fromson": {
+        "instructions" : [ {
+          "text" : "Success is attracted to success. You're all over Wozzy."
+        }, {
+          "text" : "Jake Jones will pitch you on his screenplay. Lead him on before devastating him. Quote his high school bullying back to him. Revenge. Unless...maybe...you see yourself in him. Depends on how much he reveals."
+        } ],
+        "text" : "Harry who? I'm all about Wozzy now. He's always been brilliant, I've always been a fan. With all this money, he just needs the right script, I mean pitch, to follow.\nWell, if it isn't Jake Jones. Yeah, I remember you. You shoved me into a locker. Told me theater was for NERDS. Laughed in 10th grade English when I gave the acted Hamlet's monologue, the rite of passage for all blossoming thespians. But that wasn't the worst of it. No, the worst was when you picked me for team games basketball and didn't pass me the ball. You told me \"Ya gotta work for it, chump.\" Chump? Hey Jake, the 60s called and they want their slang back. Hah! You ignored me, made me feel invisible, like I was just as see-through as Jared Deegan. You hurt me and inspired me, Jake Jones. Now that I'm Alfred Molina, Imma ignore you."
+      },
+      "Clean Teen A & B": {
+        "instructions" : [ {
+          "text" : "You will kill Jared Deegan this round by ladle-ing him a highly saturated orange concentrate from the punch bowl. Jared has a chronic health condition, and it will give him a heart attack because that's how chronic health conditions work."
+        }, {
+          "text" : "You will have put Mother's diary in Mac OG Kush's crates. B talked to him at Reel 'Em Inn, making him think he had a spot in the Family if he proved himself. He'll try and kill Jared but he'll be too cowardly. Only he'll still look guilty as hell doing it."
+        } ],
+        "text" : "We've always been complex characters. Sex-empowered femme fatales on one hand, Bible-beating perfectionists on the other. The truth is, we're hired muscle for the Lightfoots as secret service to keep their daughter safe. Religion is the glue of yucky, complex questions; we're the sealant between Lauren and her parents' dirty laundry. Mother and Father Lightfoot are the head of the Tallahassee Mob. We want to blow it up, make a vacuum in Florida's organized crime space, and fill it with our own operation.\nSo we stole Mother's diary and tore out the part where she confesses to hating Jared Deegan's creepy ass and strange sex kinks. We left in the part where she admits Lauren is Jared's daughter, not Father's, as a divine conception. We're the divine intervention. Jared's death will reveal the whole family to be a sham, and the house of cards of the Tallahassee Mob will fall apart faster than Judas's bloodline."
+      },
+      "Debbie Cubbit": {
+        "instructions" : [ {
+          "text" : "Talk to Foreign Exchange Spouse to gauge the market penetration potential of affordable American clogs in the EU. Aggressively grill her (I don't care whether or not she knows) to figure out how to circumvent import tariffs on footwear."
+        }, {
+          "text" : "Return to Dana. She's your truest love. She's your better half. She reveals the best sides of you, not the most talented. Success is where the heart is. You're like John Travolta in Grease."
+        } ],
+        "text" : "After America, the world. Clogs are a staple of the Danish economy, and our product is affordable for all social strata. I could change the world, but would it be worth losing Dana? I couldn't have built this business without her patience, but I could definitely run it more efficiently. What do I really want from life? Success or happiness?"
+      },
+      "Dana Cubbit": {
+        "instructions" : [ {
+          "text" : "Harry Singer will give us a platform to launch to the basic masses. See if he can help you grow the business for Debbie's sake. You're like Sandy in Grease."
+        }, {
+          "text" : "Ask Pam how she does it. How can she having such a loving marriage and a business too? Inevitably, after realizing Pam's marriage is only another business transaction and is actually in shambles plagued by distrust and chronic health problems, return to Debbie. She's your truest love."
+        } ],
+        "text" : "If commoditizing and nationalizing and bastardizing Clogs N More is what it takes to stay with Debbie, then I'll do it. I would ruin my life's passion to be with the one I love, and she's always been it."
+      },
+      "Jim and Pam Brooks": {
+        "instructions" : [ {
+          "text" : "John Galt is the pseudonym of the benefactor that's made your business into a supposed drug front. They're at this party. Find them."
+        }, {
+          "text" : "Maybe you can help the spat between Debbie and Dana by bringing Dana's Garden Gumptions national. Strike a couple's adult friendship/business agreement. In your eyes, everything's a business agreement."
+        } ],
+        "text" : "When Pam first married Jim, he was in a lot of debt. We started going to church, Mother Lightfoot's church, and tithing 10 percent. And, as the good book said, we received 10 times back. So we started giving more. And receiving more. Pam has always been the more religious one, and Jim the cynic. Miracles don't work like that. God helps those who help themselves. We lobbed arguments back and forth for years.\nOnly God never argued. That same tithe went right into our businesses. We don't know how the Lightfoots make their money, nor do we want to. We only want to squirm out from their influence.  An index fund would've been just as good than this mess."
+
+      },
+      "Jared Deegan": {
+        "instructions" : [ {
+          "text" : "Hang around the snack table, always making idle chatter with the youth. Make sure Lauren doesn't get too close to you; it's too painful seeing her now after all these years. Wait for Mac OG Kush to talk to you: as he warns you mid-sentence, perish dramatically in the middle of the party. Drop an empty cup. Clutch your heart. Make a scene."
+        }, {
+          "text" : "Follow one of the two themes above."
+        } ],
+        "text" : "My friend, a prophecy: you will die this round. You will suffer a heart attack; perhaps this affliction came of natural causes or perhaps it was an inflicted affliction. Make it a drawn out farewell to the mortal plane, following one of the two themes presented above (you may read in whole, in part, or in spirit). I'm sorry.\nTheme 1 (targeted at/near Lauren): \"But here I am, at last, and I'm finally happy, at such a miserable juncture. Because I know an empty life's work can still be fruitful. With these old wooden eyes, I see your life, even with your pursuit of perfect health, God, and money, it will be easier than mine and it's all a parent could ask for. You are my success, my only success. Goodbye.\"\nTheme 2 (targeted at all fake capitalist opportunists): \"Here I am, dying, without achieving anything I wanted. But at least I die with the comfort, the inane comfort, of knowing I'm worthless. You phony capitalists, you opportunistic money grubbers, you worshippers of false Gods, you don't want anything you're doing. You're only in it for the cash. Even you, Sam Richards. Lauren, I'm your dad.\""
+      },
+      "Sam Richards": {
+        "instructions" : [ {
+          "text" : "Download eTrade on your iPhone XS Plus. Login with Facebook. What do you know well? Hm...Pyrex, get you some of that. Wait...what's happening? Your first trade destroyed the stock market? Haha! Suckers! That was your plan all along! \"I'm muthafuckin' Tyler Durden!\" you scream to no one."
+        }, {
+          "text" : "Talk to Foreign Exchange Spouse about the capitalist European sports system."
+        } ],
+        "text" : "Europe has the right idea with governance and wealth distribution. Even socially, they're so far ahead of us. Except their sports teams. You're relegated if you suck and promoted if you do well? Where's the socialism in that? Crackers, that idea. American sports is way more socialist, giving lower teams better options. If only we ran our country like the NBA Draft, we'd be in a better place.\nDebbie Cubbit kept on about that stupid stock market. But you know what, I'm open. I'm approachable. I'm a cool dad."
+      },
+      "Mac OG Kush" : {
+        "instructions" : [{
+          "text" : "You will have to kill Jared Deegan to impress the Tallahassee Mob. That's definitely what this was all about. The Reel 'Em meeting, the diary. It's a test. Alright boys, you got it."
+        }, {
+          "text" : "You can't do it. Some point mid-round, 10 minutes or so in, walk over to the snack table and talk to him for a minute until you realize you can't kill him. In that old man's eyes was a memory you've suppressed: he was the only teacher that thought you, Mac OG Kush, had any potential in life. He was a father figure to you. Warn him that someone's trying to kill him."
+        }],
+        "text" : "In the bottom of that last crate of oranges was a torn note from Mother Lightfoot's journal. I'm no God-fearing man. In fact, God ought to be fraid of me, Mac OG Kush. But I fear Mother Lightfoot and the hell she raises with her monopoly on local religion. It was a note about the soul of Jared Deegan, praying for his eternal slumber...and her reunification with him??? Lauren...is Jared Deegan's daughter. Whoa. Heavy hitter here. Next page. Father is the head of the Tallahassee Mob??? With Mother? Going to be honest with myself, not as surprising. The Marlins will turn a profit before Mother and Father stop pulling the strings on this town."
+      },
+      "Calvin Harris" : {
+        "instructions" : [{
+          "text" : "You might be accused of running that powder through the south. Maybe you did, maybe you didn't (you definitely did). All you know is that you definitely didn't sell to the victim of this murder mystery, but who knows because you're the kingpin for this whole region and you ain't be knowing who sells to...whom."
+        }, {
+          "text" : "Initially, you don't want a rave. You don't want any more attention or potential accidents. There's a lot of heat right now. But you warm up to the idea. Sure, Wozzy, let's start a rave. Harry, get some chicks. You'll make a sick beat and drop out the back because you gotta know when to quit."
+        }],
+        "text" : "On the side Imma investor. I see causes I believe in, and I give them bread. I ain't a believer in the federal government or in handouts, you won't learn nothin if you just getting loans. Nah, I'm a libertarian. Straight up.\nJim and Pam are everything I used to want to be, before I hit the charts and blew up and got the good life. So I gave the money to my boy Seth Mark, told him to invest it as John Galt and keep an eye on them. You know, check that cash flow fo sho. I ain't know how that money is flowin' now for them, but you know I be glad it is cause it's flowing right back to me. Trickle down to trickle up baby."
+      },
+      "Foreign Exchange Spouse" : {
+        "instructions" : [{
+          "text" : "Berate the party goers on their pursuit of false idols and their escapist tendencies. Drugs? Drinking? What is this life?"
+        }, {
+          "text" : "Empathize your disillusionment with Sam Richards."
+        }],
+        "text" : "This is not the American dream, it is nightmare. In my country, we stay where we are. What is goal? We say, we are happy living our lives. Why more? I am getting foreign exchange divorce and going to New Zealand, the land of Kiwi. What is this competition with each other? No one told me that is ugly side of American dream coin. Socialism much better."
+      }
+    },
+    "text" : "Sweet momma things are heating up. Sometimes you'll have to work with characters and sometimes against them. You can reveal your information as directed or to the whole party. Sometimes your information will make more sense as other characters interact with you. In any regard, READ EVERYTHING before doing anything.",
+    "order" : 1
+  }]
+}

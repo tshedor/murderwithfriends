@@ -17,17 +17,15 @@ function previousRoundText(currentRound, totalRounds) {
 
 function currentRoundText(currentRound, totalRounds) {
   switch(currentRound) {
-    case 0 : return 'Round 1';
-    case -1 : return `Party hasn't started`;
+    case 0 : return `Party hasn't started`;
     case totalRounds : return 'End of Party';
-    default : return `Round ${currentRound + 1}`
+    default : return `Round ${currentRound}`
   }
 }
 
 function nextRoundText(currentRound, totalRounds) {
   switch(currentRound) {
     case 0 :
-    case -1 :
       return 'Start the Party';
     case (totalRounds - 1) : return 'Vote for the Killer';
     case totalRounds : return false;

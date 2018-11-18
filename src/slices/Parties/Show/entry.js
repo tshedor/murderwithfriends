@@ -9,9 +9,6 @@ import {
 import Presenter from './routes'
 
 const Main = compose(
-  // TODO ideally this is saved to local state and
-  //   Not passed down through props but adding it through Apollo is
-  //   not worth the code complexity or I'm missing something obvious.
   graphql(QUERY_IS_PARTY_OWNER, {
     options: ({ match: { params: { partyId } } }) => ({ variables: { partyId } }),
     props: ({ ownProps, data }) => ({

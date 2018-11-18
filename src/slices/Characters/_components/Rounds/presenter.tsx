@@ -4,6 +4,7 @@ import RoundHeading from '../RoundHeading'
 import RoundImperatives from '../RoundImperatives'
 
 const styles = require('./styles.scss');
+const { rounds: roundData } = require('./info.json');
 
 interface RoundWrapper {
   id: string
@@ -13,6 +14,7 @@ interface RoundWrapper {
 interface PresenterProps {
   allRounds?: RoundWrapper[]
   characterId: string
+  displayName: string
   currentRound: number
   partyId: string
 }
@@ -25,27 +27,31 @@ export default class extends React.Component<PresenterProps, {}> {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { allRounds, characterId } = this.props;
-    const { allRounds: nextRounds, characterId: nextCharacterId } = nextProps;
+    const { currentRound, characterId, displayName } = this.props;
+    const { currentRound: nextCurrentRound, characterId: nextCharacterId, displayName: nextDisplayName } = nextProps;
 
-    return allRounds.every(roundId => nextRounds.includes(roundId)) || characterId !== nextCharacterId;
+    return currentRound !== nextCurrentRound || characterId !== nextCharacterId || displayName !== nextDisplayName;
   }
 
   render() {
-    const { allRounds } = this.props;
+    const { currentRound, characterId, displayName } = this.props;
+
+    const allRounds = [...Array(currentRound)].map((_, idx) => idx).reverse();
 
     return (
       <React.Fragment>
-        {allRounds.map(round =>
-          <div className={styles.root} key={round.id}>
-            <RoundHeading roundId={round.id} />
-            {round.characterRounds.map(characterRound =>
+        {allRounds.map((idx) => {
+          const round = roundData[ idx ];
+
+          return (
+            <div className={styles.root} key={idx + characterId}>
+              <RoundHeading text={round.text} order={round.order} />
               <RoundImperatives
-                round={characterRound}
-                key={characterRound.id} />
-            )}
-          </div>
-        )}
+                round={round.characters[displayName]}
+                key={idx + characterId} />
+            </div>
+          );
+        })}
       </React.Fragment>
     );
   }

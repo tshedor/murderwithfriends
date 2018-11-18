@@ -4,7 +4,7 @@ import composeWithLoadingAndError from '+root/universal/factories/composeWithLoa
 
 import {
   CurrentRound as SUBSCRIPTION_CURRENT_ROUND,
-  GetRounds as QUERY_ROUNDS
+  GetCharacter as QUERY_CHARACTER
 } from './remote.graphql'
 
 import Presenter from './presenter'
@@ -17,18 +17,16 @@ const Main = composeWithLoadingAndError(
         currentRound: data.Party?.currentRound,
       })
     }),
-    graphql(QUERY_ROUNDS, {
+    graphql(QUERY_CHARACTER, {
       options: ({ partyId, currentRound, characterId }) => ({
         variables: {
-          partyId,
-          characterId,
-          currentRound
+          characterId
         }
       }),
-      props: ({ ownProps, data: { loading, error, allRounds } }) => ({
+      props: ({ ownProps, data: { loading, error, Character } }) => ({
         loading,
         error,
-        allRounds
+        displayName: Character?.displayName
       })
     }),
   ],
