@@ -1,11 +1,10 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const shared = require('./_shared');
 const rules = require('./_rules');
 
-const { plugins, node, resolve, output } = shared;
+const { plugins, node, resolve, output, optimization } = shared;
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -21,6 +20,7 @@ module.exports = {
     historyApiFallback: true,
     hot: true
   },
+  mode: 'development',
   module: {
     rules: [
       // rules.eslint,
@@ -33,7 +33,6 @@ module.exports = {
   },
   plugins: [
     ...plugins,
-    new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       inject: 'body',
@@ -46,5 +45,6 @@ module.exports = {
     __dirname: true
   }, node),
   resolve,
-  output
+  output,
+  optimization
 };

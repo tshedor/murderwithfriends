@@ -1,10 +1,8 @@
-@import 'imports/index';
-
 .drawer {
   > header {
     cursor: pointer;
-    border-top: 1px solid gray(10);
-    border-bottom: 1px solid gray(10);
+    border-top: 1px solid var(--gray-10);
+    border-bottom: 1px solid var(--gray-10);
 
     h1,
     h2,
@@ -13,7 +11,7 @@
     }
 
     svg {
-      font-size: remCalc(18px);
+      font-size: 18px;
       margin-right: 8px;
     }
   }

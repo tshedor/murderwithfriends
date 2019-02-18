@@ -1,9 +1,7 @@
-@import 'imports/index';
-
 .root {
   padding-bottom: 30px;
   margin-bottom: 50px;
-  border-bottom: 20px double $c-white;
+  border-bottom: 20px double var(--c-white);
 
   .helper {
     margin-bottom: 30px;

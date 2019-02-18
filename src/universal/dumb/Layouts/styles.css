@@ -1,7 +1,5 @@
-@import 'imports/index';
-
 .section {
-  margin-bottom: $bottom-margin;
+  margin-bottom: var(--bottom-margin);
 
   &:last-child {
     margin-bottom: 0;
@@ -20,7 +18,7 @@
   }
 
   aside {
-    margin: $universal-margin;
+    margin: var(--universal-margin);
     margin-top: 0;
 
     li {
@@ -34,8 +32,8 @@
 }
 
 .content {
-  padding: $p-content;
-  background: $c-white;
+  padding: var(--p-content);
+  background: var(--c-white);
   margin: 0 auto 30px;
   border-radius: 0 0 5px 5px;
 

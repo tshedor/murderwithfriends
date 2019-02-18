@@ -1,13 +1,12 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const isDev = process.env.NODE_ENV !== 'production';
 const rootPath = path.join(__dirname, '../src');
 
 function cleanPath(p) {
   return p.
-    replace('styles.scss', '').
+    replace('styles.css', '').
     replace(`${rootPath}/universal/dumb/`, '').
     replace(`${rootPath}/slices/`, '').
     replace(/\//g, '-').
@@ -64,16 +63,18 @@ const assets = {
   }
 };
 
-const cssUnextracted = {
-  fallback: 'style-loader',
+const css = {
+  test: /\.css$/,
   use: [
+    'style-loader',
     {
       loader: 'css-loader',
       options: Object.assign({
         modules: true,
         importLoaders: 1,
         minimize: isDev,
-        sourceMap: isDev
+        sourceMap: isDev,
+        import: true
       }, cssNames)
     },
     {
@@ -91,20 +92,8 @@ const cssUnextracted = {
         ],
         sourceMap: isDev
       }
-    },
-    {
-      loader: "sass-loader",
-      options: {
-        sourceMap: isDev,
-        includePaths: [ path.join(__dirname, '../styles') ]
-      }
     }
   ]
-};
-
-const css = {
-  test: /\.s?css$/,
-  use: ExtractTextPlugin.extract(cssUnextracted)
 };
 
 module.exports = {
@@ -113,6 +102,5 @@ module.exports = {
   json,
   assets,
   css,
-  cssUnextracted,
   graphql
 };

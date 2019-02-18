@@ -6,7 +6,7 @@ import Prompts from '../Prompts'
 import InviteButton from '../InviteButton'
 import PlayerName from '../PlayerName'
 
-const styles = require('./styles.scss')
+import styles from './styles.css'
 
 interface PresenterProps {
   character?: _types.Character

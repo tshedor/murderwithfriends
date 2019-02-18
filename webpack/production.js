@@ -1,16 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const shared = require('./_shared');
 const rules = require('./_rules');
 
-const { plugins, node, resolve, output } = shared;
+const { plugins, node, resolve, output, optimization } = shared;
 
 module.exports = {
   entry: [
     '@babel/polyfill',
     './src/application.js',
   ],
+  mode: 'production',
   module: {
     rules: [
       ...rules.scripts,
@@ -40,5 +40,6 @@ module.exports = {
     })
   ],
   resolve,
-  output
+  output,
+  optimization
 };

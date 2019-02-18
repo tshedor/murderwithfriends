@@ -5,7 +5,7 @@ import logo from '../_assets/logo.svg'
 import { Content } from '+dumb/Layouts'
 import { Helper } from '+dumb/Headers'
 
-import styles from '../styles.scss'
+import styles from '../styles.css'
 
 const Presenter = () => (
   <div className={styles.page}>

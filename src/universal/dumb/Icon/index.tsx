@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const icon = require('./icons.svg');
-import styles from './styles.scss';
+import styles from './styles.css';
 
 interface IconProps {
   name: string;

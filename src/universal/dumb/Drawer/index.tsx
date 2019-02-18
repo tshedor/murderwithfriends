@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 import Icon from '../Icon'
 
-const styles = require('./styles.scss');
+import styles from './styles.css';
 
 interface PresenterProps {
   open?: boolean

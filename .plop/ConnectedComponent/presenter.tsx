@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Loading from '+dumb/Loading'
 
-const styles = require('./styles.scss')
+import styles from './styles.css'
 
 interface PresenterProps {
   {{> propInterfaceList }}

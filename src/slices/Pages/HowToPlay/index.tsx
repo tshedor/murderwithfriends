@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import logo from '../_assets/logo.svg'
 import { Content } from '+dumb/Layouts'
-import styles from '../styles.scss'
+import styles from '../styles.css'
 import { Helper } from '+dumb/Headers'
 
 const Presenter = () => (

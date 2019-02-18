@@ -3,7 +3,7 @@ import * as React from 'react'
 import RoundHeading from '../RoundHeading'
 import RoundImperatives from '../RoundImperatives'
 
-const styles = require('./styles.scss');
+import styles from './styles.css';
 
 interface PresenterProps {
   rounds?: string[]

@@ -5,7 +5,7 @@ import Icon from '+dumb/Icon'
 import { Helper } from '+dumb/Headers'
 import Button from '+dumb/Button'
 
-import styles from './styles.scss'
+import styles from './styles.css'
 
 function previousRoundText(currentRound, totalRounds) {
   if (!currentRound || currentRound === -1) {

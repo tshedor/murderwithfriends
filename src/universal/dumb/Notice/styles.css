@@ -1,0 +1,10 @@
+.root {
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: var(--c-white);
+  background: var(--c-green);
+
+  &.error {
+    background: var(--c-red);
+  }
+}

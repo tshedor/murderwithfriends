@@ -1,0 +1,6 @@
+.root {
+  .character {
+    padding-bottom: 50px;
+    border-bottom: 20px double var(--c-white);
+  }
+}

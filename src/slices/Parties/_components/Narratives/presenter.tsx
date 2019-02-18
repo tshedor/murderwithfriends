@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import styles from './styles.scss';
+import styles from './styles.css';
 
 import Button from '+dumb/Button'
 import { Content } from '+dumb/Layouts'

@@ -29,7 +29,7 @@ A **connected component** is almost *always* enhanced by Apollo. The `graphql` o
 | remote.graphql | Pushes and pulls everything from the server. Contains `query` `mutation` and `subscription` operation types. |
 | presenter.(j\|t)sx? | Strictly presentational. |
 | index.js | Automatically imported by whatever parent component, this wraps the Presenter in Apollo logic |
-| style.scss | SCSS duh |
+| style.css | CSS duh |
 
 #### Notes
 
@@ -70,7 +70,7 @@ The data model is defined in [`server/types`](server/types), serverless function
 
 ### Styles
 
-CSS is fine. SCSS is great. Styled components only add [bloat to existing JS files](https://zendev.com/2017/09/11/css-in-js.html) and this whole template literal business is a mess. Styles are imported via CSS modules and precompiled with SCSS. Just because it ends in Sheets not Script doesn't mean it can't play in the sandbox too.
+CSS is fine. SCSS is great. But it's not real CSS. Styled components only add [bloat to existing JS files](https://zendev.com/2017/09/11/css-in-js.html) and this whole template literal business is a mess. Styles are imported via CSS modules and precompiled with PostCSS.
 
 #### Notes
 

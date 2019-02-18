@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-const styles = require('./styles.scss');
+import styles from './styles.css';
 
 type PresenterProps = {
   msg: string

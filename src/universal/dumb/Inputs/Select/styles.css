@@ -1,0 +1,21 @@
+.root {
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  background: var(--c-primary);
+  color: var(--c-white);
+  border: 1px solid var(--gray-10);
+  padding: 9px 5px;
+  border-radius: 0;
+  color: var(--gray-50);
+  font-size: 14px;
+
+  &:focus {
+    outline-color: var(--c-primary);
+  }
+}
+
+.error {
+  padding: 3px 0;
+  color: var(--c-error);
+}

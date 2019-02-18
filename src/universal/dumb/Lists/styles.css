@@ -1,13 +1,11 @@
-@import 'imports/index';
-
 .separatedList {
   margin-bottom: 30px;
 
   li {
-    padding: 5px $p-content;
-    background: $c-white;
+    padding: 5px var(--p-content);
+    background: var(--c-white);
     margin-bottom: 15px;
-    box-shadow: 0px 0.7em 1em rgba($c-black, 0.12);
+    box-shadow: 0px 0.7em 1em rgba(0,0,0, 0.12);
     transition: transform 0.4s;
 
     &:hover {
@@ -22,7 +20,7 @@
   }
 
   svg {
-    fill: gray(50);
+    fill: var(--gray-50);
   }
 }
 
@@ -38,8 +36,8 @@
       &:before {
         counter-increment: numbered-count;
         content: "#" counter(numbered-count);
-        color: $c-white;
-        font-size: remCalc(35px);
+        color: var(--c-white);
+        font-size: 35px;
         font-weight: 800;
         max-width: 60px;
         flex: 1 0 0px;
@@ -57,14 +55,14 @@
   }
 
   .inside {
-    background: $c-white;
-    padding: 10px $p-content;
+    background: var(--c-white);
+    padding: 10px var(--p-content);
     border-radius: 0 0 5px 5px;
   }
 
   .iterator {
-    color: $c-white;
-    font-size: remCalc(35px);
+    color: var(--c-white);
+    font-size: 35px;
     font-weight: 800;
     max-width: 60px;
   }

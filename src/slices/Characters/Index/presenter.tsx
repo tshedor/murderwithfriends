@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Character from '../_components/Block'
 
-import styles from './styles.scss';
+import styles from './styles.css';
 
 type PresenterProps = {
   players: _types.Player[]

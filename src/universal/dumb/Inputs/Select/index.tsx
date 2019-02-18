@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const styles = require('./styles.scss')
+import styles from './styles.css'
 
 type OptionProps = {
   value: string

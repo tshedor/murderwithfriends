@@ -1,9 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const dist = path.join(__dirname, '../dist');
+
+const optimization = {
+  splitChunks: {
+    // include all types of chunks
+    chunks: 'all'
+  }
+};
 
 const node = {
   dgram: 'empty',
@@ -26,7 +32,6 @@ const resolve = {
 };
 
 const plugins = [
-  new ExtractTextPlugin({ filename: 'css/[contenthash:8].css', allChunks: false }),
   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   new webpack.DefinePlugin({
     'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),

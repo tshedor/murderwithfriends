@@ -1,12 +1,10 @@
-@import 'imports/index';
-
 .modal {
   position: fixed;
   height: 100vh;
   top: 0;
   left: 0;
   width: 100vw;
-  background: $c-white;
+  background: var(--c-white);
   display: flex;
   align-items: center;
 
@@ -17,13 +15,13 @@
   }
 
   &.pop {
-    @include stack($global-stack);
-    background: rgba($c-black, 0.8);
+    z-index: 0;
+    background: rgba(0,0,0 0.8);
 
     .modalContent {
       max-width: 500px;
-      background: $c-white;
-      box-shadow: 0 0 25px -2px rgba($c-black, 0.1);
+      background: var(--c-white);
+      box-shadow: 0 0 25px -2px rgba(0,0,0, 0.1);
       align-self: center;
       margin: 0 auto;
       position: relative;
@@ -31,12 +29,12 @@
   }
 
   &.pusher {
-    @include stack($global-stack);
+    z-index: 2;
     left: auto;
     right: 0;
     min-width: 420px;
     max-width: 30%;
-    box-shadow: -3px 0 8px 0 rgba($c-black, 0.1);
+    box-shadow: -3px 0 8px 0 rgba(0,0,0, 0.1);
     top: 0;
     padding-bottom: 40px; // height of chat box
 
@@ -50,7 +48,7 @@
     }
 
     .modalClose {
-      color: gray(20);
+      color: var(--gray-20);
       left: -40px;
       right: auto;
     }
@@ -75,7 +73,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  color: $c-black;
+  color: var(--c-black);
   font-size: 1.1em;
   cursor: pointer;
   display: block;

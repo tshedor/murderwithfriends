@@ -45,7 +45,7 @@ const generator = {
       });
     }
 
-    actions.push( addFactory('styles.scss') );
+    actions.push( addFactory('styles.css') );
 
     if (data.usesTSX) {
       actions.push( addFactory('index.tsx') );

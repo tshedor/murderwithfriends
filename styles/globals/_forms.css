@@ -4,11 +4,6 @@ fieldset {
   padding: 0;
 }
 
-@include placeholder {
-  font-style: italic;
-  color: gray(90);
-}
-
 input,
 textarea {
   border: 0;
@@ -16,8 +11,8 @@ textarea {
   background: none;
   transition: border-color 0.2s ease;
   padding: 4px;
-  border-bottom: 1px solid $c-primary;
-  color: $c-primary;
+  border-bottom: 1px solid var(--c-primary);
+  color: var(--c-primary);
   width: 100%;
   display: block;
 
@@ -44,7 +39,7 @@ input[type="radio"] {
 
 label {
   text-transform: uppercase;
-  font-size: remCalc(12px);
+  font-size: 12px;
   padding: 0 4px;
   display: block;
   margin-top: 20px;

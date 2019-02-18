@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-const styles = require('./styles.scss');
+import styles from './styles.css';
 
 import Icon from '+dumb/Icon';
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Icon from '../Icon';
 import * as classNames from 'classnames';
-const styles = require('./styles.scss');
+import styles from './styles.css';
 
 const determineElementForButton = (path) => {
   if (path) {

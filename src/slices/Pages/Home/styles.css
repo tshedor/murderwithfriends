@@ -1,5 +1,3 @@
-@import 'imports/index';
-
 .homeHero {
   display: flex;
   min-height: 100vh;

@@ -1,14 +1,12 @@
-@import 'imports/index';
-
 .root {
   position: fixed;
-  background: $c-white;
+  background: var(--c-white);
   padding: 0 15px;
-  box-shadow: 0 emCalc(-1px) emCalc(3px) rgba($c-black, .08);
+  box-shadow: 0 -.0625em .1875em rgba(0,0,0, .08);
   text-align: center;
   bottom: 0;
   width: 100%;
-  margin: 0 negate($p-content);
+  margin: 0 calc(var(--p-content) * -1);
   text-transform: uppercase;
   font-weight: 700;
 
@@ -18,7 +16,7 @@
   }
 
   li {
-    font-size: remCalc(12px);
+    font-size: 12px;
     margin: 0;
     padding: 8px 0;
     flex: 1 0 0px;
@@ -35,6 +33,6 @@
   }
 
   svg {
-    font-size: remCalc(32px);
+    font-size: 32px;
   }
 }

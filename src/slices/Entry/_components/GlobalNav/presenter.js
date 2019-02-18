@@ -7,7 +7,7 @@ import { removeToken } from '+root/utils/auth'
 import PartyRoutes from '+root/slices/Parties/routes';
 import Icon from '+dumb/Icon'
 
-import styles from './styles.scss';
+import styles from './styles.css';
 
 const NavLink = ({ path, iconName, text, ...props }) => (
   <li><Link to={path} {...props}><Icon name={iconName} />{text}</Link></li>
