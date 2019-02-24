@@ -1,4 +1,4 @@
-import { firebaseAuth, refRoot, refParties, refMyParties, table, refNarratives } from 'constants/firebase'
+import { firebaseAuth, refRoot, refParties, refMyParties, table } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
 // Store listeners here so that they can be retrieved and iterated over when unbound
@@ -6,10 +6,6 @@ let on_listeners = [];
 
 function generateListeners(dispatch) {
   return [
-    {
-      ref: refRoot(table.NARRATIVE_PREVIEWS),
-      callback: snapshot => dispatch(receiveNarrativePreviews(snapshot.val() || {}))
-    },
     {
       ref: refMyParties(),
       callback: snapshot => {
@@ -28,27 +24,7 @@ export const loadPartyAndNarrative = partyId => (dispatch, getState) => {
     const party = { [partyId]: snap.val() || {} };
 
     dispatch( receiveParty( party ) );
-
-    refNarratives(party[partyId].narrativeId).once('value').then(narrativeSnap => {
-      const narrative = { [narrativeSnap.key]: narrativeSnap.val() || {} };
-
-      dispatch( receiveNarrative(narrative) );
-    });
   });
-}
-
-function receiveNarrativePreviews(previews) {
-  return {
-    type: types.RECEIVE_NARRATIVE_PREVIEWS,
-    previews
-  };
-}
-
-function receiveNarrative(narrative) {
-  return {
-    type: types.RECEIVE_NARRATIVE,
-    narrative
-  };
 }
 
 function receiveParty(party) {

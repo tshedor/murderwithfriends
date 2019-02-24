@@ -1,4 +1,4 @@
-import { firebaseAuth, refPartyPlayers, refParties, refPartyCharacters, refPartyRounds, refNarratives, refMyParties } from 'constants/firebase'
+import { firebaseAuth, refPartyPlayers, refParties, refPartyCharacters, refPartyRounds, refMyParties } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
 import { created, updated, removeUndefinedValues } from '../shared'
@@ -21,16 +21,14 @@ export const createParty = ({ displayName, text, location, time, otherNotes, nar
     partyMaster: firebaseAuth().currentUser.uid
   });
 
-  refNarratives(narrativeId).once('value').then(snap => {
-    const data = snap.val();
+  const narrative = getState().narratives.all[narrativeId];
 
-    Object.keys(data.characters).forEach(characterKey => {
-      const newPlayer = refPartyPlayers(party.key).push();
-      newPlayer.set(characterKey);
+  Object.keys(narrative.characters).forEach(characterKey => {
+    const newPlayer = refPartyPlayers(party.key).push();
+    newPlayer.set(characterKey);
 
-      refPartyCharacters(party.key, characterKey).update({
-        partyPlayerId: newPlayer.key
-      });
+    refPartyCharacters(party.key, characterKey).update({
+      partyPlayerId: newPlayer.key
     });
   });
 

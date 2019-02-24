@@ -10,16 +10,14 @@ const Character = ({ displayName, text }) => (
 );
 
 const Narrative = ({ narrative, narrativeId }) => (
-  <React.Fragment>
-    <div className="narrative">
-      <h2>{narrative.displayName}</h2>
-      <p className="content">
-        {narrative.text}
+  <div className="narrative">
+    <h2>{narrative.displayName}</h2>
+    <p className="content">
+      {narrative.text}
 
-        <Link to={`/parties/new/${narrativeId}`} className="button -inverse" >Create</Link>
-      </p>
-    </div>
-  </React.Fragment>
+      <Link to={`/parties/new/${narrativeId}`} className="button -inverse" >Create</Link>
+    </p>
+  </div>
 );
 
 const Presenter = ({ narratives }) => (

@@ -59,11 +59,6 @@ export const refParties = (...args) => {
   return refRoot(...args);
 }
 
-export const refNarratives = (...args) => {
-  args.unshift(table.NARRATIVES);
-  return refRoot(...args);
-}
-
 export const refRoot = (...args) => {
   return ref.child( args.join('/') );
 };
@@ -73,8 +68,6 @@ export const table = {
     BASE: 'users',
     INFO: 'info'
   },
-  NARRATIVES: 'narratives',
-  NARRATIVE_PREVIEWS: 'narrativePreviews',
   PARTIES: {
     BASE: 'parties',
     PLAYERS: 'players'
