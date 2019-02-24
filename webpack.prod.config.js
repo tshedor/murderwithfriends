@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: [
     '@babel/polyfill',
-    './scripts/application.js',
+    './src/application.js',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -78,7 +78,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     modules: [
       path.resolve('./node_modules'),
-      path.resolve('./scripts')
+      path.resolve('./src')
     ]
   },
   plugins: [

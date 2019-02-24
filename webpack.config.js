@@ -9,7 +9,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './scripts/application.js',
+    './src/application.js',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -86,7 +86,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     modules: [
       path.resolve('./node_modules'),
-      path.resolve('./scripts')
+      path.resolve('./src')
     ]
   },
   plugins: [
