@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import auth from 'reducers/auth'
-import narratives from 'reducers/narratives'
 import parties from 'reducers/parties'
+import party from 'reducers/party'
 import ux from 'reducers/ux'
 
 export default combineReducers({
   auth,
-  narratives,
   parties,
+  party,
   ux
 });

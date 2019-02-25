@@ -1,24 +1,23 @@
-import { refPartyCharacters } from 'constants/firebase'
+import { refPartyPlayers } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
 export { default as load } from './load'
 
 export const saveCharacterPrompt = (promptId, answer) => (dispatch, getState) => {
-  const { currentPartyUid, currentCharacterUid } = getState().parties;
+  const { id, playerId } = getState().party;
 
-  return refPartyCharacters(currentPartyUid, currentCharacterUid, 'promptAnswers', promptId).set(answer)
+  return refPartyPlayers(id, playerId, 'promptAnswers', promptId).set(answer)
 };
 
-export const updateActorName = (name, characterId) => (dispatch, getState) => {
-  const { currentPartyUid } = getState().parties;
+export const updateActorName = (name, playerId) => (dispatch, getState) => {
+  const { id } = getState().party;
 
-  return refPartyCharacters(currentPartyUid, characterId, 'partyPlayerName').set(name)
+  return refPartyPlayers(id, playerId, 'displayName').set(name)
 };
 
-export function setCurrentPartyPlayer(partyId, playerId) {
+export function setCurrentPartyPlayer(playerId) {
   return {
     type: types.SET_CURRENT_PARTY_PLAYER,
-    partyId,
     playerId
   };
 }

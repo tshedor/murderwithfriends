@@ -12,14 +12,14 @@ function generateListeners(dispatch) {
         const allParties = snapshot.val() || {};
 
         Object.keys(allParties).forEach(partyId => {
-          return dispatch( loadPartyAndNarrative(partyId) );
+          return dispatch( loadParty(partyId) );
         });
       }
     }
   ]
 }
 
-export const loadPartyAndNarrative = partyId => (dispatch, getState) => {
+export const loadParty = partyId => (dispatch, getState) => {
   return refParties(partyId).once('value').then(snap => {
     const party = { [partyId]: snap.val() || {} };
 

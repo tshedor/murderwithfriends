@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "jsx": "react",
+    "outDir": "./dist/",
+    "allowJs": true,
+    "baseUrl": "./src",
+    "target": "esnext",
+    "lib": [
+      "ES7",
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost"
+    ],
+    "paths": {
+      "+dumb/*" : [
+        "./src/universal/dumb/*"
+      ],
+      "+root/*" : [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "./webpack/custom.d.ts",
+    "./src/interfaces/index.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*/stories.js",
+    "**/*.spec.ts",
+    "./server/**/*",
+    "./plop-templates/**/*"
+  ]
+}

@@ -1,0 +1,15 @@
+@import 'imports/index';
+
+.root {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+
+  svg {
+    max-height: 180px;
+    height: 50%;
+    display: block;
+    margin: 0 auto;
+    width: auto;
+  }
+}

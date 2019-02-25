@@ -1,0 +1,11 @@
+type PartyPlayer {
+  id: String,
+  displayName: String,
+  promptAnswers: String[],
+}
+
+path /partyPlayers/{partyId}/{playerId} is PartyCharacter {
+  validate() { doesPartyExist(partyId) }
+  write() { true }
+  read() { true }
+}

@@ -1,0 +1,14 @@
+@import 'imports/index';
+
+.helper {
+  font-style: italic;
+  font-size: remCalc(15px);
+  color: $c-white;
+  padding: $p-content 0;
+  margin: 0;
+
+  a {
+    color: $c-white;
+    text-decoration: underline;
+  }
+}

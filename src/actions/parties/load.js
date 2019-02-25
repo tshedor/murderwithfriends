@@ -1,7 +1,7 @@
 import { firebaseAuth, refPartyPlayers, refPartyCharacters, refPartyRounds, refParty } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
-import { loadPartyAndNarrative } from '../auth/initializer'
+import { loadParty } from '../auth/initializer'
 
 import { setCurrentPartyPlayer } from '../characters'
 
@@ -15,24 +15,9 @@ function generateListeners(partyId, dispatch) {
       callback: snapshot => dispatch( receivePartyPlayers(snapshot.val() || {}))
     },
     {
-      ref: refPartyCharacters(partyId),
-      callback: snapshot => dispatch( receivePartyCharacters(snapshot.val() || {}))
-    },
-    {
-      ref: refPartyRounds(partyId),
-      callback: snapshot => {
-        const data = snapshot.val() || {};
-        const rounds = Object.keys(data).sort((a, b) => a - b);
-        const latestRound = rounds.pop();
-
-        dispatch( advanceToRound(latestRound) );
-        dispatch( receivePartyRounds(data) );
-      }
-    },
-    {
       ref: refParty(partyId),
       callback: snapshot => {
-        dispatch( loadPartyAndNarrative(partyId) );
+        dispatch( loadParty(partyId) );
         dispatch( setCurrentParty(snapshot.val() || {}, partyId) )
       }
     }
@@ -46,27 +31,6 @@ function receivePartyPlayers(players) {
   };
 }
 
-function receivePartyCharacters(characters) {
-  return {
-    type: types.RECEIVE_PARTY_CHARACTERS,
-    characters
-  };
-}
-
-function advanceToRound(roundId) {
-  return {
-    type: types.ADVANCE_TO_ROUND,
-    roundId
-  };
-}
-
-function receivePartyRounds(rounds) {
-  return {
-    type: types.RECEIVE_PARTY_ROUNDS,
-    rounds
-  };
-}
-
 function setCurrentParty(party, partyId) {
   return {
     type: types.SET_CURRENT_PARTY,
@@ -76,9 +40,9 @@ function setCurrentParty(party, partyId) {
 }
 
 export default (partyId, playerId=null) => (dispatch, getState) => {
-  const { currentPartyUid } = getState().parties;
+  const { id } = getState().party;
 
-  if (partyId === currentPartyUid) return;
+  if (partyId === id) return;
 
   on_listeners.forEach(item => item.ref.off(item.eventType || 'value', item.callback));
 
@@ -87,7 +51,7 @@ export default (partyId, playerId=null) => (dispatch, getState) => {
   on_listeners.forEach(item =>
     item.ref.on(item.eventType || 'value', item.callback)
   );
-  
+
   if (playerId) {
     dispatch( setCurrentPartyPlayer(partyId, playerId) );
   }

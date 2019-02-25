@@ -8,6 +8,7 @@ export { default as load } from './load'
 export const createParty = ({ displayName, text, location, time, otherNotes, narrativeId }) => (dispatch, getState) => {
   const party = refParties().push()
   party.set({
+    id: party.key,
     narrativeId,
     ...removeUndefinedValues({
       displayName,
@@ -18,17 +19,15 @@ export const createParty = ({ displayName, text, location, time, otherNotes, nar
     }),
     ...created(),
     ...updated(),
-    partyMaster: firebaseAuth().currentUser.uid
   });
 
   const narrative = getState().narratives.all[narrativeId];
 
-  Object.keys(narrative.characters).forEach(characterKey => {
+  Object.keys(narrative.characters).forEach(characterId => {
     const newPlayer = refPartyPlayers(party.key).push();
-    newPlayer.set(characterKey);
-
-    refPartyCharacters(party.key, characterKey).update({
-      partyPlayerId: newPlayer.key
+    newPlayer.set({
+      id: newPlayer.key,
+      characterId
     });
   });
 
@@ -38,9 +37,9 @@ export const createParty = ({ displayName, text, location, time, otherNotes, nar
 };
 
 export const editParty = ({ displayName, text, location, time, otherNotes }) => (dispatch, getState) => {
-  const { currentPartyUid } = getState().parties;
+  const { id } = getState().party;
 
-  return refParties(currentPartyUid).update({
+  return refParties(id).update({
     ...removeUndefinedValues({
       displayName,
       text,
@@ -52,19 +51,24 @@ export const editParty = ({ displayName, text, location, time, otherNotes }) => 
   });
 };
 
-export const advanceRound = () => (dispatch, getState) => {
-  const { currentPartyUid } = getState().parties;
+const changeRound = (shouldIncrement) => (dispatch, getState) => {
+  const { round } = getState().party;
+  const { totalRounds } = getState().party.narrative;
+  let roundId = round;
 
-  return refPartyRounds(currentPartyUid).transaction(currentData => {
-    const newRound = { ...created(), ...updated() };
+  if (round !== totalRounds && shouldIncrement) {
+    roundId = round + 1;
+  }
 
-    if (currentData) {
-      const lastRound = Object.keys(currentData).sort((a, b) => a -b).pop();
-      currentData[parseInt(lastRound, 10) + 1] = newRound;
-    } else {
-      currentData = [ newRound ];
-    }
+  if (round !== 0 && !shouldIncrement) {
+    roundId = round -1;
+  }
 
-    return currentData;
+  dispatch({
+    type: types.ADVANCE_TO_ROUND,
+    roundId
   });
 };
+
+export const nextRound = changeRound(true);
+export const previousRound = changeRound(false);
