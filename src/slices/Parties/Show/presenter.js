@@ -27,6 +27,7 @@ export default class extends React.PureComponent {
     }
 
     if (isOwner) {
+      console.log(clues);
       return (
         <React.Fragment>
           <ChangeRound partyId={party.id} />

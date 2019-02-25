@@ -16,7 +16,7 @@ export default class extends React.Component {
   static displayName = __dirname.replace('src/slices/', '')
 
   static defaultProps = {
-    prompts: {},
+    prompts: [],
     answers: [],
   }
 
@@ -25,15 +25,15 @@ export default class extends React.Component {
     // Only God may judge me.
     const text = e.currentTarget.value;
 
-    this.props.onUpdate({ promptAnswerId, text });
+    this.props.onUpdate(promptAnswerId, text);
   }
 
   mergePromptsWithAnswers(prompts, answers) {
-    return prompts.map((prompt, i) => {
+    return prompts.map((text, i) => {
       return {
         id: i,
-        prompt,
-        text: answers[i]
+        text,
+        answer: answers[i]
       };
     });
   }
@@ -48,17 +48,17 @@ export default class extends React.Component {
         render={(item, promptId) => (
           <React.Fragment>
             <span>
-              {item.prompt.text}? &nbsp;
+              {item.text}? &nbsp;
             </span>
 
             {isCharacter ? (
               <TextInput
-                defaultValue={item.text}
+                defaultValue={item.answer}
                 onKeyUp={this.handlePromptAnswer.bind(this, item.id)}
                 />
             ) : (
               <strong>
-                {item.text}
+                {item.answer}
               </strong>
             )}
           </React.Fragment>

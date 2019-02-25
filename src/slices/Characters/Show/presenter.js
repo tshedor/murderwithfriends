@@ -16,6 +16,10 @@ export default class extends React.PureComponent {
     playerId: PropTypes.string,
   }
 
+  static defaultProps = {
+    character: {}
+  }
+
   componentDidMount() {
     this.props.onMount();
   }

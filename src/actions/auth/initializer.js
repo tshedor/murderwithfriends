@@ -21,7 +21,12 @@ function generateListeners(dispatch) {
 
 export const loadParty = partyId => (dispatch, getState) => {
   return refParties(partyId).once('value').then(snap => {
-    const party = { [partyId]: snap.val() || {} };
+    const party = {
+      [partyId]: {
+        ...(snap.val() || {}),
+        id: partyId
+      }
+    };
 
     dispatch( receiveParty( party ) );
   });

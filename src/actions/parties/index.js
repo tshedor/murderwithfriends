@@ -1,4 +1,4 @@
-import { firebaseAuth, refPartyPlayers, refParties, refPartyCharacters, refPartyRounds, refMyParties } from 'constants/firebase'
+import { firebaseAuth, refPartyPlayers, refParties, refMyParties } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
 import { created, updated, removeUndefinedValues } from '../shared'
@@ -17,6 +17,7 @@ export const createParty = ({ displayName, text, location, time, otherNotes, nar
       time,
       otherNotes
     }),
+    currentRound: -1,
     ...created(),
     ...updated(),
   });
@@ -51,8 +52,8 @@ export const editParty = ({ displayName, text, location, time, otherNotes }) => 
   });
 };
 
-const changeRound = (shouldIncrement) => (dispatch, getState) => {
-  const { round } = getState().party;
+const changeRound = (shouldIncrement) => () => (dispatch, getState) => {
+  const { round, id } = getState().party;
   const { totalRounds } = getState().party.narrative;
   let roundId = round;
 
@@ -60,13 +61,12 @@ const changeRound = (shouldIncrement) => (dispatch, getState) => {
     roundId = round + 1;
   }
 
-  if (round !== 0 && !shouldIncrement) {
-    roundId = round -1;
+  if (round > -1 && !shouldIncrement) {
+    roundId = round - 1;
   }
 
-  dispatch({
-    type: types.ADVANCE_TO_ROUND,
-    roundId
+  return refParties(id).update({
+    currentRound: roundId
   });
 };
 

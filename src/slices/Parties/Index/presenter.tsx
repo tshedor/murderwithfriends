@@ -24,7 +24,7 @@ export default class extends React.PureComponent<any, {}> {
 
         { parties &&
           <SeparatedList
-            data={Object.keys(parties)}
+            data={Object.values(parties)}
             render={({ displayName }, key) => (
               <Link to={`/parties/${key}`}>{displayName} <Icon name="right" /></Link>
             )} />

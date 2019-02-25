@@ -13,7 +13,6 @@ export const initializeListeners = () => (dispatch, getState) => {
   // Clear redux when you login/logout
   // TODO - maybe only necessary when you logout
   onAuthStateChanged(user => {
-    // dispatch( resetAll() )
     if (user) {
       dispatch( initializeAfterUserAuth() );
     }

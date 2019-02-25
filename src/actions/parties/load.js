@@ -1,4 +1,4 @@
-import { firebaseAuth, refPartyPlayers, refPartyCharacters, refPartyRounds, refParty } from 'constants/firebase'
+import { firebaseAuth, refPartyPlayers, refPartyRounds, refParty } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
 import { loadParty } from '../auth/initializer'

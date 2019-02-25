@@ -7,7 +7,7 @@ function mapStateToProps(state) {
   return {
     party: state.party.current,
     isOwner: state.party.isOwner,
-    clues: state.party.narrative.clues,
+    clues: state.party.narrative?.clues,
   };
 }
 

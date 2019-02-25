@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import Icon from '+dumb/Icon'
 import { NumberedList } from '+dumb/Lists'
 import { Section, Content } from '+dumb/Layouts'
 

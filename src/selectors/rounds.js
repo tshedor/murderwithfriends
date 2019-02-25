@@ -1,15 +1,14 @@
 import { createSelector } from 'reselect';
 
-const getCurrentRound = state => state.parties.currentRound;
-const getTotalRounds = state => state.narratives.currentNarrative.roundCount;
-const getNarrativeRounds = state => state.narratives.currentNarrative.rounds;
-const getPartyRoudns = state => state.parties.rounds;
-const getCurrentCharacterUid = state => state.parties.currentCharacterUid;
+const getCurrentRound = state => state.party.round;
+const getTotalRounds = state => state.party.narrative.totalRounds;
+const getNarrativeRounds = state => state.party.narrative.rounds;
+const getCurrentCharacterUid = state => state.party.characterId;
 
 const determineAvailableRounds = createSelector(
   getCurrentRound,
   getTotalRounds,
-  (currentRound, totalRounds=4) => {
+  (currentRound, totalRounds = -1) => {
     return [ ...Array(totalRounds + 1).keys() ].filter(i => i <= currentRound);
   }
 );
@@ -30,7 +29,7 @@ export const availableNarrativeRounds = createSelector(
   getCurrentCharacterUid,
   (availableRounds, narrativeRounds, currentCharacterUid) => {
     if (currentCharacterUid) {
-      let val = {}
+      let val = {};
 
       availableRounds.forEach(roundId => {
         val[roundId] = {

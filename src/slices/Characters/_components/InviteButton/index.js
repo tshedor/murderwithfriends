@@ -8,8 +8,7 @@ import Presenter from './presenter'
 function mapStateToProps(state, ownProps) {
   return {
     isOwner: state.party.isOwner,
-    playerId: state.party.characters[ownProps.characterId]?.partyPlayerId,
-    partyId: state.party.current
+    partyId: state.party.id
   };
 }
 

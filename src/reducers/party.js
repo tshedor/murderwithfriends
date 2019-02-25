@@ -23,8 +23,10 @@ export default function data(state = initialState, action) {
         ...state,
         current: action.party,
         id: action.partyId,
-        narrative: narratives[action.party.narrativeId],
+        narrative: narratives.all[action.party.narrativeId],
+        characters: narratives.all[action.party.narrativeId].characters,
         isOwner: action.party.createdBy === firebaseAuth().currentUser?.uid,
+        round: action.party.currentRound
       };
 
     case types.SET_CURRENT_PARTY_PLAYER:
@@ -37,7 +39,8 @@ export default function data(state = initialState, action) {
     case types.RECEIVE_PARTY_PLAYERS:
       return {
         ...state,
-        players: action.players
+        players: action.players,
+        characterId: action.players?.[ state.playerId ]?.characterId,
       };
 
     case types.ADVANCE_TO_ROUND:

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const getCurrentParty = state => state.parties.currentParty;
+const getCurrentParty = state => state.party.current;
 const getPropsParty = (state, props) => state.parties.all[props?.computedMatch?.params?.partyId]
 const getPlayer = (state, props) => state.parties?.all[props?.computedMatch?.params?.partyId]?.players?.[props?.computedMatch?.params?.playerId]
 

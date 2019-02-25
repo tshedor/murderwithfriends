@@ -8,7 +8,7 @@ import Button from '+dumb/Button'
 import styles from './styles.scss'
 
 function previousRoundText(currentRound, totalRounds) {
-  if (!currentRound || currentRound === -1) {
+  if (currentRound === -1) {
     return false;
   }
 
@@ -17,18 +17,18 @@ function previousRoundText(currentRound, totalRounds) {
 
 function currentRoundText(currentRound, totalRounds) {
   switch(currentRound) {
-    case 0 : return `Party hasn't started`;
+    case -1 : return `Party hasn't started`;
     case totalRounds : return 'End of Party';
-    default : return `Round ${currentRound}`
+    default : return `Round ${currentRound + 1}`
   }
 }
 
 function nextRoundText(currentRound, totalRounds) {
   switch(currentRound) {
-    case 0 :
+    case -1 :
       return 'Start the Party';
-    case (totalRounds - 1) : return 'Vote for the Killer';
-    case totalRounds : return false;
+    case (totalRounds - 2) : return 'Vote for the Killer';
+    case (totalRounds - 1) : return false;
     default : return 'Next Round'
   }
 }

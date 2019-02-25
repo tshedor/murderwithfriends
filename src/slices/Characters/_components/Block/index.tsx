@@ -10,12 +10,11 @@ const styles = require('./styles.scss')
 
 interface PresenterProps {
   character?: _types.Character
-  characterId: string
   playerId?: string
   showName: boolean
 }
 
-const LineBreakify = ({ text }) => (
+const LineBreakify = ({ text = '' }) => (
   <React.Fragment>
     {text.split('\n').map((paragraph, i) =>
       <p key={i}>
@@ -28,11 +27,14 @@ const LineBreakify = ({ text }) => (
 export default class extends React.PureComponent<PresenterProps, {}> {
   static displayName = __dirname.replace('src/slices/', '')
 
+  static defaultProps = {
+    character: {}
+  }
+
   render() {
     const {
       character,
       playerId,
-      characterId,
       showName } = this.props;
 
     return (
@@ -50,7 +52,7 @@ export default class extends React.PureComponent<PresenterProps, {}> {
         }
 
         <h3>Fill in the blank</h3>
-        <Prompts characterId={characterId} playerId={playerId} />
+        <Prompts playerId={playerId} />
 
         <PlayerName playerId={playerId} />
 

@@ -10,12 +10,11 @@ export default class extends React.PureComponent {
 
   static defaultProps = {
     players: {},
-    character: {}
+    characters: {}
   }
 
   render() {
     const { players, characters } = this.props;
-
     return (
       <React.Fragment>
         <h1>Characters</h1>
@@ -24,7 +23,7 @@ export default class extends React.PureComponent {
             <Character
               playerId={playerId}
               key={playerId}
-              character={characters[players[playerId].characterId]}
+              character={characters[players[playerId]?.characterId]}
               showName={true} />
           )}
         </div>

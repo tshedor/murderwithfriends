@@ -14,7 +14,7 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function mapDispatchToProps(state, ownProps) {
+function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch( load(ownProps?.match?.params?.partyId) )
   };

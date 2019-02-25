@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import Icon from '+dumb/Icon'
 import Button from '+dumb/Button'
 
 interface PresenterProps {

@@ -6,10 +6,12 @@ import Presenter from './presenter';
 import { saveCharacterPrompt } from 'actions/characters'
 
 function mapStateToProps(state, ownProps) {
+  const characterId = state.party.players[ ownProps.playerId ]?.characterId;
+
   return {
-    prompts: state.party.characters[ ownProps.characterId ].prompts,
-    answers: state.party.players[ ownProps.characterId ].promptAnswers,
-    isCharacter: state.party.characterId === ownProps.characterId
+    prompts: state.party.characters[ characterId ]?.prompts,
+    answers: state.party.players[ ownProps.playerId ]?.promptAnswers,
+    isCharacter: state.party.playerId === ownProps.playerId
   };
 }
 

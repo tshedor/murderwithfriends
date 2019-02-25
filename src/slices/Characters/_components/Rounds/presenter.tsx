@@ -29,19 +29,21 @@ export default class extends React.Component<PresenterProps, {}> {
   render() {
     const { currentRound, characterId, availableRounds } = this.props;
 
-    const allRounds = [...Array(currentRound)].map((_, idx) => idx).reverse();
+    if (currentRound === -1) {
+      return null;
+    }
 
     return (
       <React.Fragment>
-        {allRounds.map((_, idx) => {
-          const round = availableRounds[idx];
+        {Object.keys(availableRounds).reverse().map(roundId => {
+          const round = availableRounds[roundId];
 
           return (
-            <div className={styles.root} key={idx + characterId}>
-              <RoundHeading text={round.text} order={round.order} />
+            <div className={styles.root} key={roundId + characterId}>
+              <RoundHeading text={round.roundText} order={parseInt(roundId, 10)} />
               <RoundImperatives
                 round={round}
-                key={idx + characterId} />
+                key={roundId + characterId} />
             </div>
           );
         })}
