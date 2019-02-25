@@ -5,13 +5,8 @@ import RoundImperatives from '../RoundImperatives'
 
 const styles = require('./styles.scss');
 
-interface RoundWrapper {
-  id: string
-  characterRounds: _types.Round[]
-}
-
 interface PresenterProps {
-  availableRounds?: RoundWrapper[]
+  availableRounds?: _types.Round[]
   characterId: string
   currentRound: number
   partyId: string
@@ -38,14 +33,14 @@ export default class extends React.Component<PresenterProps, {}> {
 
     return (
       <React.Fragment>
-        {allRounds.map((round, idx) => {
+        {allRounds.map((_, idx) => {
           const round = availableRounds[idx];
 
           return (
             <div className={styles.root} key={idx + characterId}>
               <RoundHeading text={round.text} order={round.order} />
               <RoundImperatives
-                round={round.characters[characterId]}
+                round={round}
                 key={idx + characterId} />
             </div>
           );

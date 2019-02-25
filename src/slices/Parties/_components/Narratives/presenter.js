@@ -38,7 +38,7 @@ export default class extends React.PureComponent {
             <Narrative
               key={narrativeKey}
               id={narrativeKey}
-              previewText={narratives[narrativeKey].previewText}
+              previewText={narratives[narrativeKey].text}
               displayName={narratives[narrativeKey].displayName} />
           )}
         </div>

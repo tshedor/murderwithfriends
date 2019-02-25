@@ -1,6 +1,7 @@
+import { connect } from 'react-redux'
 import { setCurrentPartyPlayer } from 'actions/characters'
 
-import Presenter from './presenter';
+import Presenter from './presenter'
 
 function mapStateToProps(state, ownProps) {
   const playerId = ownProps?.match?.params?.playerId;

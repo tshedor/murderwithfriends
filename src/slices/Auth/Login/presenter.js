@@ -7,6 +7,8 @@ import { Content } from '+dumb/Layouts'
 import Button from '+dumb/Button'
 import Notice from '+dumb/Notice'
 
+import { login } from 'utils/auth'
+
 export default class extends React.Component {
   constructor(props) {
     super(props);
@@ -22,12 +24,12 @@ export default class extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const { onSubmit, history } = this.props;
+    const { history } = this.props;
 
-    onSubmit({
-      email: this.email.current.value,
-      password: this.password.current.value
-    })
+    login(
+      this.email.current.value,
+      this.password.current.value
+    )
       .then(() => history.push('/parties'))
       .catch(e => this.setState({ errorMsg: e.graphQLErrors?.[0]?.functionError }))
   }

@@ -1,7 +1,10 @@
 import durrem from './durrem.story.json';
 import rumder from './rumder.story.json';
 
-const narratives = {};
+const narratives = {
+  previews: {},
+  all: {}
+};
 
 function buildNarrative(narrative) {
   return {

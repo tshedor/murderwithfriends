@@ -1,8 +1,6 @@
 import { refPartyPlayers } from 'constants/firebase'
 import * as types from 'constants/actionTypes'
 
-export { default as load } from './load'
-
 export const saveCharacterPrompt = (promptId, answer) => (dispatch, getState) => {
   const { id, playerId } = getState().party;
 

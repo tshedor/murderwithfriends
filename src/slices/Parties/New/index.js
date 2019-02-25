@@ -12,9 +12,12 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
   return {
-    onSubmit: bindActionCreators(createParty, dispatch)
+    onSubmit: props => {
+      dispatch( createParty(props) );
+      ownProps.history.push('/parties');
+    }
   }
 }
 

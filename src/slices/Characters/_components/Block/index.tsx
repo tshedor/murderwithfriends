@@ -32,6 +32,7 @@ export default class extends React.PureComponent<PresenterProps, {}> {
     const {
       character,
       playerId,
+      characterId,
       showName } = this.props;
 
     return (

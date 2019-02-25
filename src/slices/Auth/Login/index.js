@@ -1,3 +1,5 @@
+import { withRouter } from 'react-router-dom'
+
 import Main from './presenter'
 
-export default Main;
+export default withRouter(Main);
